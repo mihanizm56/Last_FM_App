@@ -1,0 +1,20 @@
+.trackAlbum-wrapper {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding-left: 20px;
+  border: 1px solid red;
+}
+.trackAlbum-first-half {
+  border: 1px solid brown;
+}
+.trackAlbum-second-half {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 20px;
+  align-items: flex-start;
+  width: 70%;
+  height: 50px;
+  border: 1px solid brown;
+}

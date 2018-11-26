@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./artistBlock.css";
+import "./trackForChart.css";
 import { LinkItem } from "../../components/LinkItem/linkItem";
 import { MiddleImage } from "../../components/MiddleImage/middleImage";
 import { Paragraph } from "../../components/Paragraph/paragraph";
 
-export const ArtistBlock = ({ trackName, artistName, genre, image }) => {
+export const TrackForChart = ({ trackName, artistName, genre, image }) => {
   return (
     <div className="artist-chartBlock-wrapper">
       <MiddleImage image={image} />
@@ -22,14 +22,14 @@ export const ArtistBlock = ({ trackName, artistName, genre, image }) => {
   );
 };
 
-ArtistBlock.defaultProps = {
+TrackForChart.defaultProps = {
   trackName: "test-track-name",
   artistName: "test-artist-name",
   genre: "test-genre-name",
   image: "test-image-name"
 };
 
-ArtistBlock.propTypes = {
+TrackForChart.propTypes = {
   trackName: PropTypes.string.isRequired,
   artistName: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
