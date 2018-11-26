@@ -5,21 +5,8 @@ import {FilterGenres} from "../../components/FilterGenres/filterGenres"
 import ArtistsList from "../../modules/ArtistsList/artistsList"
 import "./artistsPage.css"
 
-import axios from "axios"
-
-const API_KEY = '2e6aea0b83ca1a01fd8b7c2b3c12e707'
-
 class ArtistsPage extends Component {
-    // componentDidMount(){
-    //     axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${API_KEY}&format=json`)
-    //         .then(
-    //                 response => {
-    //                     this.setState({artistsList: response.data})
-    //                 }
-    //         )
-    // }
     render(){
-        console.log(this.state.artistsList)
         return(
             <>
                 <div className="artistsPage">
@@ -31,9 +18,9 @@ class ArtistsPage extends Component {
                         <FilterGenres/>
                     </div>
                     <ArtistsList
-                        list={[]}
+                        list={[1,2,3,4]}
                         from = {0}
-                        to={0}
+                        to={2}
                     />
                 </div>
             </>
