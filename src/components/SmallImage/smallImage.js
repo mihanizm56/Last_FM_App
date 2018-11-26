@@ -8,7 +8,7 @@ export const SmallImage = ({ image }) => {
 
 
 SmallImage.defaultProps = {
-  image: ''
+  image: '' //здесь надо вставить картинку лого, но потом решим какая картинка и запихнём сюда
 };
 
 SmallImage.propTypes = {
