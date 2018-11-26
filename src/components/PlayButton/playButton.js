@@ -7,7 +7,7 @@ import pauseImage from './img/pauseButton.svg'
 export const PlayButton = ({ isPlaying, callback }) => {
   return (
     <div className="icon-wrapper" onClick={() => callback(!isPlaying)}>
-      <img className="icon-image" src={isPlaying ? pauseImage : playImage}/>
+      <img className="icon-image" alt='logoImage' src={isPlaying ? pauseImage : playImage}/>
     </div>
   )
 };

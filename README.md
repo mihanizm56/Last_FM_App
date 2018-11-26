@@ -14,8 +14,8 @@ TitleH2 - Заголовок - вид:тэг h2 (3) <br/>
 
 
 Модули: <br/>
-LogoBlock (12) <br/>
-PaginationBlock (11) <br/>
+LogoBlock - блок с лого и кнопкой (12)<br/> 
+PaginationBlock - блок с кнопками пагинации (11) <br/> 
 AlbumBigBlock - блок с Заголовком названия альбома (13) <br/>
 ArtistBox - блок для фотки на заднем плане и ссылки внутри (15) <br/>
 SongsBigBlock - основной блок для "страницы" Треки (17)<br/>
