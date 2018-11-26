@@ -29,14 +29,7 @@ PaginationBlock.defaultProps = {
     { data: "test2" },
     { data: "test3" },
     { data: "test4" },
-    { data: "test5" },
-    { data: "test6" },
-    { data: "test7" },
-    { data: "test8" },
-    { data: "test9" },
-    { data: "test10" },
-    { data: "test11" },
-    { data: "test12" }
+    { data: "test5" }
   ]
 };
 

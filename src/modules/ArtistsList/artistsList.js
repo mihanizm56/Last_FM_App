@@ -1,18 +1,19 @@
-import React from "react"
-import {ArtistBox} from "./../ArtistBox/artistBox"
+import React from "react";
+import { ArtistBox } from "./../ArtistBox/artistBox";
+import PropTypes from "prop-types";
 
-const artistsList = (props) =>{
-    const listForPage = props.list.slice(props.from,props.to)
-    return (
-        <div>
-            {listForPage.map((item) =>{
-                return <ArtistBox
-                            name="Name"
-                            image="/"
-                        />
-            })}
-        </div>
-    )
-}
+export const ArtistsList = ({ from, to, list }) => {
+  const listForPage = list.slice(from, to);
+  return (
+    <div>
+      {listForPage.map((item, index) => (
+        <ArtistBox key={index} name={item.name} image={item.image} />
+      ))}
+    </div>
+  );
+};
 
-export default artistsList
+ArtistsList.propTypes = {
+  from: PropTypes.number.isRequired,
+  to: PropTypes.number.isRequired
+};

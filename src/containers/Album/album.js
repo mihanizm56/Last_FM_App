@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./albumBigBlock.css";
+import "./album.css";
 import { TitleH2 } from "../../components/TitleH2/title";
 import { LinkItem } from "../../components/LinkItem/linkItem";
 import { SearchField } from "../../components/SearchField/searchField";
 import { FilterGenres } from "../../components/FilterGenres/filterGenres";
 
-export const AlbumBigBlock = ({ albumName, artistName, listOfGenres }) => {
+export const Album = ({ albumName, artistName, listOfGenres }) => {
 
   const styleSearch = {
     marginTop: "40px"
@@ -26,7 +26,7 @@ export const AlbumBigBlock = ({ albumName, artistName, listOfGenres }) => {
   );
 };
 
-AlbumBigBlock.propTypes = {
+Album.propTypes = {
   albumName: PropTypes.string.isRequired,
   artistName: PropTypes.string.isRequired,
   listOfGenres: PropTypes.array.isRequired
