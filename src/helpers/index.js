@@ -8,7 +8,7 @@ export const getPagination = array => {                                         
   
     for (let i = 0; i < numberOfPages * numberInPage; i = i + numberInPage) {           // циклом перебираем исходный массив и набиваем выходной
       newArray.push({                                                                   // массив, каждый объект содержит:
-        index: i == 0 ? i : i / numberInPage,                                           // index - номер страницы
+        index: i === 0 ? i : i / numberInPage,                                           // index - номер страницы
         from: i,                                                                        // при формировании списка на определённой странице будем
         to: i + numberInPage - 1                                                        // резать (slice) исходный (прилетает в список тоже) по
       });                                                                               // параметрам from и to

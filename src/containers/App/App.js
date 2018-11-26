@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { LogoBlock } from "../../modules/LogoBlock/logoBlock";
-import { AlbumPage } from "../../modules/AlbumPage/albumPage";
+import { PaginationBlock } from "../../modules/PaginationBlock/paginationBlock"
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <LogoBlock />
-          <AlbumPage />
+          <PaginationBlock />
         </div>
       </BrowserRouter>
     );

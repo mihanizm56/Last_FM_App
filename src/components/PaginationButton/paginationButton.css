@@ -1,8 +1,9 @@
-.pag-button-wrapper{
-    width: 20px;
-    height: 20px;
-}
-
 .pag-button{
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 100%;
+    border: 1px solid grey;
+    cursor: pointer;
 }
