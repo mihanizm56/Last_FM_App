@@ -1,22 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./paginationButton.css";
 
-export const PaginationButton = ({ path, name }) => {
-  <div className="pag-button-wrapper">
-    <Link className="pag-button" to={`/artists/${path}`}>
-      {name}
-    </Link>
-  </div>;
+export const PaginationButton = ({ number,from,to,callback }) => {
+  let _number = React.createRef()
+  return (
+    <button ref={value => _number = value} value={number} className="pag-button" onClick={() => callback([_number.value,from,to])}>
+      {number}
+    </button>
+  );
 };
 
 PaginationButton.defaultProps = {
-  name:'undefined',
-  path:'undefined'
+  number: "undefined",
+  callback:(value) => console.log(value),
+  from: 0,
+  to: 0,
 };
 
 PaginationButton.propTypes = {
-  name:PropTypes.string.isRequired,
-  path:PropTypes.string.isRequired
+  number: PropTypes.string.isRequired,
+  from: PropTypes.number.isRequired,
+  to: PropTypes.number.isRequired,
+  callback: PropTypes.func.isRequired
 };
