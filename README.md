@@ -1,20 +1,21 @@
 
 Компоненты:<br/>
-FilterGenres - поле фильтрации по жанрам - вид:тэг select<br/>
-LinkItem - ссылка - вид:тэг Link<br/>
-Logo - ссылка - вид:тэг Link<br/>
-MiddleImage - изображение средних размеров - вид:тэг div со style={{backgroundColor}}<br/>
-PaginationButton - кнопка - вид:тэг div, внутри лежит Link<br/>
-Paragraph - параграф - вид:тэг р<br/>
-PlayButton - кнопка - вид:тэг div, внутри лежит img<br/>
-SearchField - поле ввода фильтра - вид:тэг input<br/>
-SmallImage - изображение малых размеров - вид:тэг div со style={{backgroundColor}}<br/>
-TitleH2 - Заголовок - вид:тэг h2<br/>
+FilterGenres - поле фильтрации по жанрам - вид:тэг select (6) <br/>
+LinkItem - ссылка - вид:тэг Link (4) <br/>
+Logo - ссылка - вид:тэг Link (2) <br/>
+MiddleImage - изображение средних размеров - вид:тэг div со style={{backgroundColor}} (8) <br/>
+PaginationButton - кнопка - вид:тэг div, внутри лежит Link (10) <br/>
+Paragraph - параграф - вид:тэг р (7) <br/>
+PlayButton - кнопка - вид:тэг div, внутри лежит img (1) <br/>
+SearchField - поле ввода фильтра - вид:тэг input (5) <br/>
+SmallImage - изображение малых размеров - вид:тэг div со style={{backgroundColor}} (9) <br/>
+TitleH2 - Заголовок - вид:тэг h2 (3) <br/>
 
-Модули:<br/>
-AlbumBigBlock - блок с Заголовком названия альбома<br/>
-ArtistBox - блок для фотки на заднем плане и ссылки внутри<br/>
-SongsBigBlock - основной блок для "страницы" Треки<br/>
-TrackForAlbum - блок трека для "страницы" Альбом<br/>
-TrackForChart - блок трека для блока "Last FM Chart"<br/>
-TrackForList - блок трека для "страницы" Треки<br/>
+PaginationBlock (11)  <br/>
+Модули: <br/>
+AlbumBigBlock - блок с Заголовком названия альбома <br/>
+ArtistBox - блок для фотки на заднем плане и ссылки внутри <br/>
+SongsBigBlock - основной блок для "страницы" Треки <br/>
+TrackForAlbum - блок трека для "страницы" Альбом <br/>
+TrackForChart - блок трека для блока "Last FM Chart" <br/>
+TrackForList - блок трека для "страницы" Треки <br/>
