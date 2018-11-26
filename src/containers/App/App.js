@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { LogoBlock } from "../../modules/LogoBlock/logoBlock";
 import { AlbumPage } from "../../modules/AlbumPage/albumPage";
+import ArtistsPage from "../../modules/ArtristsPage/artistsPage"
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <LogoBlock />
-          <AlbumPage />
+          <ArtistsPage />
         </div>
       </BrowserRouter>
     );
