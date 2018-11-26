@@ -1,0 +1,13 @@
+
+.logo-main-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px 0 100px;
+    align-items: center;
+    height: 100px;
+    border: 1px solid red;
+}
+.logo-first-half{
+    display: flex;
+    align-items: center;
+}

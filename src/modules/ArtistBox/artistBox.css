@@ -1,0 +1,12 @@
+.artist-preview__block{
+    width: 200px;
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border: 1px solid black;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+

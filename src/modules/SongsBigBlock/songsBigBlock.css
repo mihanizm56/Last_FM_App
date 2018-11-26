@@ -1,0 +1,21 @@
+.songs-main-wrapper{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border:1px solid brown;
+}
+.songs-main-firstHalf{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+    flex-grow: 1;
+    border:1px solid red;
+}
+.songs-main-secondHalf{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    border:1px solid red;
+}
