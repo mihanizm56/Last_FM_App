@@ -11,11 +11,14 @@ SearchField - поле ввода фильтра - вид:тэг input (5) <br/>
 SmallImage - изображение малых размеров - вид:тэг div со style={{backgroundColor}} (9) <br/>
 TitleH2 - Заголовок - вид:тэг h2 (3) <br/>
 
-PaginationBlock (11)  <br/>
+
+
 Модули: <br/>
-AlbumBigBlock - блок с Заголовком названия альбома <br/>
-ArtistBox - блок для фотки на заднем плане и ссылки внутри <br/>
-SongsBigBlock - основной блок для "страницы" Треки <br/>
-TrackForAlbum - блок трека для "страницы" Альбом <br/>
-TrackForChart - блок трека для блока "Last FM Chart" <br/>
-TrackForList - блок трека для "страницы" Треки <br/>
+LogoBlock (12) <br/>
+PaginationBlock (11) <br/>
+AlbumBigBlock - блок с Заголовком названия альбома (13) <br/>
+ArtistBox - блок для фотки на заднем плане и ссылки внутри (15) <br/>
+SongsBigBlock - основной блок для "страницы" Треки (17)<br/>
+TrackForAlbum - блок трека для "страницы" Альбом (14) <br/>
+TrackForChart - блок трека для блока "Last FM Chart" (16) <br/>
+TrackForList - блок трека для "страницы" Треки (18)<br/>
