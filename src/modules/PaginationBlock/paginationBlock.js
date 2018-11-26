@@ -41,5 +41,6 @@ PaginationBlock.defaultProps = {
 };
 
 PaginationBlock.propTypes = {
-  artistsList: PropTypes.array.isRequired
+  artistsList: PropTypes.array.isRequired,
+  callbackForPagging:PropTypes.func.isRequired
 };
