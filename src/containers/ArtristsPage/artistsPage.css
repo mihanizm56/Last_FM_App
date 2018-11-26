@@ -1,6 +1,6 @@
 .artistsPage{
     display:flex;
-    height: 200px;
+    height: 70px;
     border: 1px solid red;
 }
 
@@ -10,7 +10,9 @@
 
 .artistsPage-filters{
     display:flex;
+    align-items: center;
 }
+
 
 
 

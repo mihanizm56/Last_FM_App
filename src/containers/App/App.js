@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { LogoBlock } from "../../modules/LogoBlock/logoBlock";
 import { AlbumPage } from "../../modules/AlbumPage/albumPage";
-import ArtistsPage from "../../modules/ArtristsPage/artistsPage"
+import ArtistsPage from "../ArtristsPage/artistsPage"
 
 class App extends Component {
   render() {
