@@ -1,28 +1,42 @@
 import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import { LastfmAPI } from "last.fm.api";
+import { LogoBlock } from "../../modules/LogoBlock/logoBlock";
+import { Artists } from "../Artrists/artists";
+
+const arrayListArtists = [
+  { data: "test1" }, ///для примера завёл такой массив, по идее мы его получаем после запроса на сервер
+  { data: "test2" },
+  { data: "test3" },
+  { data: "test4" },
+  { data: "test5" },
+  { data: "test6" },
+  { data: "test7" },
+  { data: "test8" },
+  { data: "test9" },
+  { data: "test10" },
+  { data: "test11" },
+  { data: "test12" },
+  { data: "test13" },
+  { data: "test14" },
+  { data: "test15" },
+  { data: "test16" },
+  { data: "test17" },
+  { data: "test18" },
+  { data: "test19" },
+  { data: "test20" }
+];
 
 class App extends Component {
-  componentDidMount() {
-    var lfm = new LastfmAPI({
-      api_key: "e0da7de5bac57ca66c3a2c2ba7bccf8a",
-      secret: "	1ef82841ec0ae5ff46f0bd3de38dc724"
-    });
-    lfm.track.getInfo(
-      {
-        artist: "Poliça",
-        track: "Wandering Star"
-      },
-      function(err, track) {
-        if (err) {
-          throw err;
-        }
-        console.log(track);
-      }
-    );
-  }
   render() {
-    return <div className="App" />;
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <LogoBlock />
+          <Artists arrayListArtists={arrayListArtists} />
+        </div>
+      </BrowserRouter>
+    );
   }
 }
 

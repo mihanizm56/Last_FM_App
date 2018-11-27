@@ -1,0 +1,13 @@
+
+.icon-wrapper{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.icon-image{
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
