@@ -5,6 +5,8 @@ import { LinkItem } from "../../components/LinkItem/linkItem";
 
 export const ArtistBox = ({ name, image }) => {
   const imageForBlock = {
+    backgroundSize:'contain',
+    backgroundRepeat:'no-repeat',
     backgroundImage: `url(${image})`
   };
 

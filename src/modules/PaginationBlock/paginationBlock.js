@@ -13,10 +13,8 @@ export const PaginationBlock = ({ artistsList,callbackForPagging }) => {
 };
 
 const getButtons = (arrayOfArtists,callback) => {
-    console.log('check getButtons')
     const arrayOfButtons = getPagination(arrayOfArtists)
     return arrayOfButtons.map(element => {
-        console.log(element.index + 1)
         return(
             <PaginationButton key={element.index} from={element.from} to={element.to} callback={callback} number={`${element.index + 1}`}/>
         )
