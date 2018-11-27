@@ -1,0 +1,14 @@
+.artistsPage{
+    display:flex;
+    height: 70px;
+    border: 1px solid red;
+}
+
+.artistsPage-title{
+    flex-grow: 5;
+}
+
+.artistsPage-filters{
+    display:flex;
+    align-items: center;
+}

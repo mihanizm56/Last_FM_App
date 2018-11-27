@@ -3,18 +3,20 @@ import { ArtistBox } from "./../ArtistBox/artistBox";
 import PropTypes from "prop-types";
 import "./artistsList.css"
 
-export const ArtistsList = ({ from, to, list }) => {
-  const listForPage = list.slice(from, to);
+export const ArtistsList = ({ list }) => {
   return (
     <div className="artistsList">
-      {listForPage.map((item, index) => (
+      {list.map((item, index) => (
         <ArtistBox key={index} name={item.name} image={item.images[4]} />
       ))}
     </div>
   );
 };
 
+ArtistsList.defaultProps = {
+  list:[]
+};
+
 ArtistsList.propTypes = {
-  from: PropTypes.number.isRequired,
-  to: PropTypes.number.isRequired
+  list: PropTypes.array.isRequired
 };

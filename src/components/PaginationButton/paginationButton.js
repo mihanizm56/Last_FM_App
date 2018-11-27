@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./paginationButton.css";
 
-export const PaginationButton = ({ number,from,to,callback }) => {
+export const PaginationButton = ({ callback,number }) => {
   let _number = React.createRef()
   return (
-    <button ref={value => _number = value} value={number} className="pag-button" onClick={() => callback([_number.value,from,to])}>
+    <button ref={value => _number = value} value={number} className="pag-button" onClick={() => callback(+_number.value)}>
       {number}
     </button>
   );
@@ -14,13 +14,9 @@ export const PaginationButton = ({ number,from,to,callback }) => {
 PaginationButton.defaultProps = {
   number: "undefined",
   callback:(value) => console.log(value),
-  from: 0,
-  to: 0,
 };
 
 PaginationButton.propTypes = {
   number: PropTypes.string.isRequired,
-  from: PropTypes.number.isRequired,
-  to: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired
 };

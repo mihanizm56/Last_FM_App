@@ -7,7 +7,7 @@ import { PaginationBlock } from "../../modules/PaginationBlock/paginationBlock";
 import "./artistsPage.css";
 import LastFM from "last-fm";
 
-export class ArtistsPage extends Component {
+export default class ArtistsPage extends Component {
   state = {
     from: 0,
     to: 9,
@@ -22,8 +22,8 @@ export class ArtistsPage extends Component {
     };
   };
 
-  getPropsForSlice = array => {
-    this.setState({ from: array[1], to: array[2] });
+  getNumberOfButton = number => { 
+    console.log(`get number of button ${number}`)
   };
 
   componentDidMount() {
@@ -40,7 +40,6 @@ export class ArtistsPage extends Component {
   }
 
   render() {
-    // const { arrayListArtists } = this.props;
     const { arrayListArtists, from, to } = this.state;
     return (
       <div className="artistsPage">
@@ -54,7 +53,7 @@ export class ArtistsPage extends Component {
         <ArtistsList list={arrayListArtists} from={from} to={to} />
         <PaginationBlock
           artistsList={arrayListArtists}
-          callbackForPagging={this.getPropsForSlice}
+          callbackForPagging={this.getNumberOfButton}
         />
       </div>
     );
