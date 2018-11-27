@@ -3,14 +3,16 @@ import PropTypes from "prop-types";
 import "./playButton.css";
 import playImage from './img/playButton.svg'
 import pauseImage from './img/pauseButton.svg'
+import { withPressAnimation } from '../../libs/Animation'
 
-export const PlayButton = ({ isPlaying, callback }) => {
+
+export const PlayButton = withPressAnimation(({ isPlaying, callback }) => {
   return (
-    <div className="icon-wrapper" onClick={() => callback(!isPlaying)}>
+    <i className="icon-wrapper" onClick={() => callback(!isPlaying)}>
       <img className="icon-image" alt='logoImage' src={isPlaying ? pauseImage : playImage}/>
-    </div>
+    </i>
   )
-};
+});
 
 PlayButton.defaultProps = {
   isPlaying: false,
