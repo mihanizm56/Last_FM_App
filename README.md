@@ -22,3 +22,4 @@ SongsBigBlock - основной блок для "страницы" Треки (
 TrackForAlbum - блок трека для "страницы" Альбом (14) <br/>
 TrackForChart - блок трека для блока "Last FM Chart" (16) <br/>
 TrackForList - блок трека для "страницы" Треки (18)<br/>
+ArtistsList - блок списка артистов для страницы Артисты <br/>
