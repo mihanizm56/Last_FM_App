@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { LogoBlock } from "../../modules/LogoBlock/logoBlock";
-import { ArtistsPage } from "../../containers/ArtristsPage/artistsPage";
+import { Artists } from "../Artrists/artists";
 
 // const arrayListArtists = [
 //   { data: "test1" }, ///для примера завёл такой массив, по идее мы его получаем после запроса на сервер
