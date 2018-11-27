@@ -1,6 +1,6 @@
 .artist-preview__block{
-    width: 200px;
-    height: 90px;
+    width: 280px;
+    height: 100px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -8,6 +8,6 @@
     padding-bottom: 10px;
     padding-right: 10px;
     box-sizing: border-box;
-    margin:20px;
+    margin:40px;
 }
 
