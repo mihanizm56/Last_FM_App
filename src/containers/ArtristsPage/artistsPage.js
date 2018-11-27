@@ -9,7 +9,7 @@ import "./artistsPage.css";
 export class ArtistsPage extends Component {
   state = {
     arrayListArtists: [
-      { data: "test1" },
+      { data: "test1" }, ///для примера завёл такой массив, по идее мы его получаем после запроса на сервер
       { data: "test2" },
       { data: "test3" },
       { data: "test4" },
@@ -20,15 +20,26 @@ export class ArtistsPage extends Component {
       { data: "test9" },
       { data: "test10" },
       { data: "test11" },
-      { data: "test12" }
+      { data: "test12" },
+      { data: "test13" },
+      { data: "test14" },
+      { data: "test15" },
+      { data: "test16" },
+      { data: "test17" },
+      { data: "test18" },
+      { data: "test19" },
+      { data: "test20" }
     ],
     from: 0,
-    to: 8
+    to: 9
   };
 
-  getValues = () => {};
+  getPropsForSlice = array => {
+    this.setState({ ...this.state, from: array[1], to: array[2] });
+  };
 
   render() {
+    const { arrayListArtists, from, to } = this.state;
     return (
       <div className="artistsPage">
         <div className="artistsPage-title">
@@ -38,7 +49,11 @@ export class ArtistsPage extends Component {
           <SearchField placeholder="Поиск артиста" />
           <FilterGenres />
         </div>
-        <ArtistsList list={[1, 2, 3, 4]} from={0} to={2} />
+        <ArtistsList list={arrayListArtists} from={from} to={to} />
+        <PaginationBlock
+          artistsList={arrayListArtists}
+          callbackForPagging={this.getPropsForSlice}
+        />
       </div>
     );
   }
