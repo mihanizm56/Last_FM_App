@@ -1,33 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./albumBigBlock.css";
-import { TitleH2 } from "../../components/TitleH2/title";
-import { LinkItem } from "../../components/LinkItem/linkItem";
-import { SearchField } from "../../components/SearchField/searchField";
-import { FilterGenres } from "../../components/FilterGenres/filterGenres";
+import "./paginationBlock.css";
+import { getPagination } from "../../helpers/index";
+import { PaginationButton } from "../../components/PaginationButton/paginationButton";
 
-export const AlbumBigBlock = ({ albumName, artistName, listOfGenres }) => {
-
-  const styleSearch = {
-    marginTop: "40px"
-  };
-
+export const PaginationBlock = ({ artistsList,callbackForPagging }) => {
   return (
-    <div className="album-main-wrapper">
-      <div className="album-main-firstHalf">
-        <TitleH2 name={albumName} />
-        <LinkItem name={artistName} />
-        <SearchField placeholder="Поиск композиции" style={styleSearch} />
-      </div>
-      <div className="album-main-secondHalf">
-        <FilterGenres listOfGenres={listOfGenres} />
-      </div>
+    <div className="pagination-wrapper">
+      { getButtons(artistsList,callbackForPagging) }
     </div>
   );
 };
 
-AlbumBigBlock.propTypes = {
-  albumName: PropTypes.string.isRequired,
-  artistName: PropTypes.string.isRequired,
-  listOfGenres: PropTypes.array.isRequired
+const getButtons = (arrayOfArtists,callback) => {
+    console.log('check getButtons')
+    const arrayOfButtons = getPagination(arrayOfArtists)
+    return arrayOfButtons.map(element => {
+        console.log(element.index + 1)
+        return(
+            <PaginationButton key={element.index} from={element.from} to={element.to} callback={callback} number={`${element.index + 1}`}/>
+        )
+    })
+};
+
+PaginationBlock.defaultProps = {
+  artistsList: [
+    { data: "test1" },
+    { data: "test2" },
+    { data: "test3" },
+    { data: "test4" },
+    { data: "test5" }
+  ]
+};
+
+PaginationBlock.propTypes = {
+  artistsList: PropTypes.array.isRequired,
+  callbackForPagging:PropTypes.func.isRequired
 };
