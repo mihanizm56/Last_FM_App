@@ -7,9 +7,12 @@ import { PaginationBlock } from "../../modules/PaginationBlock/paginationBlock";
 import LastFM from "last-fm";
 import "./artists.css";
 
+import {listOfGenres,api_key,limitPerPage,userAgent} from '../../config'
+
 export default class Artists extends Component {
   constructor() {
     super();
+
     this.state = {
       currentPage: 1,
       arrayListArtists: [],
@@ -18,12 +21,8 @@ export default class Artists extends Component {
       findByWord:''
     };
 
-    this.listOfGenres = ['metal', 'rock', 'pop', 'punk', 'funk', 'blues', 'jazz']
-    this.api_key = "f65384e5d8c2e5dfd1458348d592a516";
-    this.limitPerPage = 9;
-
-    this.lastfm = new LastFM(this.api_key, {
-      userAgent: "MyApp/1.0.0 (http://example.com)"
+    this.lastfm = new LastFM(api_key, {
+      userAgent: userAgent
     });
   }
 
@@ -33,8 +32,6 @@ export default class Artists extends Component {
 
   getArtists = (page = 1) => {
     console.log(`page = ${page}`);
-    const api_key = this.api_key;
-    const limitPerPage = this.limitPerPage;
 
     this.lastfm.chartTopArtists(
       { page: page, limit: limitPerPage, api_key: api_key },
@@ -64,11 +61,10 @@ export default class Artists extends Component {
   getFoundTracks = string => {
     if (string === '') return this.getArtists()
     console.log("check getFoundTracks");
-    const key = this.api_key;
     const page = this.state.currentPage;
 
     this.lastfm.search(
-      { artist: string, api_key: key, page: page, q: string },
+      { artist: string, api_key: api_key, page: page, q: string },
       (err, data) => {
         if (data) {
           console.log(data.result);
@@ -95,11 +91,11 @@ export default class Artists extends Component {
     
     let searchString = this.state.findByWord ? this.state.findByWord : "";
     console.log(`tag = ${tag}, searchString=${searchString}`);
-    const key = this.api_key;
+
     let limit = this.state.findByWord ? 1000 : 100
 
     this.lastfm.tagTopArtists(
-      { tag: tag, api_key: key, limit: limit },
+      { tag: tag, api_key: api_key, limit: limit },
       (err, data) => {
         if (data) {
           const newData = data.artist.filter(item => (item.name.toLowerCase().indexOf(searchString.toLowerCase()) >= 0));
@@ -124,7 +120,7 @@ export default class Artists extends Component {
         </div>
         <div className="artistsPage-filters">
           <SearchField placeholder="Поиск артиста" callback={this.getFoundTracks} />
-          <FilterGenres listOfGenres={this.listOfGenres} callback={this.getTagsItems} tagIsSelected={this.state.tagIsSelected}/>
+          <FilterGenres listOfGenres={listOfGenres} callback={this.getTagsItems} tagIsSelected={this.state.tagIsSelected}/>
         </div>
       </div>
       <div className="artistsPage-artistsList">
