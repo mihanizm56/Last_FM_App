@@ -1,0 +1,20 @@
+.artistCard{
+    display:flex;
+    padding: 20px;
+    justify-content: flex-start;
+    flex-direction:row;
+}
+
+.artistCard-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.artistCard-description{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+    text-align: start;
+}
