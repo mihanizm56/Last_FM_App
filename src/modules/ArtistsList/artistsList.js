@@ -7,7 +7,7 @@ export const ArtistsList = ({ list }) => {
   return (
     <div className="artistsList">
       {list.map((item, index) => (
-        <ArtistBox key={index} name={item.name} image={item.images[4]} />
+        <ArtistBox key={index} name={item.name} image={item.images ? item.images[2] : item.image[2]['#text']} />
       ))}
     </div>
   );

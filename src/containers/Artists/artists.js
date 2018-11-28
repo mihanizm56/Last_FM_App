@@ -13,9 +13,12 @@ export default class Artists extends Component {
     this.state = {
       currentPage: 1,
       arrayListArtists: [],
-      paginationIsVisible: true
+      paginationIsVisible: true,
+      tagIsSelected:false,
+      findByWord:''
     };
 
+    this.listOfGenres = ['metal', 'rock', 'pop', 'punk', 'funk', 'blues', 'jazz']
     this.api_key = "f65384e5d8c2e5dfd1458348d592a516";
     this.limitPerPage = 9;
 
@@ -59,7 +62,7 @@ export default class Artists extends Component {
   };
 
   getFoundTracks = string => {
-      if(string==='') return this.getArtists()
+    if (string === '') return this.getArtists()
     console.log("check getFoundTracks");
     const key = this.api_key;
     const page = this.state.currentPage;
@@ -72,7 +75,9 @@ export default class Artists extends Component {
           this.setState({
             ...this.state,
             arrayListArtists: data.result.artists,
-            paginationIsVisible: false
+            paginationIsVisible: false,
+            findByWord: string,
+            tagIsSelected: false
           });
         } else console.log(err);
       }
@@ -85,36 +90,49 @@ export default class Artists extends Component {
     this.setState({ ...this.state, currentPage: page });
   };
 
+  getTagsItems = tag => {
+    if (tag === "") return this.getFoundTracks(this.state.findByWord);
+    
+    let searchString = this.state.findByWord ? this.state.findByWord : "";
+    console.log(`tag = ${tag}, searchString=${searchString}`);
+    const key = this.api_key;
+    let limit = this.state.findByWord ? 1000 : 100
 
+    this.lastfm.tagTopArtists(
+      { tag: tag, api_key: key, limit: limit },
+      (err, data) => {
+        if (data) {
+          const newData = data.artist.filter(item => (item.name.toLowerCase().indexOf(searchString.toLowerCase()) >= 0));
+          console.log(newData);
+          this.setState({
+            ...this.state,
+            arrayListArtists: newData,
+            paginationIsVisible: false,
+            tagIsSelected:true
+          });
+        } else console.log(err);
+      }
+    );
+  }
 
   render() {
     const { arrayListArtists, paginationIsVisible } = this.state;
-    return (
-      <div className="artistsPage-wrapper">
-        <div className="artistsPage">
-          <div className="artistsPage-title">
-            <TitleH2 name="Артисты" />
-          </div>
-          <div className="artistsPage-filters">
-            <SearchField
-              placeholder="Поиск артиста"
-              callback={this.getFoundTracks}
-            />
-            {/* <FilterGenres /> */}
-          </div>
+    return <div className="artistsPage-wrapper">
+      <div className="artistsPage">
+        <div className="artistsPage-title">
+          <TitleH2 name="Артисты" />
         </div>
-        <div className="artistsPage-artistsList">
-          <ArtistsList list={arrayListArtists} />
+        <div className="artistsPage-filters">
+          <SearchField placeholder="Поиск артиста" callback={this.getFoundTracks} />
+          <FilterGenres listOfGenres={this.listOfGenres} callback={this.getTagsItems} tagIsSelected={this.state.tagIsSelected}/>
         </div>
-        {paginationIsVisible ? (
-          <div className="PaginationBlock-wrapper">
-            <PaginationBlock
-              artistsList={arrayListArtists}
-              callbackForPagging={this.getArtists}
-            />
-          </div>
-        ) : null}
       </div>
-    );
+      <div className="artistsPage-artistsList">
+        <ArtistsList list={arrayListArtists} />
+      </div>
+      {paginationIsVisible ? <div className="PaginationBlock-wrapper">
+        <PaginationBlock artistsList={arrayListArtists} callbackForPagging={this.getArtists} />
+      </div> : null}
+    </div>;
   }
 }
