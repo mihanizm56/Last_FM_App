@@ -13,7 +13,6 @@ export const PlayButton = ({ isPlaying, callback }) => {
 };
 
 PlayButton.defaultProps = {
-  isPlaying: false,
   callback: () => alert("callback is undefined")
 };
 
