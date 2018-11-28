@@ -7,7 +7,7 @@ import {TrackList} from "../../modules/TracksList/trackList";
 
 const API_KEY = `659beef5a99f79b12854cc654f94b0d5`
 
-class artist extends Component {
+class Artist extends Component {
     state = {
         artistInfo: {},
         topAlbums:[],
@@ -17,7 +17,6 @@ class artist extends Component {
     componentDidMount(){
         this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo()
-        //this.getArtistTopAlbums()
     }
 
     getArtistInfo(name = "Tree days grace"){
@@ -26,14 +25,20 @@ class artist extends Component {
             else {
                 console.log(data)
                 const newArtistInfo = {name: data.name, image: data.images[1]}
-                this.setState({})
-                this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
+                this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
                         console.log(data.result)
-                        this.setState({
-                            artistInfo: newArtistInfo,
-                            topTracks: data.result
+                        const topAlbum = data.result
+                        this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
+                            if (err) console.error(err)
+                            else {
+                                console.log(data.result)
+                                this.setState({
+                                    topAlbums: topAlbum,
+                                    artistInfo: newArtistInfo,
+                                    topTracks: data.result})
+                            }
                         })
                     }
                 })
@@ -41,15 +46,6 @@ class artist extends Component {
         })
     }
 
-    getArtistTopAlbums(name = "Tree days grace"){
-        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
-            if (err) console.error(err)
-            else {
-                console.log(data)
-                this.setState({topAlbums: data.result})
-            }
-        })
-    }
 
     render() {
         return (
@@ -70,4 +66,4 @@ class artist extends Component {
     }
 }
 
-export default artist
+export default Artist
