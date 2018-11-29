@@ -16,7 +16,6 @@ export const ArtistsList = ({ from, to, list , className, ...props}) => {
   	return {
   		...el,
   		image:el.images[3],
-  		name: el.artistsName,
   		key:el.name + el.artistsName
   	}})
   return (

@@ -85,7 +85,7 @@ class Artists extends Component {
     return getTagTopArtists(tag, limit, data => {
       if (data) {
         const preData = data.artist.filter(item => (item.name.toLowerCase().indexOf(searchString.toLowerCase()) >= 0));
-        const newData = preData.map(item => {return {...item, artistsName: item.name, images:item.image}})
+        const newData = preData.map(item => {return {...item, artistsName: item.name, images:item.image.map(im => im['#text'])}})
         this.setState({
           ...this.state,
           arrayListArtists: newData,
