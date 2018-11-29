@@ -6,7 +6,7 @@ import { Logo } from "../../components/Logo/logo";
 import { PlayButton } from "../../components/PlayButton/playButton";
 import SpotifyListener from 'spotify-activity-listener'
 import LastFM from "last-fm";
-import {api_key,userName,userAgent} from '../../config'
+import {api_key,userName,userAgent} from '../../helpers/api/config'
 
 export default class LogoBlock extends Component{
   constructor() {
