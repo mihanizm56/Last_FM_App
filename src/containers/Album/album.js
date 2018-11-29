@@ -5,7 +5,7 @@ import { TitleH2 } from "../../components/TitleH2/title";
 import { LinkItem } from "../../components/LinkItem/linkItem";
 import { SearchField } from "../../components/SearchField/searchField";
 import { FilterGenres } from "../../components/FilterGenres/filterGenres";
-import { listOfGenres } from '../../config'
+import { listOfGenres } from '../../helpers/api/config'
 
 class Album extends Component {
 
