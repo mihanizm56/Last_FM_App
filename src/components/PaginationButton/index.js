@@ -13,7 +13,7 @@ export const PaginationButton = ({ number,from,to,callback }) => {
 
 PaginationButton.defaultProps = {
   number: "undefined",
-  callback:(value) => console.log(value),
+  callback:() => alert('callback is empty'),
   from: 0,
   to: 0,
 };

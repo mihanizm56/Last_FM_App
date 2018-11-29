@@ -14,7 +14,6 @@ const List = compose(withGroupAnimation, withHoverAnimation)(TrackBoxForTracks)
 
 export const TracksListTracks = ({list, ...props}) => {
 	const childrensProps = list.map((el,id) => {
-		console.log(el)
 		return {
 			...el,
 			key:el.name + el.images[0],

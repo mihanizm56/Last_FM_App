@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "./logoBlock.css";
-import { SmallImage, Logo, PlayButton } from "../../../components";
+import "./LogoBlock.css";
+import { SmallImage, Logo, PlayButton, ButtonChangeRadio } from "../../../components/";
 import LastFM from "last-fm";
-import { api_key, userName, userAgent } from "../../helpers/api/config";
+import { api_key, userAgent } from "../../../helpers/api/config";
 
 import { Howl } from "howler";
-import { Playlist } from "../../helpers/music/config-music";
+import { Playlist } from "../../../helpers/music/config-music";
 
-class LogoBlock extends Component {
+export default class LogoBlock extends Component {
   constructor() {
     super();
 
@@ -22,19 +22,15 @@ class LogoBlock extends Component {
   }
 
   getFoundTracks = ({ name, artist }) => {
-    console.log(`name = ${name}, artist = ${artist}`);
-    console.log("check getFoundTracks");
 
     this.lastfm.search(
       { track: name, artist: artist, api_key: api_key, q: name },
       (err, data) => {
         if (data) {
-          console.log("track found");
-          console.log(data.result.tracks[0]);
           this.setState({
             currentTrack: data.result.tracks[0]
           });
-        } else console.log(err);
+        } else console.warn(err);
       }
     );
   };
@@ -81,19 +77,17 @@ class LogoBlock extends Component {
   }
 
   setTrack = index => {
-    return new Promise((res, rej) => {
-      const song = new Howl({
-        src: Playlist[index],
-        loop: true,
-        volume: 0.5,
-        onload: () => console.log("loaded"),
-        onend: function () {
-          console.log("Finished!");
-        }
-      });
-      this.setState({ ...this.state, currentTrack: index })
-      this.song = song
-    })
+    const song = new Howl({
+      src: Playlist[index],
+      loop: true,
+      volume: 0.5,
+      onload: () => console.log("loaded"),
+      onend: function () {
+        console.log("Finished!");
+      }
+    });
+    this.setState({ ...this.state, currentTrack: index })
+    this.song = song
   }
 
   componentDidMount() {
@@ -103,25 +97,19 @@ class LogoBlock extends Component {
 
   render() {
     const { isPlaying } = this.state;
-    return (
-      <div className="logo-main-wrapper">
+    return <div className="logo-main-wrapper">
         <div className="logo-first-half">
           <SmallImage />
           <Logo />
         </div>
         <div className="logo-second-half">
-          <PlayButton
-            callback={this.callbackForPlaying}
-            isPlaying={isPlaying}
-          />
-
+          <ButtonChangeRadio parameter="backward" callback={this.prevTrack} />
+          <PlayButton callback={this.callbackForPlaying} isPlaying={isPlaying} />
+          <ButtonChangeRadio parameter="forward" callback={this.nextTrack} />
         </div>
-        <button onClick={this.prevTrack}>предыдущий</button>
-        <button onClick={this.nextTrack}>следующий</button>
-      </div>
-    );
+      </div>;
   }
 }
 
-export default LogoBlock
+
 

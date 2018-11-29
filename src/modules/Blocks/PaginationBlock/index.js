@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./PaginationBlock.css";
-import { getPagination } from "../../../helpers";
 import { PaginationButton } from "../../../components";
 
 export const PaginationBlock = ({ callbackForPagging }) => {

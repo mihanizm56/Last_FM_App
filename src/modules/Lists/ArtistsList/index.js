@@ -12,7 +12,6 @@ const List = compose(withGroupAnimation, withHoverAnimation)(ArtistBox)
 
 export const ArtistsList = ({ from, to, list , className, ...props}) => {
   const listForPage = list.slice(from, to).map((el,id) => {
-  	console.log(el.images)
   	return {
   		...el,
   		image:el.images[3],

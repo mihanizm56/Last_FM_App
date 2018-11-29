@@ -48,15 +48,12 @@ export class Artist extends Component {
         this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                console.log(1)
                 this.setState({topAlbums: data.result})
             }
         })
     }
 
     render() {
-        console.log(this.state.topAlbums)
-        console.log(this.state.topTracks)
         return (
             <div className="artistPage">
                 <ArtistCard
