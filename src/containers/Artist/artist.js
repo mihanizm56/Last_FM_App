@@ -4,10 +4,11 @@ import "./artist.css";
 import LastFM from "last-fm";
 import {AlbumList} from "../../modules/AlbumList/albumList";
 import {TrackList} from "../../modules/TracksList/trackList";
+import queryString from "query-string"
 
 const API_KEY = `659beef5a99f79b12854cc654f94b0d5`
 
-class artist extends Component {
+class Artist extends Component {
     state = {
         artistInfo: {},
         topAlbums:[],
@@ -15,25 +16,32 @@ class artist extends Component {
     }
 
     componentDidMount(){
+        let artistName = ""
+        if(this.props.location){
+            const parsed = queryString.parse(this.props.location.search)
+            artistName = parsed.artist
+        }
         this.lastfm = new LastFM(API_KEY)
-        this.getArtistInfo()
-        //this.getArtistTopAlbums()
+        this.getArtistInfo(artistName)
     }
 
-    getArtistInfo(name = "Tree days grace"){
+    getArtistInfo(name){
         this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                console.log(data)
                 const newArtistInfo = {name: data.name, image: data.images[1]}
-                this.setState({})
-                this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
+                this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
-                        console.log(data.result)
-                        this.setState({
-                            artistInfo: newArtistInfo,
-                            topTracks: data.result
+                        const topAlbum = data.result
+                        this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
+                            if (err) console.error(err)
+                            else {
+                                this.setState({
+                                    topAlbums: topAlbum,
+                                    artistInfo: newArtistInfo,
+                                    topTracks: data.result})
+                            }
                         })
                     }
                 })
@@ -41,15 +49,6 @@ class artist extends Component {
         })
     }
 
-    getArtistTopAlbums(name = "Tree days grace"){
-        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
-            if (err) console.error(err)
-            else {
-                console.log(data)
-                this.setState({topAlbums: data.result})
-            }
-        })
-    }
 
     render() {
         return (
@@ -70,4 +69,4 @@ class artist extends Component {
     }
 }
 
-export default artist
+export default Artist

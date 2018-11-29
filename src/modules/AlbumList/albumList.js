@@ -1,5 +1,5 @@
 import React from "react";
-import { ArtistBox } from "./../ArtistBox/artistBox";
+import { AlbumBox } from "./../AlbumBox/albumBox";
 import PropTypes from "prop-types";
 import "./albumList.css"
 
@@ -7,7 +7,7 @@ export const AlbumList = ({ list }) => {
     return (
         <div className="AlbumList">
             {list.map((item, index) => (
-                <ArtistBox key={index} name={item.name} image={item.images[2]} />
+                <AlbumBox key={index} name={item.name} image={item.images[2]} artistName={item.artistName} />
             ))}
         </div>
     );
