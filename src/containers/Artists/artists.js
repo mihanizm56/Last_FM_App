@@ -29,6 +29,7 @@ export default class Artists extends Component {
   getArtists = (page = 1) => {
     return getTopArtists(page, data => {
       if (data) {
+        console.log(data)
         if (data.result.length > 9) {
           return this.setState({
             ...this.state,
@@ -52,6 +53,7 @@ export default class Artists extends Component {
     const page = this.state.currentPage;
     searchTracks(string, page, data => {
       if (data) {
+        console.log(data)
         this.setState({
           ...this.state,
           arrayListArtists: data.result.artists,
@@ -76,6 +78,7 @@ export default class Artists extends Component {
 
     return getTagTopArtists(tag, limit, data => {
       if (data) {
+        console.log(data)
         const newData = data.artist.filter(item => (item.name.toLowerCase().indexOf(searchString.toLowerCase()) >= 0));
         this.setState({
           ...this.state,
