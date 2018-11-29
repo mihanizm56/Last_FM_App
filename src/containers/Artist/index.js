@@ -23,7 +23,6 @@ export class Artist extends Component {
         this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
         console.log(this.props.match.params.name)
-        //this.getArtistTopAlbums()
     }
 
     getArtistInfo(name = "Tree days grace"){
@@ -36,10 +35,17 @@ export class Artist extends Component {
                 this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
-                        console.log(data.result)
-                        this.setState({
-                            artistInfo: newArtistInfo,
-                            topTracks: data.result
+                        const topTracks = data.result
+                        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
+                            if (err) console.error(err)
+                            else {
+                                console.log(data)
+                                this.setState({
+                                    artistInfo: newArtistInfo,
+                                    topTracks: topTracks,
+                                    topAlbums: data.result
+                                })
+                            }
                         })
                     }
                 })
