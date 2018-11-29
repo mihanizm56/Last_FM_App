@@ -77,6 +77,7 @@ export default class LogoBlock extends Component{
         <div className="logo-second-half">
           <PlayButton callback={this.callbackForPlaying} isPlaying={isPlaying}/>
         </div>
+          <script type="text/javascript" src="http://fm-u.com/embed/radio.js"></script>
       </div>
     )
   }
