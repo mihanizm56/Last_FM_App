@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import "./Album.css";
 import { 
@@ -10,10 +10,12 @@ import {
 import {
   LogoBlock
 } from '../../modules'
+import { listOfGenres } from '../../helpers/api/config'
 
 import LastFM from 'last-fm'
 
-export const Album = ({ albumName, artistName, listOfGenres }) => {
+export class Album extends Component {
+
   constructor() {
     super()
 
@@ -22,8 +24,8 @@ export const Album = ({ albumName, artistName, listOfGenres }) => {
     };
   }
 
-  return (
-     const { albumName, artistName } = this.props;
+  render() {
+    const { albumName, artistName } = this.props;
     return (
       <div className="album-main-wrapper" >
         <div className="album-main-firstHalf">
@@ -36,11 +38,16 @@ export const Album = ({ albumName, artistName, listOfGenres }) => {
         </div>
         {/* Вот сюда вставляй список */}
       </div>
-  );
+    )
+  }
+};
+
+Album.defaultProps = {
+  albumName: "test Album",
+  artistName: "test artist-name"
 };
 
 Album.propTypes = {
   albumName: PropTypes.string.isRequired,
-  artistName: PropTypes.string.isRequired,
-  listOfGenres: PropTypes.array.isRequired
+  artistName: PropTypes.string.isRequired
 };

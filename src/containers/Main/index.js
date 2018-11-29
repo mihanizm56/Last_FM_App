@@ -67,7 +67,6 @@ export class Main extends Component {
 		const artistList = this.state.list.map(el => {return {key:el, ...el}})
 		return(
 			<div className='main-page'>
-				<LogoBlock/>
 				<MainTitleBlock name='ТОП 20 Артистов' linkName='Посмотреть всех' path='artists' className='border' />
 				<div className='main-container top-artist-container'>
 					<ArtistsList  list={artistList} from={0} to={6} />

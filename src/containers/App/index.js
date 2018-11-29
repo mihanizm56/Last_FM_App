@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <Fragment>
         <div className="App">
-         
+          <LogoBlock/>
           <AnimatedSwitch/>
         </div>
       </Fragment>

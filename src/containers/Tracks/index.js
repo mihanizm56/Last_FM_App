@@ -12,7 +12,6 @@ import {s} from '../../helpers'
 const Page = ({childrensProps, ...props}) => {
 	return(
 		<Fragment>
-			<LogoBlock />
 			<TracksTitleBlock/>
 			<TracksList  childrensProps={childrensProps}/>
 		</Fragment>

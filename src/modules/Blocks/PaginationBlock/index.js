@@ -4,36 +4,23 @@ import "./PaginationBlock.css";
 import { getPagination } from "../../../helpers";
 import { PaginationButton } from "../../../components";
 
-export const PaginationBlock = ({ artistsList,callbackForPagging }) => {
+export const PaginationBlock = ({ callbackForPagging }) => {
   return (
     <div className="pagination-wrapper">
-      { getButtons(artistsList,callbackForPagging) }
+      { getButtons(callbackForPagging) }
     </div>
   );
 };
 
-const getButtons = (arrayOfArtists,callback) => {
-    console.log('check getButtons')
-    const arrayOfButtons = getPagination(arrayOfArtists)
-    return arrayOfButtons.map(element => {
-        console.log(element.index + 1)
+const getButtons = callback => {
+    const arrayOfArtists = [1,2,3,4,5,6,7,8,9]
+    return arrayOfArtists.map(element=> {
         return(
-            <PaginationButton key={element.index} from={element.from} to={element.to} callback={callback} number={`${element.index + 1}`}/>
+            <PaginationButton key={element} callback={callback} number={`${element}`}/>
         )
     })
 };
 
-PaginationBlock.defaultProps = {
-  artistsList: [
-    { data: "test1" },
-    { data: "test2" },
-    { data: "test3" },
-    { data: "test4" },
-    { data: "test5" }
-  ]
-};
-
 PaginationBlock.propTypes = {
-  artistsList: PropTypes.array.isRequired,
   callbackForPagging:PropTypes.func.isRequired
 };

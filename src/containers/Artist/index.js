@@ -1,22 +1,28 @@
 import React, { Component } from "react";
-import ArtistCard from "../../modules/ArtistCard/artistCard";
-import "./artist.css";
+import "./Artist.css";
 import LastFM from "last-fm";
-import {AlbumList} from "../../modules/AlbumList/albumList";
-import {TrackList} from "../../modules/TracksList/trackList";
+import {
+    TracksList, 
+    AlbumList, 
+    ArtistCard
+} from "../../modules";
 
 const API_KEY = `659beef5a99f79b12854cc654f94b0d5`
 
-class artist extends Component {
+export class Artist extends Component {
     state = {
         artistInfo: {},
         topAlbums:[],
         topTracks:[]
     }
+    constructor(props){
+        super(props)
+    }
 
     componentDidMount(){
         this.lastfm = new LastFM(API_KEY)
-        this.getArtistInfo()
+        this.getArtistInfo(this.props.match.params.name)
+        console.log(this.props.match.params.name)
         //this.getArtistTopAlbums()
     }
 
@@ -62,7 +68,7 @@ class artist extends Component {
                 <AlbumList
                     list={this.state.topAlbums}
                 />
-                <TrackList
+                <TracksList
                     list={this.state.topTracks}
                 />
             </div>
@@ -70,4 +76,3 @@ class artist extends Component {
     }
 }
 
-export default artist
