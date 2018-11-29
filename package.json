@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "howler": "^2.0.15",
     "last-fm": "^5.2.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -26,5 +27,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "react-tunes-player": "^3.0.0"
+  }
 }
