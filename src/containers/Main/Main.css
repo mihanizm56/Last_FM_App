@@ -1,0 +1,46 @@
+
+.main-tracks-list{
+	list-style: none;
+    padding: 0px;
+	grid-gap:1vh 3vh;
+	display: grid;
+	align-content: space-around;
+  	justify-content: space-between;
+  	grid-template-columns: 1fr 1fr;
+}
+.main-tracks-list li{
+}
+
+.main-page{
+	width: 100%;
+	height: 100vh;
+}
+
+.border{
+	border:3px solid #333;
+}
+.main-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+.top-artist-container{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+@media (min-width: 768px) {
+  .atrists-container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .atrists-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .atrists-container {
+    width: 1170px;
+  }
+}

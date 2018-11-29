@@ -1,56 +1,26 @@
 import React, {Fragment, Component} from 'react'
-import { BrowserRouter, Link, Route} from "react-router-dom";
 import './Tracks.css'
-import  TracksList from '../../modules/TracksList'
-import  {LogoBlock} from '../../modules/LogoBlock/logoBlock'
-import  {SongsBigBlock} from '../../modules/SongsBigBlock/songsBigBlock'
-import {
-	compose,
-	Draggable,
-	withHoverAnimation,
-	withFocusAnimation, 
-	withPressAnimation,
-	withEnterExitAnimation, 
-	withEventAnimation, 
-	withGroupAnimation,
-	withRouteAnimation,
-	withPageAnimation
-
-} from '../../libs/Animation'
+import { Route } from 'react-router'
+import  { 
+	TracksTitleBlock, 
+	TracksList,
+	LogoBlock
+} from '../../modules'
 import LastFM from 'last-fm'
+import {s} from '../../helpers'
 
-
-const Page = withPageAnimation(({childrensProps, onChange, ...props}) => {
+const Page = ({childrensProps, ...props}) => {
 	return(
 		<Fragment>
-			<LogoBlock/>
-			<SongsBigBlock/>
-			<TracksList childrensProps={childrensProps}/>
+			<LogoBlock />
+			<TracksTitleBlock/>
+			<TracksList  childrensProps={childrensProps}/>
 		</Fragment>
 	)
-})
+}
 
-const s = array => {
-  let currentIndex = array.length;
-  let temporaryValue;
-  let randomIndex = 0;
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-};
-
-const AnimatedPage = withRouteAnimation(({childrensProps}) => <Route render={(props) => <Page childrensProps={childrensProps} />} key='asfasf'/>)
-
-class Tracks extends Component {
+export class Tracks extends Component {
 	state = {
 		list: []
 	}	
@@ -78,15 +48,10 @@ class Tracks extends Component {
 		})
 	}
 	render(){
-		const list = this.state.list.map((el) => {return {key:el.name + el.artistName, image:el.images[0], ...el}})
+		const list = this.state.list.map((el) => {return {key:el.images[0] + el.name, image:el.images[0], ...el}})
 		return(
-			<BrowserRouter>
-				<Fragment>
-					<AnimatedPage childrensProps={list} />
-				</Fragment>
-			</BrowserRouter>
+			<Page childrensProps={list}/>
 		)
 	}
 }
 
-export default Tracks

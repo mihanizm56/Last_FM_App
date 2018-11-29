@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom'
 import './index.css';
-import App from './containers/App/App';
-import Tracks from './containers/Tracks'
+import App from './containers/App';
 
-ReactDOM.render(<Tracks/>, document.getElementById('root'));
+ReactDOM.render(
+<BrowserRouter>	
+	<App/>
+</BrowserRouter>, 
+document.getElementById('root'));

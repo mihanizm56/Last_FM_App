@@ -1,7 +1,15 @@
 import React, {Component} from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import PropTypes from 'prop-types'
-import {fadeInit, routerInit, hoverInit, focusInit, dragInit, pressInit, groupInit} from './configs'
+import {
+	fadeInit, 
+	routerInit, 
+	hoverInit, 
+	focusInit, 
+	dragInit, 
+	pressInit, 
+	groupInit
+} from './configs'
 import {Route} from 'react-router-dom'
 
 const withPageAnimation = (Component, config) => {
@@ -46,17 +54,15 @@ const withEventAnimation = (Component, config) => {
 
 const withRouteAnimation = (Component, config = routerInit) => {
 	const RouteContainer = posed.div(config)
-	return ({location, ...props}) => {
+	return (props) => {
 		return(
 			<Route render={({location})=> {
 				return (
-					<div>
-						<PoseGroup>
-							<RouteContainer key={location.key}>
-								<Component {...props} />
-							</RouteContainer>
-						</PoseGroup>
-					</div>
+					<PoseGroup>
+						<RouteContainer key={location.pathname}>
+							<Component {...props} />
+						</RouteContainer>
+					</PoseGroup>
 				)
 			 }}/>
 		)
@@ -67,6 +73,7 @@ const withRouteAnimation = (Component, config = routerInit) => {
 const withGroupAnimation = (ItemComponent, config = groupInit) => {
 	const Item = posed.li(config)
 	return ({childrensProps, ...props}) => {
+
 	return(
 		<ul {...props} >
 			<PoseGroup>

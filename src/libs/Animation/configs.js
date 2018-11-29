@@ -32,11 +32,11 @@ const hoverInit = {
     boxShadow: '0px 0px 0px rgba(0,0,0,0)'
   },
   hover: {
-    scale: 1.2,
+    scale: 1.08,
     boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
   },
   press: {
-    scale: 1.1,
+    scale: 1.04,
     boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
   }
 }
@@ -60,18 +60,20 @@ const routerInit = {
 
 const focusInit = {
   focusable: true,
-  init: {
-    color: '#aaa',
-    outlineWidth: '0px',
-    outlineOffset: '0px',
-    scale: 1
+  init: { 
+    color:'#ccc',
+    scale: 1 ,
   },
-  focus: {
-    color: '#000',
-    outlineWidth: '12px',
-    outlineOffset: '5px',
-    outlineColor: '#AB36FF',
-    scale: 1.1
+  focus: { 
+    color:'#000', 
+    scale: 1.2
+  },
+  blur: {
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 900
+    }
   }
 }
 
