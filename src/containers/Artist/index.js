@@ -15,6 +15,7 @@ export class Artist extends Component {
         topAlbums:[],
         topTracks:[]
     }
+
     constructor(props){
         super(props)
     }
@@ -22,7 +23,6 @@ export class Artist extends Component {
     componentDidMount(){
         this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
-     //   console.log(this.props.match.params.name)
         this.getArtistTopAlbums(this.props.match.params.name)
     }
 
@@ -30,13 +30,10 @@ export class Artist extends Component {
         this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-            //    console.log(data)
                 const newArtistInfo = {name: data.name, image: data.images[1]}
-               // this.setState({})
                 this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
-               //         console.log(data.result)
                         this.setState({
                             artistInfo: newArtistInfo,
                             topTracks: data.result
@@ -59,7 +56,6 @@ export class Artist extends Component {
 
     render() {
         console.log(this.state.topAlbums)
-        console.log('2323')
         console.log(this.state.topTracks)
         return (
             <div className="artistPage">
