@@ -18,8 +18,8 @@ export const TracksListTracks = ({list, ...props}) => {
 		return {
 			...el,
 			key:el.name + el.images[0],
-			image: el.images[2], 
-			trackName:el.trackName,
+			image: el.images[3], 
+			trackName:el.name,
 		}})
 	return(
 		<List className='track-list' childrensProps={childrensProps} />

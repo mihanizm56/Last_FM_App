@@ -65,6 +65,7 @@ export class Main extends Component {
 					<ArtistsList  list={this.state.artistsList} from={0} to={6} />
 				</div>
 				<MainTitleBlock name='Last FM Чарт' linkName='Посмотреть всех' path='tracks' className='border' />
+				<p> поменять сам вызов апи </p>
 				<div className='main-container w-95'>
 					<TracksListChart className='main-tracks-list' list={this.state.trackList}/>
 				</div> 

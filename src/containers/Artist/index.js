@@ -23,7 +23,7 @@ export class Artist extends Component {
         this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
      //   console.log(this.props.match.params.name)
-        //this.getArtistTopAlbums()
+        this.getArtistTopAlbums(this.props.match.params.name)
     }
 
     getArtistInfo(name = "Tree days grace"){
@@ -58,6 +58,9 @@ export class Artist extends Component {
     }
 
     render() {
+        console.log(this.state.topAlbums)
+        console.log('2323')
+        console.log(this.state.topTracks)
         return (
             <div className="artistPage">
                 <ArtistCard
@@ -65,23 +68,30 @@ export class Artist extends Component {
                     genre="Artistgenre"
                     image={this.state.artistInfo.image}
                 />
-                 <TracksListTracks
-                    list={this.state.topTracks}
+                <AlbumList
+                    list={this.state.topAlbums}
                 />
-              
+                <TracksListTracks
+                    list={this.state.topTracks}
+                /> 
             </div>
         );
     }
 }
 
 /*
+
+  <TracksListTracks
+                    list={this.state.topTracks}
+                />
       
-        <AlbumList
+                <AlbumList
                     list={this.state.topAlbums}
                 />
                 <TracksList
                     list={this.state.topTracks}
                 />
+
 
 */
 

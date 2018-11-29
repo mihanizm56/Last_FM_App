@@ -9,7 +9,6 @@ export const TrackBoxForTracks = ({ trackName, artistName, genre, image }) => {
       <TrackBoxForChart
         trackName={trackName}
         artistName={artistName}
-        genre={genre}
         image={image}
       />
     </div>
@@ -19,6 +18,5 @@ export const TrackBoxForTracks = ({ trackName, artistName, genre, image }) => {
 TrackBoxForTracks.propTypes = {
   trackName: PropTypes.string.isRequired,
   artistName: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired
 };

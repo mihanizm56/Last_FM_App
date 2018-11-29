@@ -14,7 +14,7 @@ import  {
 const List = compose(withGroupAnimation, withHoverAnimation)(ArtistBox)
 
 export const AlbumList = ({list, ...props}) => {
-	const childrensProps = list.map((el,id) => {return {key:id, ...el}})
+	const childrensProps = list.map((el,id) => {return {key:id, image: el.images[3], ...el}})
 	return(
 		<List className='album-list' childrensProps={childrensProps} />
 	)
