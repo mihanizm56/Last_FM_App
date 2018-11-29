@@ -12,7 +12,7 @@ export const getTopArtists = (page, callback) => {
       if (data) return callback(data);
       return console.warn(error)
     }
-  );
+  )
 };
 
 export const searchTracks = (string, page, callback) => {

@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import './TracksList.css'
+import './TracksListTracks.css'
 import {
 	compose,
 	withHoverAnimation,
@@ -12,7 +12,15 @@ import  {
 
 const List = compose(withGroupAnimation, withHoverAnimation)(TrackBoxForTracks)
 
-export const TracksList = ({childrensProps, ...props}) => {
+export const TracksListTracks = ({list, ...props}) => {
+	const childrensProps = list.map((el,id) => {
+		console.log(el)
+		return {
+			...el,
+			key:el.name + el.images[0],
+			image: el.images[3], 
+			trackName:el.name,
+		}})
 	return(
 		<List className='track-list' childrensProps={childrensProps} />
 	)

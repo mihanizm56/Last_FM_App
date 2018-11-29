@@ -16,7 +16,7 @@ export const getPagination = array => {                                         
     
     return newArray;
   };
-export const s = array => {
+export const shuffle = array => {
   let currentIndex = array.length;
   let temporaryValue;
   let randomIndex = 0;
