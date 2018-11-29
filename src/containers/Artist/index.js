@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Artist.css";
 import LastFM from "last-fm";
 import {
-    TracksList, 
+    TracksListTracks, 
     AlbumList, 
     ArtistCard
 } from "../../modules";
@@ -22,7 +22,7 @@ export class Artist extends Component {
     componentDidMount(){
         this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
-        console.log(this.props.match.params.name)
+     //   console.log(this.props.match.params.name)
         //this.getArtistTopAlbums()
     }
 
@@ -30,13 +30,13 @@ export class Artist extends Component {
         this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                console.log(data)
+            //    console.log(data)
                 const newArtistInfo = {name: data.name, image: data.images[1]}
-                this.setState({})
+               // this.setState({})
                 this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
-                        console.log(data.result)
+               //         console.log(data.result)
                         this.setState({
                             artistInfo: newArtistInfo,
                             topTracks: data.result
@@ -51,7 +51,7 @@ export class Artist extends Component {
         this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                console.log(data)
+                console.log(1)
                 this.setState({topAlbums: data.result})
             }
         })
@@ -65,14 +65,23 @@ export class Artist extends Component {
                     genre="Artistgenre"
                     image={this.state.artistInfo.image}
                 />
-                <AlbumList
+                 <TracksListTracks
+                    list={this.state.topTracks}
+                />
+              
+            </div>
+        );
+    }
+}
+
+/*
+      
+        <AlbumList
                     list={this.state.topAlbums}
                 />
                 <TracksList
                     list={this.state.topTracks}
                 />
-            </div>
-        );
-    }
-}
+
+*/
 

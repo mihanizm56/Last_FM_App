@@ -5,7 +5,8 @@ import { LinkItem, MiddleImage } from "../../../components";
 
 export const ArtistBox = ({ name, image }) => {
   const imageForBlock = {
-    backgroundImage: `url(${image})`
+    backgroundImage: `url(${image})`,
+    backgroundSize:'cover'
   };
 
   return (

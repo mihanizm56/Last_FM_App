@@ -3,21 +3,20 @@ import './Tracks.css'
 import { Route } from 'react-router'
 import  { 
 	TracksTitleBlock, 
-	TracksList,
+	TracksListTracks,
 	LogoBlock
 } from '../../modules'
 import LastFM from 'last-fm'
-import {s} from '../../helpers'
+import {shuffle} from '../../helpers'
 
 const Page = ({childrensProps, ...props}) => {
 	return(
 		<Fragment>
 			<TracksTitleBlock/>
-			<TracksList  childrensProps={childrensProps}/>
+			<TracksListTracks  list={childrensProps}/>
 		</Fragment>
 	)
 }
-
 
 export class Tracks extends Component {
 	state = {
@@ -43,11 +42,16 @@ export class Tracks extends Component {
 	}
 	shuffle(){
 		this.setState({
-			list:s(this.state.list)
+			list:shuffle(this.state.list)
 		})
 	}
 	render(){
-		const list = this.state.list.map((el) => {return {key:el.images[0] + el.name, image:el.images[0], ...el}})
+		const list = this.state.list.map((el) => {
+			return {
+					key:el.images[0] + el.name, 
+					image:el.images[0], 
+					...el
+				}})
 		return(
 			<Page childrensProps={list}/>
 		)

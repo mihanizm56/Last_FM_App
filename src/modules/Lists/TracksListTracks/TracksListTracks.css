@@ -1,0 +1,6 @@
+.track-list {
+	list-style: none;
+	padding-left: 2%;
+	padding-right: 2%;
+	border: 3px solid #F00;
+}
