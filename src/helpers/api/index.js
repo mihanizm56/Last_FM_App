@@ -46,3 +46,54 @@ export const getTagTopArtists = (tag, limit,callback) => {
     }
   );
 }
+
+export const getArtistTopAlbums = (name, callback) => {
+    const lastfm = new LastFM(
+        api_key,
+        {
+            userAgent: userAgent
+        }
+    );
+
+    lastfm.artistTopAlbums(
+        { name: name, api_key: api_key },
+        (error, data) => {
+            if (data) return callback(data);
+            return console.warn(error);
+        }
+    );
+}
+
+export const getArtistInfo = (name, callback) => {
+    const lastfm = new LastFM(
+        api_key,
+        {
+            userAgent: userAgent
+        }
+    );
+
+    lastfm.artistInfo(
+        { name: name, api_key: api_key },
+        (error, data) => {
+            if (data) return callback(data);
+            return console.warn(error);
+        }
+    );
+}
+
+export const getArtistTopTracks = (name, callback) => {
+    const lastfm = new LastFM(
+        api_key,
+        {
+            userAgent: userAgent
+        }
+    );
+
+    lastfm.artistTopTracks(
+        { name: name, api_key: api_key },
+        (error, data) => {
+            if (data) return callback(data);
+            return console.warn(error);
+        }
+    );
+}

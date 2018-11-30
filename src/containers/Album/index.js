@@ -37,16 +37,26 @@ export class Album extends Component {
         this.getTracks(artistName, albumName)
     }
 
-    getTracks(artistName, albumName) {
-        axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artistName}&album=${albumName}&api_key=2e6aea0b83ca1a01fd8b7c2b3c12e707&format=json`)
-            .then(response => {
-                this.setState({
-                albumName: albumName,
-                artistName: artistName,
-                trackList: response.data.album.tracks.track,
-                image:response.data.album.image
-            })})
+    // getTracks(artistName, albumName) {
+    //     axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artistName}&album=${albumName}&api_key=2e6aea0b83ca1a01fd8b7c2b3c12e707&format=json`)
+    //         .then(response => {
+    //             this.setState({
+    //             albumName: albumName,
+    //             artistName: artistName,
+    //             trackList: response.data.album.tracks.track,
+    //             image:response.data.album.image
+    //         })})
+    //
+    // }
 
+    getTracks(artistName, albumName) {
+        this.lastfm.albumInfo({ artistName,albumName }, (err, data) => {
+            if (err) console.error(err)
+            else {
+                console.log(data)
+                //this.setState({trackList:data.result})
+            }
+        })
     }
 
     render() {

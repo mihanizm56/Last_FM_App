@@ -6,8 +6,7 @@ import {
     AlbumList, 
     ArtistCard
 } from "../../modules";
-
-const API_KEY = `659beef5a99f79b12854cc654f94b0d5`
+import {getArtistTopAlbums, getArtistInfo, getArtistTopTracks} from "../../helpers/api"
 
 export class Artist extends Component {
     state = {
@@ -21,36 +20,32 @@ export class Artist extends Component {
     }
 
     componentDidMount(){
-        this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
         this.getArtistTopAlbums(this.props.match.params.name)
     }
 
-    getArtistInfo(name = "Tree days grace"){
-        this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
-            if (err) console.error(err)
-            else {
+    getArtistInfo = (name) =>{
+        return getArtistInfo( name, data => {
+            if (data) {
                 const newArtistInfo = {name: data.name, image: data.images[1]}
-                this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
-                    if (err) console.error(err)
-                    else {
+                return getArtistTopTracks(name, data => {
+                    if (data) {
                         this.setState({
                             artistInfo: newArtistInfo,
                             topTracks: data.result
                         })
                     }
-                })
+                });
             }
         })
     }
 
-    getArtistTopAlbums(name = "Tree days grace"){
-        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
-            if (err) console.error(err)
-            else {
+    getArtistTopAlbums = (name) => {
+        return getArtistTopAlbums( name, data => {
+            if (data) {
                 this.setState({topAlbums: data.result})
             }
-        })
+        });
     }
 
     render() {
@@ -66,7 +61,7 @@ export class Artist extends Component {
                 />
                 <TracksListTracks
                     list={this.state.topTracks}
-                /> 
+                />
             </div>
         );
     }
