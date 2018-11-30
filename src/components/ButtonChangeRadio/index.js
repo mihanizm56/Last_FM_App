@@ -12,7 +12,7 @@ export const ButtonChangeRadio = ({ parameter, callback }) => {
 };
 
 ButtonChangeRadio.defaultProps = {
-  image: "", //здесь надо вставить картинку лого, но потом решим какая картинка и запихнём сюда
+  image: "",
   parameter: "forward",
   callback: () => alert('callback is empty')
 };

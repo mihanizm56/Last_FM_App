@@ -27,7 +27,8 @@ export class Album extends Component {
     state = {
         albumName: '',
         artistName: '',
-        trackList: []
+        trackList: [],
+        image:[]
     }
 
     componentDidMount() {
@@ -41,33 +42,41 @@ export class Album extends Component {
             .then(response => (this.setState({
                 albumName: albumName,
                 artistName: artistName,
-                trackList: response.data.album.tracks.track
+                trackList: response.data.album.tracks.track,
+                image:response.data.album.image
             })))
+
     }
 
     render() {
-        const {albumName, artistName, trackList} = this.state;
+        const {albumName, artistName, image} = this.state;
+        const updateimages = image.map((item)=>{
+            return item['#text']
+        })
         const list = this.state.trackList.map((el, index) => {
             return {
                 key: index + el.name,
                 image: "",
-                images: ['1', "2", "3", "4"],
+                images: updateimages,
                 artistName: el.artist.name,
                 ...el
             }
         })
+        const path = `artists/${artistName}`
         return (
             <div>
                 <div className="album-main-wrapper">
                     <div className="album-main-firstHalf">
                         <TitleH2 name={albumName}/>
-                        <LinkItem name={artistName}/>
+                        <LinkItem
+                            name={artistName}
+                            path={path}
+                        />
                         <SearchField placeholder="Поиск композиции" style={this.styleSearch}/>
                     </div>
                     <div className="album-main-secondHalf">
                         <FilterGenres listOfGenres={listOfGenres}/>
                     </div>
-                    {/* Вот сюда вставляй список */}
                 </div>
                 <TracksListTracks
                     list={list}
