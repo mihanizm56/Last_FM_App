@@ -16,7 +16,8 @@ class Artists extends Component {
       arrayListArtists: [],
       paginationIsVisible: true,
       tagIsSelected: false,
-      findByWord: ''
+      findByWord: '',
+      nameOfTag:''
     };
   }
 
@@ -80,14 +81,19 @@ class Artists extends Component {
           ...this.state,
           arrayListArtists: newData,
           paginationIsVisible: false,
-          tagIsSelected: true
+          tagIsSelected: true,
+          nameOfTag:tag
         });
       }
     })
   }
 
+componentDidUpdate(){
+  console.log(this.state.nameOfTag)
+}
+
   render() {
-    const { arrayListArtists, paginationIsVisible } = this.state;
+    const { arrayListArtists, paginationIsVisible,nameOfTag } = this.state;
     return <div className="artistsPage-wrapper">
       <div className="artistsPage">
         <div className="artistsPage-title">
@@ -95,7 +101,7 @@ class Artists extends Component {
         </div>
         <div className="artistsPage-filters">
           <SearchField placeholder="Поиск артиста" callback={this.getFoundTracks} />
-          <FilterGenres listOfGenres={listOfGenres} callback={this.getTagsItems} tagIsSelected={this.state.tagIsSelected} />
+          <FilterGenres listOfGenres={listOfGenres} callback={this.getTagsItems} tagIsSelected={this.state.tagIsSelected} nameOfTag={nameOfTag}/>
         </div>
       </div>
       <div className="artistsPage-artistsList">

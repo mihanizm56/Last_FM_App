@@ -11,13 +11,11 @@ import {
 const List = compose(withGroupAnimation, withHoverAnimation)(ArtistBox)
 
 export const ArtistsList = ({ list ,image, name}) => {
-  console.log('check ArtistsList')
-  console.log(image)
-  const listForPage = list.slice(0, 9).map((el) => {
+  const listForPage = list.slice(0, 9).map(element => {
   	return {
-  		...el,
-  		image:el.images[3],
-  		key:el.name + el.artistsName
+  		...element,
+  		image:element.images[3],
+  		key:element.name + element.artistsName
     }})
   return (
        <List name={name} image={image} className={ `artists-list` } childrensProps={listForPage}/>
