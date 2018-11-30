@@ -15,7 +15,7 @@ import axios from "axios"
 import LastFM from 'last-fm'
 
 export class Album extends Component {
-
+    
     constructor() {
         super()
 

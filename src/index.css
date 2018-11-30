@@ -1,3 +1,21 @@
+ @font-face {
+  	font-family: Mainfont; /* Имя шрифта */
+   	src: url(fonts/font3.otf); /* Путь к файлу со шрифтом */
+ }
+ @font-face {
+  	font-family: Linkfont; /* Имя шрифта */
+   	src: url(fonts/font1.ttf); /* Путь к файлу со шрифтом */
+ }
+ p,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5 {
+ 	font-family:  Mainfont;
+ 	color: #000;
+ }
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #EDE;
 }
 
 code {

@@ -2,7 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './Logo.css'
 import { 
-	withPressAnimation 
+	withHoverAnimation,
+	withPressAnimation,
+	compose 
 } from '../../libs/Animation'
-
-export const Logo = withPressAnimation(() => <Link className='Logo' to='/'>Logo</Link>)
+import { SmallImage } from '../'
+const LogoAnimation = compose(withPressAnimation)
+export const Logo = LogoAnimation(() => {
+	return (
+		<Link to='/'>
+			<SmallImage image={'images/logo.png'}/>
+		</Link>
+	)
+})

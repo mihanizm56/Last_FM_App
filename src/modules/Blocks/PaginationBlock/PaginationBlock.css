@@ -1,6 +1,6 @@
 .pagination-wrapper{
-    display: flex;
+	display: flex;
     align-self: center;
-    height: 25px;
-    border: 1px solid blue;
+    justify-content: center;
+    width: 100%;
 }

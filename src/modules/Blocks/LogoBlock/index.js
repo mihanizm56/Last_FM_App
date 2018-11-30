@@ -93,7 +93,6 @@ export default class LogoBlock extends Component {
     const { isPlaying, TrackName, artist } = this.state;
     return <div className="logo-main-wrapper">
       <div className="logo-first-half">
-        <SmallImage />
         <Logo />
       </div>
       <div className="logo-second-half">

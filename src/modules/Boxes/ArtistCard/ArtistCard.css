@@ -3,6 +3,7 @@
     padding: 20px;
     justify-content: flex-start;
     flex-direction:row;
+    background: #545;
 }
 
 .artistCard-image{

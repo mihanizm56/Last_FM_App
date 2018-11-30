@@ -27,17 +27,25 @@ const dragInit = {
 const hoverInit = {
   hoverable: true,
   pressable: true,
+  focusable: true,
   init: {
     scale: 1,
     boxShadow: '0px 0px 0px rgba(0,0,0,0)'
   },
   hover: {
-    scale: 1.08,
-    boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
+    scale: 1.18,
+    boxShadow: '0px 10px 15px rgba(0,0,0,0.5)'
   },
   press: {
-    scale: 1.04,
-    boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
+    scale: 1.09,
+    boxShadow: '0px 2px 5px rgba(0,0,0,0.4)'
+  },
+  blur: {
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 800
+    }
   }
 }
 

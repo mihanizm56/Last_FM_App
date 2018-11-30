@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 import "./AlbumBox.css";
 import { LinkItem, MiddleImage } from "../../../components";
 
+
 export const AlbumBox = ({ name, image, artistName }) => {
   const imageForBlock = {
-    backgroundImage: `url(${image})`
+    backgroundImage: `url(${image})`,
+    backgroundSize: 'cover',
+    backgroundRepeat : 'no-repeat'
   };
-
   return (
-    <div className="artist-preview__block" style={imageForBlock}>
+    <div className="artist-preview__block " style={imageForBlock}>
       <LinkItem name={name} path={`album/${artistName}/${name}`} />
     </div>
   );
