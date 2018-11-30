@@ -10,6 +10,8 @@ export const ArtistBox = ({ name, image }) => {
     backgroundRepeat : 'no-repeat'
   };
 
+  name = name.length > 20 ? name.slice(0,20)+'...' : name
+
   return (
     <div className="artist-preview__block" style={imageForBlock}>
       <LinkItem name={name} path={`artists/${name}`} />
