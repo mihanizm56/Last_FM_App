@@ -1,0 +1,16 @@
+.live-music__song-block{
+    display: flex;
+    justify-content: space-between;
+    width: 650px;
+    height: 100px;
+}
+.song-block__first-half{
+    display: flex;
+    align-items: center;
+}
+.song-block__second-half{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 30px;
+}

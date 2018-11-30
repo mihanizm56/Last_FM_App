@@ -9,3 +9,5 @@ export * from "./PaginationButton";
 export * from "./MiddleImage";
 export * from "./LinkItem";
 export * from "./FilterGenres";
+export * from "./ButtonPlusMinus";
+export * from "./BounceLoading";

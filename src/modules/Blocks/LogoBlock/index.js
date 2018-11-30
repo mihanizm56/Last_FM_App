@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "./LogoBlock.css";
 import {
-  SmallImage,
   Logo,
-  PlayButton,
-  ButtonChangeRadio, Paragraph
+  ButtonPlusMinus,
+  BounceLoading
 } from "../../../components/";
+import MusicControls from "../MusicControls/index";
 import { Howl } from "howler";
 import { Playlist } from "../../../helpers/music/config-music";
 import { getArrayOfSongs } from "../../../helpers/index";
+import { LiveArtistBox } from '../../Boxes/index'
 
 export default class LogoBlock extends Component {
   constructor() {
@@ -18,17 +19,17 @@ export default class LogoBlock extends Component {
       isPlaying: false,
       currentTrackIndex: 0,
       TrackName: Playlist[0].trackName,
-      artist: Playlist[0].artist
+      artist: Playlist[0].artist,
+      volume: 0.3,
+      loadingControls: false
     };
     this.arrayOfSongs = getArrayOfSongs(Playlist);
   }
 
   callbackForPlaying = playingStatus => {
     if (playingStatus) {
-      console.log(`playingStatus is true`);
       this.playTracks(true);
     } else {
-      console.log(`playingStatus is false`);
       this.playTracks(false);
     }
 
@@ -44,23 +45,28 @@ export default class LogoBlock extends Component {
   };
 
   nextTrack = () => {
-    console.log("test nextTrack");
 
-    this.playTracks(false);
-    this.setTrack(this.state.currentTrackIndex + 1, true);
-    this.setState({
-      ...this.state,
-      currentTrackIndex: this.state.currentTrackIndex + 1,
-      TrackName: Playlist[this.state.currentTrackIndex + 1].trackName,
-      artist: Playlist[this.state.currentTrackIndex + 1].artist
-    });
+    if (this.state.currentTrackIndex < Playlist.length - 1) {
+      this.playTracks(false);
+
+      this.setTrack(this.state.currentTrackIndex + 1, this.nextTrack);
+
+      this.setState({
+        ...this.state,
+        currentTrackIndex: this.state.currentTrackIndex + 1,
+        TrackName: Playlist[this.state.currentTrackIndex + 1].trackName,
+        artist: Playlist[this.state.currentTrackIndex + 1].artist
+      });
+    }
   };
 
   prevTrack = () => {
-    console.log("test prevTrack");
+
     if (this.state.currentTrackIndex) {
       this.playTracks(false);
-      this.setTrack(this.state.currentTrackIndex - 1, true);
+
+      this.setTrack(this.state.currentTrackIndex - 1, this.nextTrack);
+
       this.setState({
         ...this.state,
         currentTrackIndex: this.state.currentTrackIndex - 1,
@@ -70,39 +76,78 @@ export default class LogoBlock extends Component {
     }
   };
 
-  setTrack = index => {
+  setTrack = (index, callbackForNext) => {
+    this.setState({ ...this.state, loadingControls: true });
+
     const song = new Howl({
       src: this.arrayOfSongs[index],
       loop: true,
-      volume: 0.5,
+      volume: this.state.volume,
       onload: () => {
-        console.log("loaded");
-        console.log(`needToPlay = ${this.state.isPlaying}`);
         if (this.state.isPlaying) this.playTracks(true);
+        console.log("track is loaded");
+        this.setState({ ...this.state, loadingControls: false });
+      },
+      onend: function() {
+        return callbackForNext();
       }
     });
     this.song = song;
   };
 
+  changeVolume = parameter => {
+    if (parameter === "plus" && this.state.volume < 1) {
+      this.song.volume(+(this.state.volume + 0.1).toFixed(1));
+
+      this.setState({ ...this.state, volume: +(this.state.volume + 0.1).toFixed(1) });
+    }
+    if (parameter === "minus" && this.state.volume > 0) {
+      this.song.volume(+(this.state.volume - 0.1).toFixed(1));
+
+      this.setState({ ...this.state, volume: +(this.state.volume - 0.1).toFixed(1) });
+    }
+  };
+
+  getControls = () => {
+    const { isPlaying } = this.state;
+    return (
+      <MusicControls
+        prevTrack={this.prevTrack}
+        nextTrack={this.nextTrack}
+        isPlaying={isPlaying}
+        callbackForPlaying={this.callbackForPlaying}
+      />
+    );
+  };
+
   componentDidMount() {
-    this.setTrack(0);
-    console.log("track 0 was setted");
+    this.setTrack(this.state.currentTrackIndex, this.nextTrack);
   }
 
   render() {
-    const { isPlaying, TrackName, artist } = this.state;
-    return <div className="logo-main-wrapper">
-      <div className="logo-first-half">
-        <SmallImage />
-        <Logo />
+    const { TrackName, artist, loadingControls } = this.state;
+    return (
+      <div className="logo-main-wrapper">
+        <div className="logo-first-half">
+          <Logo />
+        </div>
+        <div className="logo-second-half">
+          <LiveArtistBox artistName={artist} songName={TrackName} />
+          <div className="music-controls">
+            <div className="music-controls__first-half">
+              <ButtonPlusMinus
+                parameter={"minus"}
+                callback={this.changeVolume}
+              />
+              <ButtonPlusMinus
+                parameter={"plus"}
+                callback={this.changeVolume}
+              />
+            </div>
+            {loadingControls ? <BounceLoading /> : this.getControls()}
+          </div>
+        </div>
       </div>
-      <div className="logo-second-half">
-        <Paragraph name={TrackName} />
-        <Paragraph name={artist} />
-        <ButtonChangeRadio parameter="backward" callback={this.prevTrack} />
-        <PlayButton callback={this.callbackForPlaying} isPlaying={isPlaying} />
-        <ButtonChangeRadio parameter="forward" callback={this.nextTrack} />
-      </div>
-    </div>;
+    );
   }
 }

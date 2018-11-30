@@ -1,0 +1,19 @@
+
+
+.button-volume{
+    width: 30px;
+    height: 30px;
+    border-radius:50%; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+} 
+
+.button-volume-minus:hover, .button-volume-plus:hover{
+    transition: .5s;
+    background-color:black;
+}
+.button-volume-minus:active, .button-volume-plus:active{
+    transition: .5s;
+    background-color:white;
+}
