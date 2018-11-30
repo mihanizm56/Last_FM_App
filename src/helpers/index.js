@@ -16,3 +16,11 @@ export const shuffle = array => {
   }
   return array;
 };
+
+export const getArrayOfSongs = arrayOfSongs => {
+  const array = [];
+  arrayOfSongs.forEach(element => {
+    array.push(element.song);
+  });
+  return array;
+};
