@@ -55,8 +55,6 @@ export class Artist extends Component {
     }
 
     render() {
-        console.log(this.state.topAlbums)
-        console.log(this.state.topTracks)
         return (
             <div className="artistPage">
                 <ArtistCard

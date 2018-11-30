@@ -1,4 +1,5 @@
 export * from './ArtistBox'
+export * from './AlbumBox'
 export * from './TrackBoxForTracks'
 export * from './TrackBoxForChart'
 export * from './TrackBoxForAlbum'

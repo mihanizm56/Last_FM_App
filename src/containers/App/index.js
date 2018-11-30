@@ -23,7 +23,7 @@ const AnimatedSwitch = withRouteAnimation(() => {
   return (
           <Switch>
             <Route exact path='/' component={AnimatedMain}/>
-            <Route path='/album' component={AnimatedAlbum}/>
+            <Route path='/album/:artist/:album' component={AnimatedAlbum}/>
             <Route path='/artists' component={AnimatedArtists}/>
             <Route path='/tracks' component={AnimatedTracks}/>
             <Route component={NotFound}/>
