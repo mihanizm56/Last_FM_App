@@ -22,7 +22,3 @@ export const ArtistsList = ({ from, to, list , className, ...props}) => {
   );
 };
 
-ArtistsList.propTypes = {
-  from: PropTypes.number.isRequired,
-  to: PropTypes.number.isRequired
-};

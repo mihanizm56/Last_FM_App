@@ -40,7 +40,6 @@ export class Album extends Component {
     getTracks(artistName, albumName) {
         axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artistName}&album=${albumName}&api_key=2e6aea0b83ca1a01fd8b7c2b3c12e707&format=json`)
             .then(response => {
-                console.log(response)
                 this.setState({
                 albumName: albumName,
                 artistName: artistName,

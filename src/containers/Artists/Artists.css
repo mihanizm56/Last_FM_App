@@ -2,7 +2,6 @@
     display:flex;
     height: 70px;
     background: #545;
-    border: 1px solid red;
 }
 
 .artistsPage-title{
@@ -27,7 +26,9 @@
 
 .artistsPage-filters{
     display:flex;
+    width: 70vw;
     align-items: center;
+    justify-content: space-around;
 }
 
 

@@ -7,7 +7,7 @@ export const FilterGenres = ({ callback, listOfGenres, tagIsSelected }) => {
   let _select = React.createRef();
   return (
     <select className='select-filter-genres' ref={input => (_select = input)} onChange={() => callback(_select.value)}>
-      <option defaultValue selected={!tagIsSelected} value="" />
+      <option defaultValue={!tagIsSelected} value="" />
       {
         listOfGenres.map((element, index) => <option key={index} value={element}>{element}</option>)
       }

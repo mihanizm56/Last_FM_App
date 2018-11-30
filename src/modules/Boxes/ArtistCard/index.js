@@ -5,8 +5,10 @@ import {
     Paragraph,
     TitleH2
 } from "../../../components";
+import {ArtistBox} from "../ArtistBox";
+import PropTypes from "prop-types";
 
-export const ArtistCard = ({name, genre, image}) =>{
+export const ArtistCard = ({name, image}) =>{
     return(
         <div className="artistCard">
             <div className="artistCard-image">
@@ -14,8 +16,17 @@ export const ArtistCard = ({name, genre, image}) =>{
             </div>
             <div className="artistCard-description">
                 <TitleH2 name={name}/>
-                <Paragraph name={genre}/>
             </div>
         </div>
     )
 }
+
+ArtistCard.defaultProps = {
+    name: "",
+    image: ""
+};
+
+ArtistCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+};

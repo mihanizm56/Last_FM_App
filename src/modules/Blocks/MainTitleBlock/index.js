@@ -7,6 +7,8 @@ import './MainTitleBlock.css'
 import {
 	withEnterExitAnimation
 } from '../../../libs/Animation'
+import {TrackBoxForAlbum} from "../../Boxes/TrackBoxForAlbum";
+import PropTypes from "prop-types";
 
 export const MainTitleBlock =({name, linkName, path, className,...props}) => {
 	return (
@@ -16,3 +18,11 @@ export const MainTitleBlock =({name, linkName, path, className,...props}) => {
 		</div>
 	)
 }
+
+MainTitleBlock.propTypes = {
+    name: PropTypes.string.isRequired,
+    linkName: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired
+};
+
+
