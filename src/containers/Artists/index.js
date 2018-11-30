@@ -1,21 +1,11 @@
 import React, {Component} from "react";
-import {
-    TitleH2,
-    SearchField,
-    FilterGenres,
-} from "../../components";
-import {
-    ArtistsList,
-    LogoBlock,
-    PaginationBlock,
-    ArtistCard
-} from '../../modules'
+import { TitleH2,SearchField,FilterGenres } from "../../components";
+import { ArtistsList,PaginationBlock } from '../../modules'
 import {Route, Switch} from 'react-router-dom'
 import "./Artists.css";
 import { listOfGenres } from '../../helpers/api/config'
 import { getTopArtists, searchTracks, getTagTopArtists } from "../../helpers/api/index";
 import { Artist } from '../Artist' 
-
 
 class Artists extends Component {
   constructor() {
@@ -111,10 +101,13 @@ class Artists extends Component {
       <div className="artistsPage-artistsList">
         <ArtistsList list={arrayListArtists} />
       </div>
-      {paginationIsVisible ? <div className="PaginationBlock-wrapper">
-        <PaginationBlock artistsList={arrayListArtists} callbackForPagging={this.getArtists} />
-      </div> : null}
-         
+      {
+        paginationIsVisible ? 
+          <div className="PaginationBlock-wrapper">
+            <PaginationBlock artistsList={arrayListArtists} callbackForPagging={this.getArtists} />
+          </div> 
+          : null
+      } 
     </div>
   }
 }
@@ -127,8 +120,6 @@ const ArtistOrArtists = (props) => {
         </Switch>
     )
 }
-
-
 
 export {
     ArtistOrArtists as Artists

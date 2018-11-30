@@ -10,15 +10,28 @@ import {
 
 const List = compose(withGroupAnimation, withHoverAnimation)(ArtistBox)
 
-export const ArtistsList = ({ from, to, list , className, ...props}) => {
-  const listForPage = list.slice(from, to).map((el) => {
+export const ArtistsList = ({ list ,image, name}) => {
+  console.log('check ArtistsList')
+  console.log(image)
+  const listForPage = list.slice(0, 9).map((el) => {
   	return {
   		...el,
   		image:el.images[3],
   		key:el.name + el.artistsName
-  	}})
+    }})
   return (
-       <List {...props} className={ `artists-list ${className}` } childrensProps={listForPage}/>
+       <List name={name} image={image} className={ `artists-list` } childrensProps={listForPage}/>
   );
 };
 
+ArtistsList.defaultProps = {
+  name: "test",
+  image: "",
+  list:[]
+};
+
+ArtistsList.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  list: PropTypes.array.isRequired
+};

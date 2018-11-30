@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./ArtistBox.css";
-import { LinkItem, MiddleImage } from "../../../components";
+import { LinkItem } from "../../../components";
 
 export const ArtistBox = ({ name, image }) => {
+  name = name.length > 20 ? name.slice(0,20)+'...' : name
+
   const imageForBlock = {
     backgroundImage: `url(${image})`,
     backgroundSize: 'cover',
     backgroundRepeat : 'no-repeat'
   };
-
-  name = name.length > 20 ? name.slice(0,20)+'...' : name
 
   return (
     <div className="artist-preview__block" style={imageForBlock}>
