@@ -4,3 +4,5 @@ export * from "./TrackBoxForChart";
 export * from "./TrackBoxForAlbum";
 export * from "./ArtistCard";
 export * from "./LiveArtistBox";
+export * from './AlbumBox'
+
