@@ -46,7 +46,7 @@ export class Album extends Component {
     }
 
     render() {
-        const {albumName, artistName, trackList} = this.state;
+        const {albumName, artistName} = this.state;
         const list = this.state.trackList.map((el, index) => {
             return {
                 key: index + el.name,
@@ -56,18 +56,21 @@ export class Album extends Component {
                 ...el
             }
         })
+        const path = `artists/${artistName}`
         return (
             <div>
                 <div className="album-main-wrapper">
                     <div className="album-main-firstHalf">
                         <TitleH2 name={albumName}/>
-                        <LinkItem name={artistName}/>
+                        <LinkItem
+                            name={artistName}
+                            path={path}
+                        />
                         <SearchField placeholder="Поиск композиции" style={this.styleSearch}/>
                     </div>
                     <div className="album-main-secondHalf">
                         <FilterGenres listOfGenres={listOfGenres}/>
                     </div>
-                    {/* Вот сюда вставляй список */}
                 </div>
                 <TracksListTracks
                     list={list}
