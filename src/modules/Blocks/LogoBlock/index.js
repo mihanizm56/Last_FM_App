@@ -125,6 +125,8 @@ export default class LogoBlock extends Component {
   }
 
   render() {
+  
+    
     const { TrackName, artist, loadingControls } = this.state;
     return (
       <div className="logo-main-wrapper">

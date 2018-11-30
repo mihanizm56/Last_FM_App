@@ -15,8 +15,7 @@ export const TrackBoxForAlbum = ({ image, trackName,genreName }) => {
         <SmallImage image={image}/>
       </div>
       <div className="trackAlbum-second-half">
-        <Paragraph name={trackName}/>
-        <LinkItem name={genreName}/>
+        <LinkItem name={trackName} path={`tracks/${trackName}`}/>
       </div>
     </div>
   );

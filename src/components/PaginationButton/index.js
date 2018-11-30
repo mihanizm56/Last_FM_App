@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./PaginationButton.css";
+import posed from 'react-pose'
 
 export const PaginationButton = ({ number,from,to,callback }) => {
   let _number = React.createRef()
   return (
     <button ref={value => _number = value} value={number} className="pag-button" onClick={() => callback([_number.value,from,to])}>
-      {number}
+      {<p>{number}</p>}
     </button>
   );
 };

@@ -10,5 +10,4 @@
 .artists-list li {
 	display: grid;
 	height: 14vw;
-	border: 1px solid #333;
 }

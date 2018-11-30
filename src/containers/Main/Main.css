@@ -1,12 +1,12 @@
 
 .main-tracks-list{
 	list-style: none;
-    padding: 0px;
+  padding: 0px;
 	grid-gap:1vh 3vh;
 	display: grid;
 	align-content: space-around;
-  	justify-content: space-between;
-  	grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
 }
 .main-tracks-list li{
 }
