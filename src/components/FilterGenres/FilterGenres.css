@@ -1,25 +1,36 @@
-select {
-	appearance: none;
-	background-image:url('./img/down-arrow.svg');
-}
 .select-filter-genres {
-	border:none;
-    width: 20vw;
+	width: 20vw;
     height: 20px;
     border-radius: 10px;
-    overflow: hidden;
+    appearance: button;
+   	background: #F00;
+   	text-align-last:center;
+   	font-family: MainFont;
+   	text-align: center;
+   	color:#FFF;
+    box-shadow: 0 5px 25px rgba(0,0,0,5);
 }
 
-.select-filter-genres select {
-    padding: 50px 8px;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
+.select-filter-genres > option{
+	background: #F00;
+	text-indent: 50%;
+	text-align:center;
+	color:#FFF;
 }
 
-.select-filter-genres select::focus {
+.select-filter-genres:focus {
+    transition: .5s;
     outline: none;
     border:none;
     box-shadow: none;
+    background: #F00;
+}
+
+select:focus > option:checked { 
+    background: #000 !important;
+}
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
 }
