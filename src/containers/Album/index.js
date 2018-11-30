@@ -8,7 +8,7 @@ import {
     FilterGenres
 } from "../../components";
 import {
-    LogoBlock, TracksListTracks
+    LogoBlock, TracksListAlbum
 } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
 import axios from "axios"
@@ -39,12 +39,14 @@ export class Album extends Component {
 
     getTracks(artistName, albumName) {
         axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artistName}&album=${albumName}&api_key=2e6aea0b83ca1a01fd8b7c2b3c12e707&format=json`)
-            .then(response => (this.setState({
+            .then(response => {
+                console.log(response)
+                this.setState({
                 albumName: albumName,
                 artistName: artistName,
                 trackList: response.data.album.tracks.track,
                 image:response.data.album.image
-            })))
+            })})
 
     }
 
@@ -58,7 +60,6 @@ export class Album extends Component {
                 key: index + el.name,
                 image: "",
                 images: updateimages,
-                artistName: el.artist.name,
                 ...el
             }
         })
@@ -78,7 +79,7 @@ export class Album extends Component {
                         <FilterGenres listOfGenres={listOfGenres}/>
                     </div>
                 </div>
-                <TracksListTracks
+                <TracksListAlbum
                     list={list}
                 />
             </div>

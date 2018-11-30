@@ -46,12 +46,7 @@ export class Tracks extends Component {
 		})
 	}
 	render(){
-		const list = this.state.list.map((el) => {
-			return {
-					key:el.images[0] + el.name, 
-					image:el.images[0], 
-					...el
-				}})
+		const list = this.state.list
 		return(
 			<Page childrensProps={list}/>
 		)

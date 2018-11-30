@@ -16,7 +16,14 @@ const groupInit = {
 }
 
 const fadeInit = {
-  enter: { opacity: 1 },
+  enter: { 
+    opacity: 1 ,
+    transition: {
+      y: { type: 'spring', stiffness: 80, damping: 20 },
+      default: { duration: 800 }
+    }
+  },
+
   exit: { opacity: 0 }
 }
 
