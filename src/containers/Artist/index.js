@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Artist.css";
 import LastFM from "last-fm";
 import {
-    TracksList, 
+    TracksListTracks, 
     AlbumList, 
     ArtistCard
 } from "../../modules";
@@ -15,6 +15,7 @@ export class Artist extends Component {
         topAlbums:[],
         topTracks:[]
     }
+
     constructor(props){
         super(props)
     }
@@ -22,30 +23,20 @@ export class Artist extends Component {
     componentDidMount(){
         this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
-        console.log(this.props.match.params.name)
+        this.getArtistTopAlbums(this.props.match.params.name)
     }
 
     getArtistInfo(name = "Tree days grace"){
         this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                console.log(data)
                 const newArtistInfo = {name: data.name, image: data.images[1]}
-                this.setState({})
                 this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
-                        const topTracks = data.result
-                        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
-                            if (err) console.error(err)
-                            else {
-                                console.log(data)
-                                this.setState({
-                                    artistInfo: newArtistInfo,
-                                    topTracks: topTracks,
-                                    topAlbums: data.result
-                                })
-                            }
+                        this.setState({
+                            artistInfo: newArtistInfo,
+                            topTracks: data.result
                         })
                     }
                 })
@@ -57,13 +48,15 @@ export class Artist extends Component {
         this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                console.log(data)
+                console.log(1)
                 this.setState({topAlbums: data.result})
             }
         })
     }
 
     render() {
+        console.log(this.state.topAlbums)
+        console.log(this.state.topTracks)
         return (
             <div className="artistPage">
                 <ArtistCard
@@ -74,11 +67,27 @@ export class Artist extends Component {
                 <AlbumList
                     list={this.state.topAlbums}
                 />
-                <TracksList
+                <TracksListTracks
                     list={this.state.topTracks}
-                />
+                /> 
             </div>
         );
     }
 }
+
+/*
+
+  <TracksListTracks
+                    list={this.state.topTracks}
+                />
+      
+                <AlbumList
+                    list={this.state.topAlbums}
+                />
+                <TracksList
+                    list={this.state.topTracks}
+                />
+
+
+*/
 
