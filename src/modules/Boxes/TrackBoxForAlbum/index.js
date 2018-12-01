@@ -21,7 +21,12 @@ export const TrackBoxForAlbum = ({ image, trackName, genreName }) => {
   );
 };
 
+TrackBoxForAlbum.defaultPaops = {
+  image: '',
+  trackName: ''
+};
+
 TrackBoxForAlbum.propTypes = {
   image: PropTypes.string.isRequired,
-  trackName: PropTypes.string.isRequired,
+  trackName: PropTypes.string.isRequired
 };
