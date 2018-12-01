@@ -6,7 +6,6 @@ import {
     AlbumList, 
     ArtistCard
 } from "../../modules";
-import {getArtistTopAlbums, getArtistInfo, getArtistTopTracks} from "../../helpers/api"
 
 export class Artist extends Component {
     state = {
@@ -20,32 +19,36 @@ export class Artist extends Component {
     }
 
     componentDidMount(){
+        this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
         this.getArtistTopAlbums(this.props.match.params.name)
     }
 
-    getArtistInfo = (name) =>{
-        return getArtistInfo( name, data => {
-            if (data) {
-                const newArtistInfo = {name: data.name, image: data.images[1]}
-                return getArtistTopTracks(name, data => {
-                    if (data) {
+    getArtistInfo(name = "Tree days grace"){
+        this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
+            if (err) console.error(err)
+            else {
+                const newArtistInfo = {name: data.name, image: data.images[1], genre:data.tags.splice(2).join(', ')}
+                this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
+                    if (err) console.error(err)
+                    else {
                         this.setState({
                             artistInfo: newArtistInfo,
                             topTracks: data.result
                         })
                     }
-                });
+                })
             }
         })
     }
 
-    getArtistTopAlbums = (name) => {
-        return getArtistTopAlbums( name, data => {
-            if (data) {
+    getArtistTopAlbums(name = "Tree days grace"){
+        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
+            if (err) console.error(err)
+            else {
                 this.setState({topAlbums: data.result})
             }
-        });
+        })
     }
 
     render() {
@@ -61,7 +64,7 @@ export class Artist extends Component {
                 />
                 <TracksListTracks
                     list={this.state.topTracks}
-                />
+                /> 
             </div>
         );
     }
