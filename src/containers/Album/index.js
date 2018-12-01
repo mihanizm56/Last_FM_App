@@ -11,7 +11,6 @@ import { TracksListAlbum } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
 import {getAlbumTracks} from "../../helpers/api"
 
-
 export class Album extends Component {
     
     constructor() {

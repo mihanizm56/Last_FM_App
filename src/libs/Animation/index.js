@@ -12,7 +12,7 @@ import {
 } from './configs'
 import {Route} from 'react-router-dom'
 
-const withPageAnimation = (Component, config) => {
+const withPageAnimation = Component => {
 	const Page = posed.div({
   		enter: { staggerChildren: 30 }
 	});
