@@ -25,7 +25,8 @@ export class Album extends Component {
         albumName: '',
         artistName: '',
         trackList: [],
-        image:[]
+        image:[],
+        inputTrackName: ''
     }
 
     componentDidMount() {
@@ -37,28 +38,48 @@ export class Album extends Component {
     getTracks = (artistName, name) => {
         return getAlbumTracks( artistName, name, data => {
             if (data) {
+                const tracks = data.tracks.map((el, index) => {
+                    return {
+                        ...el,
+                        key: index + el.name,
+                        image: "",
+                        images: data.images
+                    }
+                })
                 this.setState({
                     albumName: name,
                     artistName: artistName,
-                    trackList: data.tracks,
+                    trackList: tracks,
                     image: data.images
                 })
             }
         });
     }
 
-    render() {
-        const {albumName, artistName, image} = this.state;
-        const updateimages = [...image]
-        const list = this.state.trackList.map((el, index) => {
-            return {
-                ...el,
-                key: index + el.name,
-                image: "",
-                images: updateimages,
-
-            }
+    changeTrackName = (track) =>{
+        this.setState({
+            inputTrackName: track
         })
+    }
+
+    getList = () =>{
+        let track = this.state.inputTrackName
+        if (track === ""){
+            return this.state.trackList
+        }
+        else{
+            let trackName = track.toLowerCase()
+            return this.state.trackList.filter((item)=>{
+                return item.name.toLowerCase().indexOf(trackName) !== -1
+            })
+
+        }
+
+    }
+
+    render() {
+        const {albumName, artistName} = this.state;
+
         const path = `artists/${artistName}`
         return (
             <div>
@@ -69,14 +90,18 @@ export class Album extends Component {
                             name={artistName}
                             path={path}
                         />
-                        <SearchField placeholder="Поиск композиции" style={this.styleSearch}/>
+                        <SearchField
+                            placeholder="Поиск композиции"
+                            style={this.styleSearch}
+                            callback={this.changeTrackName}
+                        />
                     </div>
                     <div className="album-main-secondHalf">
                         <FilterGenres listOfGenres={listOfGenres}/>
                     </div>
                 </div>
                 <TracksListAlbum
-                    list={list}
+                    list={this.getList()}
                 />
             </div>
         )
