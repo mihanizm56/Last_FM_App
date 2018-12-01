@@ -88,10 +88,6 @@ class Artists extends Component {
     })
   }
 
-componentDidUpdate(){
-  console.log(this.state.nameOfTag)
-}
-
   render() {
     const { arrayListArtists, paginationIsVisible,nameOfTag } = this.state;
     return <div className="artistsPage-wrapper">

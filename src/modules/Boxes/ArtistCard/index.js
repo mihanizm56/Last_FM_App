@@ -2,10 +2,10 @@ import React from "react"
 import "./ArtistCard.css"
 import {
     MiddleImage,
-    Paragraph,
+    //Paragraph,
     TitleH2
 } from "../../../components";
-import {ArtistBox} from "../ArtistBox";
+// import {ArtistBox} from "../ArtistBox";
 import PropTypes from "prop-types";
 
 export const ArtistCard = ({name, image}) =>{

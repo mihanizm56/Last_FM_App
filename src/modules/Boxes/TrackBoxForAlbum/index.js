@@ -4,7 +4,7 @@ import "./TrackBoxForAlbum.css";
 
 import { 
   SmallImage,
-  Paragraph,
+  //Paragraph,
   LinkItem  
 } from "../../../components";
 

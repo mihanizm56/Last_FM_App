@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./AlbumBox.css";
-import { LinkItem, MiddleImage } from "../../../components";
+import { LinkItem } from "../../../components";
 
 
 export const AlbumBox = ({ name, image, artistName }) => {

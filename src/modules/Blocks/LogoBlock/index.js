@@ -40,7 +40,7 @@ export default class LogoBlock extends Component {
     if (parameter) {
       return this.song.play();
     }
-    this.song.stop();
+    this.song.pause();
   };
 
   nextTrack = () => {
@@ -84,11 +84,11 @@ export default class LogoBlock extends Component {
       volume: this.state.volume,
       onload: () => {
         if (this.state.isPlaying) this.playTracks(true);
-        console.log("track is loaded");
+        //console.log("track is loaded");
         this.setState({ ...this.state, loadingControls: false });
       },
       onend: function() {
-        console.log("track is finished");
+        //console.log("track is finished");
         return nextTrack();
       }
     });

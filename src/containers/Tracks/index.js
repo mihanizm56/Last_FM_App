@@ -1,15 +1,15 @@
 import React, {Fragment, Component} from 'react'
 import './Tracks.css'
-import { Route } from 'react-router'
+// import { Route } from 'react-router'
 import  { 
 	TracksTitleBlock, 
 	TracksListTracks,
-	LogoBlock
+	//LogoBlock
 } from '../../modules'
 import LastFM from 'last-fm'
 import {shuffle} from '../../helpers'
 
-const Page = ({childrensProps, ...props}) => {
+const Page = ({childrensProps}) => {
 	return(
 		<Fragment>
 			<TracksTitleBlock/>

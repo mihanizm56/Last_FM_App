@@ -40,11 +40,11 @@ const hoverInit = {
     boxShadow: '0px 0px 0px rgba(0,0,0,0)'
   },
   hover: {
-    scale: 1.18,
+    scale: 1.03,
     boxShadow: '0px 10px 15px rgba(0,0,0,0.5)'
   },
   press: {
-    scale: 1.09,
+    scale: 1.04,
     boxShadow: '0px 2px 5px rgba(0,0,0,0.4)'
   },
   blur: {

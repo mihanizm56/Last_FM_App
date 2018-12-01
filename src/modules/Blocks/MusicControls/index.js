@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./MusicControls.css";
-import { PlayButton, ButtonChangeRadio, ButtonPlusMinus } from "../../../components";
+import { PlayButton, ButtonChangeRadio } from "../../../components";
 
 const MusicControls = ({ prevTrack, nextTrack,isPlaying,callbackForPlaying }) => {
   return (
