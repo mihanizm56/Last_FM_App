@@ -35,7 +35,7 @@
     "prettier": "^1.15.3"
   },
   "lint-staged": {
-    "*.{js, jsx}": [
+    "*.jsx": [
       "node_modules/.bin/eslint --max-warnings=0",
       "prettier --write",
       "git add"
