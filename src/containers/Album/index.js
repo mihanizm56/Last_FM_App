@@ -96,9 +96,6 @@ export class Album extends Component {
                             callback={this.changeTrackName}
                         />
                     </div>
-                    <div className="album-main-secondHalf">
-                        <FilterGenres listOfGenres={listOfGenres}/>
-                    </div>
                 </div>
                 <TracksListAlbum
                     list={this.getList()}
