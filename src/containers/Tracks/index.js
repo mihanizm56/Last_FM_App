@@ -1,61 +1,84 @@
-import React, { Fragment, Component } from "react";
-import "./Tracks.css";
-// import { Route } from 'react-router'
+import React, {Fragment, Component} from 'react'
+import './Tracks.css'
+import { Route, Switch } from 'react-router'
+import  { 
+	TracksTitleBlock, 
+	TracksListTracks,
+	LogoBlock,
+	PaginationBlock
+} from '../../modules'
+import LastFM from 'last-fm'
+import {shuffle} from '../../helpers'
 import {
-  TracksTitleBlock,
-  TracksListTracks
-  //LogoBlock
-} from "../../modules";
-import LastFM from "last-fm";
-import { shuffle } from "../../helpers";
-import PropTypes from "prop-types";
+	searchTracksName,
+	getTopTracks
+} from '../../helpers/api'
+import {
+	listOfGenres
+} from '../../helpers/api/config'
+import {
+	partial
+} from '../../helpers'
 
-const Page = ({ childrensProps }) => {
-  return (
-    <Fragment>
-      <TracksTitleBlock />
-      <TracksListTracks list={childrensProps} />
-    </Fragment>
-  );
-};
+const Page = ({list, paginationCb, ...props}) => {
+	return(
+		<Fragment>
+			<TracksTitleBlock listOfGenres={listOfGenres} {...props}/>
+			<TracksListTracks  list={list}/>
+			<PaginationBlock callbackForPagging={(item) => paginationCb(item[0])} />
+		</Fragment>
+	)
+}
 
-Page.defaultProps = {
-  childrensProps: []
-};
+class Tracks extends Component {
+	state = {
+		trackList: [],
+		searchWord: ''
+	}	
+	constructor(props){
+		super(props)
+		this.search = this.search.bind(this)
+	}
+	componentDidMount(){
+		const track = this.props.match.params.track
+		this.search(track)
+	}
+	search(searchWord, page = 1){
+		console.log(searchWord, page)
+		this.setState({
+			searchWord: searchWord
+		})
+		searchWord ? searchTracksName(searchWord, page,  data => {
+			this.setState({
+				trackList:data.result
+			})
+		}) : 
+		this.getTopTracks(page)
+	}
+	getTopTracks(){
+		getTopTracks(1, 20, data => {
+			this.setState({
+				trackList: data.result
+			})
+		})
+	}
+	render(){
+		return(
+			<Page paginationCb={partial(this.search, this.state.searchWord)}  callback={this.search} list={this.state.trackList}/>
+		)
+	}
+}
 
-Page.propTypes = {
-  childrensProps: PropTypes.array.isRequired
-};
 
-export class Tracks extends Component {
-  state = {
-    list: []
-  };
-  constructor(props) {
-    super(props);
-    this.search = this.search.bind(this);
-    this.shuffle = this.shuffle.bind(this);
-  }
-  componentDidMount() {
-    this.lastfm = new LastFM("659beef5a99f79b12854cc654f94b0d5");
-    this.search();
-    setInterval(this.shuffle, 3000);
-  }
-  search() {
-    this.lastfm.trackSearch({ q: "the greatest" }, (err, data) => {
-      if (err) console.error(err);
-      else {
-        this.setState({ list: data.result });
-      }
-    });
-  }
-  shuffle() {
-    this.setState({
-      list: shuffle(this.state.list)
-    });
-  }
-  render() {
-    const list = this.state.list;
-    return <Page childrensProps={list} />;
-  }
+const TracksPage = (props) => {
+	return (
+		<Switch>
+			<Route exact path='/tracks' component={Tracks}/>
+			<Route path='/tracks/:track' component={Tracks}/>
+		</Switch>
+	)
+}
+
+export{
+	TracksPage as Tracks
 }

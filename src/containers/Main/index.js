@@ -12,13 +12,14 @@ import {
 	withGroupAnimation,
 } from '../../libs/Animation'
 import LastFM from 'last-fm'
-
 import { 
 	getTopArtists, 
-	searchTracks, 
-	getTagTopArtists
+	getTopTracks,
+	getTopTracksTags
 } from "../../helpers/api";
-import {shuffle} from '../../helpers'
+import {
+	shuffle
+} from '../../helpers'
 
 export class Main extends Component {
 	state = {
@@ -29,17 +30,15 @@ export class Main extends Component {
 		super(props)
 	}
 	componentDidMount(){
-		this.lastfm = new LastFM('659beef5a99f79b12854cc654f94b0d5')
-		this.search()
-		this.getArtists()
+		this.getTopTracks()
+		this.getTopArtists()
 		setInterval(this.shuffle, 3000)
 	}
-	search = () => {
-		this.lastfm.trackSearch({ q: 'the greatest' }, (err, data) => {
-  			if (err) console.error(err)
-  			else {
-  				this.setState({trackList:data.result})
-  			}
+	getTopTracks = (page = 1) => {
+		getTopTracks(page, 10 , data => {
+			this.setState({
+				trackList: data.result,
+			})
 		})
 	}
 	shuffle = () => {
@@ -48,7 +47,7 @@ export class Main extends Component {
 		})
 	}
 
-	getArtists = () => {
+	getTopArtists = () => {
     return getTopArtists(1, data => {
       if (data) {
         this.setState({
@@ -64,10 +63,9 @@ export class Main extends Component {
 				<div className='main-container top-artist-container'>
 					<ArtistsList  list={this.state.artistsList} from={0} to={6} />
 				</div>
-				<MainTitleBlock name='Last FM Чарт' linkName='Посмотреть всех' path='tracks' className='border' />
-				<p> поменять сам вызов апи </p>
+				<MainTitleBlock name='Last FM Чарт (TOP 10)' linkName='Посмотреть всех' path='tracks' className='border' />
 				<div className='main-container w-95'>
-					<TracksListChart className='main-tracks-list' list={this.state.trackList}/>
+					<TracksListChart list={this.state.trackList}/>
 				</div> 
 			</div>
 		)

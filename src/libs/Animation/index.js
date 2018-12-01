@@ -41,6 +41,19 @@ const withEnterExitAnimation = (Component, config = groupInit) => {
 	}
 }
 
+const withFadeAnimation = (Component, config = groupInit) => {
+	const Wrapper = posed.div(config)
+	return props => {
+		return(
+				<Wrapper key='single-component-animation'>
+					<Component {...props} />
+				</Wrapper>
+		)
+	}
+}
+
+
+
 const withEventAnimation = (Component, config) => {
 	const Wrapper = posed.div(config)
 	return props => {
@@ -103,7 +116,8 @@ export {
 	withEventAnimation, 
 	withGroupAnimation,
 	withRouteAnimation,
-	withPageAnimation
+	withPageAnimation,
+	withFadeAnimation
 }
 
 

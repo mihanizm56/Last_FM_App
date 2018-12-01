@@ -7,14 +7,14 @@ import {
   SearchField 
 } from "../../../components";
 
-export const TracksTitleBlock = ({ listOfGenres }) => {
+export const TracksTitleBlock = ({ listOfGenres, callback }) => {
   return (
     <div className="songs-main-wrapper">
       <div className="songs-main-firstHalf">
         <TitleH2 name="Треки" />
       </div>
       <div className="songs-main-secondHalf">
-        <SearchField placeholder="Поиск композиции" />
+        <SearchField placeholder="Поиск композиции" callback={callback} />
       </div>
     </div>
   );
