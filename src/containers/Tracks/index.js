@@ -1,55 +1,84 @@
 import React, {Fragment, Component} from 'react'
 import './Tracks.css'
-import { Route } from 'react-router'
+import { Route, Switch } from 'react-router'
 import  { 
 	TracksTitleBlock, 
 	TracksListTracks,
-	LogoBlock
+	LogoBlock,
+	PaginationBlock
 } from '../../modules'
 import LastFM from 'last-fm'
 import {shuffle} from '../../helpers'
+import {
+	searchTracks,
+	getTopTracks
+} from '../../helpers/api'
+import {
+	listOfGenres
+} from '../../helpers/api/config'
+import {
+	partial
+} from '../../helpers'
 
-const Page = ({childrensProps, ...props}) => {
+const Page = ({list, paginationCb, ...props}) => {
 	return(
 		<Fragment>
-			<TracksTitleBlock/>
-			<TracksListTracks  list={childrensProps}/>
+			<TracksTitleBlock listOfGenres={listOfGenres} {...props}/>
+			<TracksListTracks  list={list}/>
+			<PaginationBlock callbackForPagging={(item) => paginationCb(item[0])} />
 		</Fragment>
 	)
 }
 
-export class Tracks extends Component {
+class Tracks extends Component {
 	state = {
-		list: []
+		trackList: [],
+		searchWord: ''
 	}	
 	constructor(props){
 		super(props)
 		this.search = this.search.bind(this)
-		this.shuffle = this.shuffle.bind(this)
 	}
 	componentDidMount(){
-		this.lastfm = new LastFM('659beef5a99f79b12854cc654f94b0d5')
-		this.search()
-		setInterval(this.shuffle, 3000)
+		const track = this.props.match.params.track
+		this.search(track)
 	}
-	search(){
-		this.lastfm.trackSearch({ q: 'the greatest' }, (err, data) => {
-  			if (err) console.error(err)
-  			else {
-  				this.setState({list:data.result})
-  			}
-		})
-	}
-	shuffle(){
+	search(searchWord, page = 1){
+		console.log(searchWord, page)
 		this.setState({
-			list:shuffle(this.state.list)
+			searchWord: searchWord
+		})
+		searchWord ? searchTracks(searchWord, page,  data => {
+			this.setState({
+				trackList:data.result
+			})
+		}) : 
+		this.getTopTracks(page)
+	}
+	getTopTracks(){
+		getTopTracks(1, 20, data => {
+			this.setState({
+				trackList: data.result
+			})
 		})
 	}
 	render(){
-		const list = this.state.list
 		return(
-			<Page childrensProps={list}/>
+			<Page paginationCb={partial(this.search, this.state.searchWord)}  callback={this.search} list={this.state.trackList}/>
 		)
 	}
 }
 
+
+const TracksPage = (props) => {
+	return (
+		<Switch>
+			<Route exact path='/tracks' component={Tracks}/>
+			<Route path='/tracks/:track' component={Tracks}/>
+		</Switch>
+	)
+}
+
+export{
+	TracksPage as Tracks
+}

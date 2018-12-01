@@ -15,13 +15,42 @@ export const getTopArtists = (page, callback) => {
   )
 };
 
-export const searchTracks = (string, page, callback) => {
+export const searchAll = (string, page, callback) => {
   const lastfm = new LastFM(api_key, {
     userAgent: userAgent
   });
 
   lastfm.search(
     { artist: string, api_key: api_key, page: page, q: string },
+    (error, data) => {
+      if (data) return callback(data);
+      return console.warn(error);
+    }
+  );
+};
+
+
+export const getTopTracks = (page, limit, callback) => {
+  const lastfm = new LastFM(api_key, {
+    userAgent: userAgent
+  });
+  lastfm.chartTopTracks(
+    {api_key: api_key, page: page, limit: limit},
+    (error, data) => {
+      if (data) return callback(data);
+      return console.warn(error);
+    }
+  );
+};
+
+
+
+export const searchTracks = (string, page, callback) => {
+  const lastfm = new LastFM(api_key, {
+    userAgent: userAgent
+  });
+  lastfm.trackSearch(
+    { q: string, api_key: api_key, page: page},
     (error, data) => {
       if (data) return callback(data);
       return console.warn(error);

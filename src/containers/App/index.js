@@ -6,14 +6,15 @@ import {
   Main,
   Album,
   Artists,
-  Tracks
+  Tracks,
+  NotFound
 } from '../'
 import {
   withRouteAnimation,
   withPageAnimation
 } from '../../libs/Animation'
 
-const NotFound = withPageAnimation(() => <p> 404 </p>)
+const AnimatedNotFound = withPageAnimation(NotFound)
 const AnimatedMain = withPageAnimation(Main)
 const AnimatedAlbum = withPageAnimation(Album)
 const AnimatedArtists = withPageAnimation(Artists)
@@ -26,7 +27,7 @@ const AnimatedSwitch = withRouteAnimation(() => {
             <Route path='/album/:artist/:album' component={AnimatedAlbum}/>
             <Route path='/artists' component={AnimatedArtists}/>
             <Route path='/tracks' component={AnimatedTracks}/>
-            <Route component={NotFound}/>
+            <Route component={AnimatedNotFound}/>
           </Switch>
           )
 })

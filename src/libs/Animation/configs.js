@@ -16,15 +16,20 @@ const groupInit = {
 }
 
 const fadeInit = {
-  enter: { 
-    opacity: 1 ,
+  enter: {
+    x: -50,
+    opacity: 1,
+    delay: 300,
     transition: {
-      y: { type: 'spring', stiffness: 80, damping: 20 },
-      default: { duration: 800 }
+      y: { type: 'spring', stiffness: 1000, damping: 15 },
+      default: { duration: 300 }
     }
   },
-
-  exit: { opacity: 0 }
+  exit: {
+    x: 50,
+    opacity: 0,
+    transition: { duration: 150 }
+  }
 }
 
 const dragInit = {

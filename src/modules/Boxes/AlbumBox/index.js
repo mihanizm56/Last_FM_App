@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./AlbumBox.css";
 import { LinkItem, MiddleImage } from "../../../components";
+import {
+  isEmpty
+} from '../../../helpers'
 
-
-export const AlbumBox = ({ name, image, artistName }) => {
+const AlbumBox = ({ name, image, artistName }) => {
   const imageForBlock = {
     backgroundImage: `url(${image})`,
     backgroundSize: 'cover',
@@ -17,6 +19,15 @@ export const AlbumBox = ({ name, image, artistName }) => {
   );
 };
 
+
+export const AnimatedAlbumBox = (props) => {
+    const condition = !isEmpty(props.name && props.image && props.artistName);
+    return (
+        <AlbumBox is={condition} {...props}/> 
+    )
+}
+
+
 AlbumBox.defaultProps = {
   name: "test",
   image: ""
@@ -26,3 +37,7 @@ AlbumBox.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired
 };
+
+export {
+   AnimatedAlbumBox as AlbumBox
+}

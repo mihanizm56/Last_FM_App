@@ -30,7 +30,7 @@ export class Artist extends Component {
         this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
             if (err) console.error(err)
             else {
-                const newArtistInfo = {name: data.name, image: data.images[1]}
+                const newArtistInfo = {name: data.name, image: data.images[1], genre:data.tags.splice(2).join(', ')}
                 this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
                     if (err) console.error(err)
                     else {
@@ -58,7 +58,7 @@ export class Artist extends Component {
             <div className="artistPage">
                 <ArtistCard
                     name={this.state.artistInfo.name}
-                    genre="Artistgenre"
+                    genre={this.state.artistInfo.genre}
                     image={this.state.artistInfo.image}
                 />
                 <AlbumList
@@ -72,19 +72,4 @@ export class Artist extends Component {
     }
 }
 
-/*
-
-  <TracksListTracks
-                    list={this.state.topTracks}
-                />
-      
-                <AlbumList
-                    list={this.state.topAlbums}
-                />
-                <TracksList
-                    list={this.state.topTracks}
-                />
-
-
-*/
 

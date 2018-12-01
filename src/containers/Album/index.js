@@ -8,7 +8,7 @@ import {
     FilterGenres
 } from "../../components";
 import {
-    LogoBlock, TracksListAlbum
+    LogoBlock, TracksListAlbum, AlbumTitleBlock
 } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
 import axios from "axios"
@@ -18,10 +18,6 @@ export class Album extends Component {
     
     constructor() {
         super()
-
-        this.styleSearch = {
-            marginTop: "40px"
-        };
     }
 
     state = {
@@ -66,19 +62,12 @@ export class Album extends Component {
         const path = `artists/${artistName}`
         return (
             <div>
-                <div className="album-main-wrapper">
-                    <div className="album-main-firstHalf">
-                        <TitleH2 name={albumName}/>
-                        <LinkItem
-                            name={artistName}
-                            path={path}
-                        />
-                        <SearchField placeholder="Поиск композиции" style={this.styleSearch}/>
-                    </div>
-                    <div className="album-main-secondHalf">
-                        <FilterGenres listOfGenres={listOfGenres}/>
-                    </div>
-                </div>
+                <AlbumTitleBlock 
+                    listOfGenres = {listOfGenres}
+                    albumName = {albumName}
+                    path = {path}
+                    artistName = {artistName}
+                />
                 <TracksListAlbum
                     list={list}
                 />

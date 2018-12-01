@@ -3,10 +3,17 @@ import "./ArtistCard.css"
 import {
     MiddleImage,
     Paragraph,
-    TitleH2
+    TitleH2,
+    BounceLoading
 } from "../../../components";
+import {
+    withEnterExitAnimation
+} from '../../../libs/Animation'
+import {
+    isEmpty
+} from '../../../helpers'
 
-export const ArtistCard = ({name, genre, image}) =>{
+const ArtistCard = withEnterExitAnimation(({name, genre, image}) =>{
     return(
         <div className="artistCard">
             <div className="artistCard-image">
@@ -18,4 +25,16 @@ export const ArtistCard = ({name, genre, image}) =>{
             </div>
         </div>
     )
+})
+
+export const AnimatedArtistCard = (props) => {
+    const condition = !isEmpty(props.name && props.genre && props.image);
+    return (
+        <ArtistCard is={condition} {...props}/> 
+    )
+}
+
+
+export {
+    AnimatedArtistCard as ArtistCard
 }
