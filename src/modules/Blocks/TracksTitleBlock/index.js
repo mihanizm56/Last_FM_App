@@ -15,10 +15,13 @@ export const TracksTitleBlock = ({ listOfGenres }) => {
       </div>
       <div className="songs-main-secondHalf">
         <SearchField placeholder="Поиск композиции" />
-        <FilterGenres listOfGenres={listOfGenres} />
       </div>
     </div>
   );
+};
+
+TracksTitleBlock.defaultProps = {
+  listOfGenres: []
 };
 
 TracksTitleBlock.propTypes = {

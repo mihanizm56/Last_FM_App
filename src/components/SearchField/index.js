@@ -12,10 +12,12 @@ export const SearchField = ({ placeholder, callback, style }) => {
 
 SearchField.defaultProps = {
   placeholder: "placeholder is empty",
-  style:{}
+  style:{},
+  callback: ()=> alert('callback is empty')
 };
 
 SearchField.propTypes = {
   placeholder: PropTypes.string.isRequired,
-  style: PropTypes.object.isRequired
+  style: PropTypes.object.isRequired,
+  callback: PropTypes.func.isRequired
 };
