@@ -1,14 +1,14 @@
-import React from "react"
-import PropTypes from "prop-types"
-import "./AlbumBox.css"
-import { LinkItem } from "../../../components"
-import { isEmpty } from "../../../helpers"
+import React from 'react'
+import PropTypes from 'prop-types'
+import './AlbumBox.css'
+import { LinkItem } from '../../../components'
+import { isEmpty } from '../../../helpers'
 
 const AlbumBox = ({ name, image, artistName }) => {
   const imageForBlock = {
     backgroundImage: `url(${image})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
   }
   return (
     <div className="artist-preview__block " style={imageForBlock}>
@@ -23,8 +23,8 @@ export const AnimatedAlbumBox = props => {
 }
 
 AlbumBox.defaultProps = {
-  name: "test",
-  image: "",
+  name: 'test',
+  image: '',
 }
 
 AlbumBox.propTypes = {
