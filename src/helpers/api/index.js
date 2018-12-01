@@ -97,3 +97,20 @@ export const getArtistTopTracks = (name, callback) => {
         }
     );
 }
+
+export const getAlbumTracks = (artistName, name, callback) => {
+    const lastfm = new LastFM(
+        api_key,
+        {
+            userAgent: userAgent
+        }
+    );
+
+    lastfm.albumInfo(
+        { artistName: artistName, name: name, api_key: api_key },
+        (error, data) => {
+            if (data) return callback(data);
+            return console.warn(error);
+        }
+    );
+}
