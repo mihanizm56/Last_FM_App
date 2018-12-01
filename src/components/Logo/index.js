@@ -12,7 +12,7 @@ const LogoAnimation = compose(withPressAnimation)
 
 export const Logo = LogoAnimation(() => {
 	return (
-		<Link to='/'>
+		<Link to="/">
 			<SmallImage image={'images/logo.png'}/>
 		</Link>
 	)
