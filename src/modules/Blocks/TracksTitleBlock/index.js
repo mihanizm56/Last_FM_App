@@ -20,6 +20,10 @@ export const TracksTitleBlock = ({ listOfGenres, callback }) => {
   );
 };
 
+TracksTitleBlock.defaultProps = {
+  listOfGenres: []
+};
+
 TracksTitleBlock.propTypes = {
   listOfGenres: PropTypes.array.isRequired
 };

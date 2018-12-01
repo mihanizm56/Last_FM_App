@@ -5,13 +5,14 @@ import {
     TitleH2,
     LinkItem,
     SearchField,
-    FilterGenres
+    // FilterGenres
 } from "../../components";
 import {
     LogoBlock, TracksListAlbum, AlbumTitleBlock
 } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
 import {getAlbumTracks} from "../../helpers/api"
+// import {listOfGenres} from '../../helpers/api/config'
 
 export class Album extends Component {
     
@@ -81,11 +82,13 @@ export class Album extends Component {
         const path = `artists/${artistName}`
         return (
             <div>
+
                 <AlbumTitleBlock 
                     listOfGenres = {listOfGenres}
                     albumName = {albumName}
                     path = {path}
                     artistName = {artistName}/>
+
                 <TracksListAlbum
                     list={this.getList()}
                 />
