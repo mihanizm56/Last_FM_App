@@ -11,10 +11,8 @@ import {
     LogoBlock, TracksListAlbum
 } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
-import axios from "axios"
-import LastFM from 'last-fm'
+import {getAlbumTracks} from "../../helpers/api"
 
-const API_KEY = "2e6aea0b83ca1a01fd8b7c2b3c12e707"
 
 export class Album extends Component {
     
@@ -34,18 +32,14 @@ export class Album extends Component {
     }
 
     componentDidMount() {
-        this.lastfm = new LastFM(API_KEY)
         const artistName = this.props.match.params.artist
         const albumName = this.props.match.params.album
         this.getTracks(artistName, albumName)
     }
 
-
-    getTracks(artistName, name) {
-        this.lastfm.albumInfo({ artistName,name }, (err, data) => {
-            if (err) console.error(err)
-            else {
-                console.log(data)
+    getTracks = (artistName, name) => {
+        return getAlbumTracks( artistName, name, data => {
+            if (data) {
                 this.setState({
                     albumName: name,
                     artistName: artistName,
@@ -53,7 +47,7 @@ export class Album extends Component {
                     image: data.images
                 })
             }
-        })
+        });
     }
 
     render() {
