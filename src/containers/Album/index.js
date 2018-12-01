@@ -7,9 +7,7 @@ import {
     SearchField,
     FilterGenres
 } from "../../components";
-import {
-    LogoBlock, TracksListAlbum
-} from '../../modules'
+import { TracksListAlbum } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
 import {getAlbumTracks} from "../../helpers/api"
 
