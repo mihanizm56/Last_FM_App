@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./TracksTitleBlock.css";
 import { 
   TitleH2, 
-  FilterGenres, 
+  // FilterGenres, 
   SearchField 
 } from "../../../components";
 
