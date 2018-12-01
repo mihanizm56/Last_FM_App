@@ -40,16 +40,14 @@ export default class LogoBlock extends Component {
     if (parameter) {
       return this.song.play();
     }
-
-    this.song.stop();
+    this.song.pause();
   };
 
   nextTrack = () => {
-
     if (this.state.currentTrackIndex < Playlist.length - 1) {
       this.playTracks(false);
 
-      this.setTrack(this.state.currentTrackIndex + 1, this.nextTrack);
+      this.setTrack(this.state.currentTrackIndex + 1);
 
       this.setState({
         ...this.state,
@@ -61,11 +59,10 @@ export default class LogoBlock extends Component {
   };
 
   prevTrack = () => {
-
     if (this.state.currentTrackIndex) {
       this.playTracks(false);
 
-      this.setTrack(this.state.currentTrackIndex - 1, this.nextTrack);
+      this.setTrack(this.state.currentTrackIndex - 1);
 
       this.setState({
         ...this.state,
@@ -76,7 +73,9 @@ export default class LogoBlock extends Component {
     }
   };
 
-  setTrack = (index, callbackForNext) => {
+  setTrack = index => {
+    const nextTrack = this.nextTrack
+
     this.setState({ ...this.state, loadingControls: true });
 
     const song = new Howl({
@@ -85,11 +84,12 @@ export default class LogoBlock extends Component {
       volume: this.state.volume,
       onload: () => {
         if (this.state.isPlaying) this.playTracks(true);
-        console.log("track is loaded");
+        //console.log("track is loaded");
         this.setState({ ...this.state, loadingControls: false });
       },
       onend: function() {
-        return callbackForNext();
+        //console.log("track is finished");
+        return nextTrack();
       }
     });
     this.song = song;
@@ -110,6 +110,7 @@ export default class LogoBlock extends Component {
 
   getControls = () => {
     const { isPlaying } = this.state;
+
     return (
       <MusicControls
         prevTrack={this.prevTrack}
@@ -121,13 +122,12 @@ export default class LogoBlock extends Component {
   };
 
   componentDidMount() {
-    this.setTrack(this.state.currentTrackIndex, this.nextTrack);
+    this.setTrack(this.state.currentTrackIndex);
   }
 
   render() {
-  
-    
     const { TrackName, artist, loadingControls } = this.state;
+    
     return (
       <div className="logo-main-wrapper">
         <div className="logo-first-half">

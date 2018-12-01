@@ -34,7 +34,6 @@ export const AnimatedArtistCard = (props) => {
     )
 }
 
-
 export {
     AnimatedArtistCard as ArtistCard
 }

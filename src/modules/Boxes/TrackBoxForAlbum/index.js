@@ -4,11 +4,11 @@ import "./TrackBoxForAlbum.css";
 
 import { 
   SmallImage,
-  Paragraph,
+  //Paragraph,
   LinkItem  
 } from "../../../components";
 
-export const TrackBoxForAlbum = ({ image, trackName,genreName }) => {
+export const TrackBoxForAlbum = ({ image, trackName, genreName }) => {
   return (
     <div className="trackAlbum-wrapper">
       <div className="trackAlbum-first-half">
@@ -21,8 +21,12 @@ export const TrackBoxForAlbum = ({ image, trackName,genreName }) => {
   );
 };
 
+TrackBoxForAlbum.defaultPaops = {
+  image: '',
+  trackName: ''
+};
+
 TrackBoxForAlbum.propTypes = {
   image: PropTypes.string.isRequired,
-  trackName: PropTypes.string.isRequired,
-  genreName: PropTypes.string.isRequired
+  trackName: PropTypes.string.isRequired
 };

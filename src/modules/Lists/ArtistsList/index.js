@@ -1,28 +1,44 @@
 import React from "react";
 import { ArtistBox } from "../../Boxes";
 import PropTypes from "prop-types";
-import "./ArtistsList.css"
+import "./ArtistsList.css";
 import {
   compose,
   withGroupAnimation,
   withHoverAnimation
-} from '../../../libs/Animation'
+} from "../../../libs/Animation";
 
-const List = compose(withGroupAnimation, withHoverAnimation)(ArtistBox)
+const List = compose(
+  withGroupAnimation,
+  withHoverAnimation
+)(ArtistBox);
 
-export const ArtistsList = ({ from, to, list , className, ...props}) => {
-  const listForPage = list.slice(from, to).map((el,id) => {
-  	return {
-  		...el,
-  		image:el.images[3],
-  		key:el.name + el.artistsName
-  	}})
+export const ArtistsList = ({ list, image, name }) => {
+  const listForPage = list.slice(0, 9).map(element => {
+    return {
+      ...element,
+      image: element.images[3],
+      key: element.name + element.artistsName
+    };
+  });
   return (
-       <List {...props} className={ `artists-list ${className}` } childrensProps={listForPage}/>
+    <List
+      name={name}
+      image={image}
+      className={`artists-list`}
+      childrensProps={listForPage}
+    />
   );
 };
 
+ArtistsList.defaultProps = {
+  name: "test",
+  image: "",
+  list: []
+};
+
 ArtistsList.propTypes = {
-  from: PropTypes.number.isRequired,
-  to: PropTypes.number.isRequired
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  list: PropTypes.array.isRequired
 };

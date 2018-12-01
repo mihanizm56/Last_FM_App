@@ -11,8 +11,7 @@ import {
     LogoBlock, TracksListAlbum, AlbumTitleBlock
 } from '../../modules'
 import {listOfGenres} from '../../helpers/api/config'
-import axios from "axios"
-import LastFM from 'last-fm'
+import {getAlbumTracks} from "../../helpers/api"
 
 export class Album extends Component {
     
@@ -24,7 +23,8 @@ export class Album extends Component {
         albumName: '',
         artistName: '',
         trackList: [],
-        image:[]
+        image:[],
+        inputTrackName: ''
     }
 
     componentDidMount() {
@@ -33,32 +33,51 @@ export class Album extends Component {
         this.getTracks(artistName, albumName)
     }
 
-    getTracks(artistName, albumName) {
-        axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artistName}&album=${albumName}&api_key=2e6aea0b83ca1a01fd8b7c2b3c12e707&format=json`)
-            .then(response => {
-                console.log(response)
+    getTracks = (artistName, name) => {
+        return getAlbumTracks( artistName, name, data => {
+            if (data) {
+                const tracks = data.tracks.map((el, index) => {
+                    return {
+                        ...el,
+                        key: index + el.name,
+                        image: "",
+                        images: data.images
+                    }
+                })
                 this.setState({
-                albumName: albumName,
-                artistName: artistName,
-                trackList: response.data.album.tracks.track,
-                image:response.data.album.image
-            })})
+                    albumName: name,
+                    artistName: artistName,
+                    trackList: tracks,
+                    image: data.images
+                })
+            }
+        });
+    }
+
+    changeTrackName = (track) =>{
+        this.setState({
+            inputTrackName: track
+        })
+    }
+
+    getList = () =>{
+        let track = this.state.inputTrackName
+        if (track === ""){
+            return this.state.trackList
+        }
+        else{
+            let trackName = track.toLowerCase()
+            return this.state.trackList.filter((item)=>{
+                return item.name.toLowerCase().indexOf(trackName) !== -1
+            })
+
+        }
 
     }
 
     render() {
-        const {albumName, artistName, image} = this.state;
-        const updateimages = image.map((item)=>{
-            return item['#text']
-        })
-        const list = this.state.trackList.map((el, index) => {
-            return {
-                key: index + el.name,
-                image: "",
-                images: updateimages,
-                ...el
-            }
-        })
+        const {albumName, artistName} = this.state;
+
         const path = `artists/${artistName}`
         return (
             <div>
@@ -66,10 +85,9 @@ export class Album extends Component {
                     listOfGenres = {listOfGenres}
                     albumName = {albumName}
                     path = {path}
-                    artistName = {artistName}
-                />
+                    artistName = {artistName}/>
                 <TracksListAlbum
-                    list={list}
+                    list={this.getList()}
                 />
             </div>
         )

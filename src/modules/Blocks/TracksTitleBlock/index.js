@@ -15,7 +15,6 @@ export const TracksTitleBlock = ({ listOfGenres, callback }) => {
       </div>
       <div className="songs-main-secondHalf">
         <SearchField placeholder="Поиск композиции" callback={callback} />
-        <FilterGenres listOfGenres={listOfGenres} />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React from 'react'
 import posed, { PoseGroup } from 'react-pose'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import {
-	fadeInit, 
+	// fadeInit, 
 	routerInit, 
 	hoverInit, 
 	focusInit, 
@@ -12,7 +12,7 @@ import {
 } from './configs'
 import {Route} from 'react-router-dom'
 
-const withPageAnimation = (Component, config) => {
+const withPageAnimation = Component => {
 	const Page = posed.div({
   		enter: { staggerChildren: 30 }
 	});
@@ -98,12 +98,12 @@ const withGroupAnimation = (ItemComponent, config = groupInit) => {
 }
 
 const compose = (...funcs) => x => [...funcs].reduceRight((a,f) => f(a), x)
-const curring = (f,...head) => (...tail) => f(...head, ...tail)
+// const curring = (f,...head) => (...tail) => f(...head, ...tail)
 
-const withFocusAnimation = (comp) => withEventAnimation(comp, focusInit)
-const withHoverAnimation = (comp) => withEventAnimation(comp, hoverInit)
-const withPressAnimation = (comp) => withEventAnimation(comp, pressInit)
-const Draggable = (comp) => withEventAnimation(comp, dragInit)
+const withFocusAnimation = comp => withEventAnimation(comp, focusInit)
+const withHoverAnimation = comp => withEventAnimation(comp, hoverInit)
+const withPressAnimation = comp => withEventAnimation(comp, pressInit)
+const Draggable = comp => withEventAnimation(comp, dragInit)
 
 
 export {

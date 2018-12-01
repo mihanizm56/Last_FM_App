@@ -1,3 +1,4 @@
+// import test from "../../music/playlist/00.mp3";
 
 import one from "../../music/playlist/01.mp3";
 import two from "../../music/playlist/02.mp3";
@@ -35,9 +36,20 @@ import vk_5 from "../../music/playlist/vk_5.mp3";
 import vk_6 from "../../music/playlist/vk_6.mp3";
 import vk_7 from "../../music/playlist/vk_7.mp3";
 
+import rhcp_1 from "../../music/playlist/rhcp_1.mp3";
+import rhcp_2 from "../../music/playlist/rhcp_2.mp3";
 
-
-export const Playlist = [
+export const Playlist = [  
+  {
+    song:rhcp_1,
+    trackName:'Californication',
+    artist:'Red Hot Chili Peppers'
+  },
+  {
+    song: rhcp_2,
+    trackName: 'Cabron',
+    artist: 'Red Hot Chili Peppers'
+  },
   {
     song:one,
     trackName:'The Solace System',
