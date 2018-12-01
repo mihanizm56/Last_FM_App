@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./Artist.css";
-import LastFM from "last-fm";
 import {
     TracksListTracks, 
     AlbumList, 
     ArtistCard
 } from "../../modules";
+import {getArtistTopAlbums, getArtistInfo, getArtistTopTracks} from "../../helpers/api"
 
 export class Artist extends Component {
     state = {
@@ -14,41 +14,33 @@ export class Artist extends Component {
         topTracks:[]
     }
 
-    constructor(props){
-        super(props)
-    }
-
     componentDidMount(){
-        this.lastfm = new LastFM(API_KEY)
         this.getArtistInfo(this.props.match.params.name)
         this.getArtistTopAlbums(this.props.match.params.name)
     }
 
-    getArtistInfo(name = "Tree days grace"){
-        this.lastfm.artistInfo({name, API_KEY}, (err, data) => {
-            if (err) console.error(err)
-            else {
-                const newArtistInfo = {name: data.name, image: data.images[1], genre:data.tags.splice(2).join(', ')}
-                this.lastfm.artistTopTracks({name, API_KEY}, (err, data) => {
-                    if (err) console.error(err)
-                    else {
+    getArtistInfo = (name) =>{
+        return getArtistInfo( name, data => {
+            if (data) {
+                const newArtistInfo = {name: data.name, image: data.images[1]}
+                return getArtistTopTracks(name, data => {
+                    if (data) {
                         this.setState({
                             artistInfo: newArtistInfo,
                             topTracks: data.result
                         })
                     }
-                })
+                });
             }
         })
     }
 
-    getArtistTopAlbums(name = "Tree days grace"){
-        this.lastfm.artistTopAlbums({name, API_KEY}, (err, data) => {
-            if (err) console.error(err)
-            else {
+    getArtistTopAlbums = (name) => {
+        return getArtistTopAlbums( name, data => {
+            if (data) {
                 this.setState({topAlbums: data.result})
             }
-        })
+        });
     }
 
     render() {
@@ -56,7 +48,7 @@ export class Artist extends Component {
             <div className="artistPage">
                 <ArtistCard
                     name={this.state.artistInfo.name}
-                    genre={this.state.artistInfo.genre}
+                    genre="Artistgenre"
                     image={this.state.artistInfo.image}
                 />
                 <AlbumList
@@ -64,10 +56,8 @@ export class Artist extends Component {
                 />
                 <TracksListTracks
                     list={this.state.topTracks}
-                /> 
+                />
             </div>
         );
     }
 }
-
-
