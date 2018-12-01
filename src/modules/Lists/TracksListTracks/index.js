@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
-import "./TracksListTracks.css";
+import "./TracksListTracks.css"
 import {
   compose,
   withHoverAnimation,
-  withGroupAnimation
-} from "../../../libs/Animation";
+  withGroupAnimation,
+} from "../../../libs/Animation"
 
-import { TrackBoxForTracks } from "../../Boxes";
+import { TrackBoxForTracks } from "../../Boxes"
 
 const List = compose(
   withGroupAnimation,
   withHoverAnimation
-)(TrackBoxForTracks);
+)(TrackBoxForTracks)
 
 export const TracksListTracks = ({ list }) => {
   const childrensProps = list.map(el => {
@@ -21,16 +21,16 @@ export const TracksListTracks = ({ list }) => {
       ...el,
       key: el.name + el.images[0],
       image: el.images[3],
-      trackName: el.name
-    };
-  });
-  return <List className="track-list" childrensProps={childrensProps} />;
-};
+      trackName: el.name,
+    }
+  })
+  return <List className="track-list" childrensProps={childrensProps} />
+}
 
 TracksListTracks.defaultProps = {
-  list: []
-};
+  list: [],
+}
 
 TracksListTracks.propTypes = {
-  list: PropTypes.array.isRequired
-};
+  list: PropTypes.array.isRequired,
+}
