@@ -5,11 +5,11 @@ import {
     TitleH2,
     LinkItem,
     SearchField,
-    FilterGenres
+    // FilterGenres
 } from "../../components";
 import { TracksListAlbum } from '../../modules'
-import {listOfGenres} from '../../helpers/api/config'
 import {getAlbumTracks} from "../../helpers/api"
+// import {listOfGenres} from '../../helpers/api/config'
 
 export class Album extends Component {
     
@@ -96,6 +96,9 @@ export class Album extends Component {
                             callback={this.changeTrackName}
                         />
                     </div>
+                    {/*<div className="album-main-secondHalf">*/}
+                        {/*<FilterGenres listOfGenres={listOfGenres}/>*/}
+                    {/*</div>*/}
                 </div>
                 <TracksListAlbum
                     list={this.getList()}
