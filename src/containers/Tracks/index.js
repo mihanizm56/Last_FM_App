@@ -10,7 +10,7 @@ import  {
 import LastFM from 'last-fm'
 import {shuffle} from '../../helpers'
 import {
-	searchTracks,
+	searchTracksName,
 	getTopTracks
 } from '../../helpers/api'
 import {
@@ -48,7 +48,7 @@ class Tracks extends Component {
 		this.setState({
 			searchWord: searchWord
 		})
-		searchWord ? searchTracks(searchWord, page,  data => {
+		searchWord ? searchTracksName(searchWord, page,  data => {
 			this.setState({
 				trackList:data.result
 			})

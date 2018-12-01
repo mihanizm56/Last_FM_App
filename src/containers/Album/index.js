@@ -1,3 +1,4 @@
+
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import "./Album.css";
@@ -7,10 +8,7 @@ import {
     SearchField,
     // FilterGenres
 } from "../../components";
-import {
-    LogoBlock, TracksListAlbum, AlbumTitleBlock
-} from '../../modules'
-import {listOfGenres} from '../../helpers/api/config'
+import { TracksListAlbum } from '../../modules'
 import {getAlbumTracks} from "../../helpers/api"
 // import {listOfGenres} from '../../helpers/api/config'
 
@@ -18,6 +16,10 @@ export class Album extends Component {
     
     constructor() {
         super()
+
+        this.styleSearch = {
+            marginTop: "40px"
+        };
     }
 
     state = {
@@ -82,13 +84,23 @@ export class Album extends Component {
         const path = `artists/${artistName}`
         return (
             <div>
-
-                <AlbumTitleBlock 
-                    listOfGenres = {listOfGenres}
-                    albumName = {albumName}
-                    path = {path}
-                    artistName = {artistName}/>
-
+                <div className="album-main-wrapper">
+                    <div className="album-main-firstHalf">
+                        <TitleH2 name={albumName}/>
+                        <LinkItem
+                            name={artistName}
+                            path={path}
+                        />
+                        <SearchField
+                            placeholder="Поиск композиции"
+                            style={this.styleSearch}
+                            callback={this.changeTrackName}
+                        />
+                    </div>
+                    {/*<div className="album-main-secondHalf">*/}
+                        {/*<FilterGenres listOfGenres={listOfGenres}/>*/}
+                    {/*</div>*/}
+                </div>
                 <TracksListAlbum
                     list={this.getList()}
                 />
