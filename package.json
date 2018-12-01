@@ -44,7 +44,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm start"
+      "pre-commit": "npm eslint"
     }
   }
 }
