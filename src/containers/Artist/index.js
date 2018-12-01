@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Artist.css";
-import LastFM from "last-fm";
 import {
     TracksListTracks, 
     AlbumList, 
@@ -13,10 +12,6 @@ export class Artist extends Component {
         artistInfo: {},
         topAlbums:[],
         topTracks:[]
-    }
-
-    constructor(props){
-        super(props)
     }
 
     componentDidMount(){
@@ -66,20 +61,4 @@ export class Artist extends Component {
         );
     }
 }
-
-/*
-
-  <TracksListTracks
-                    list={this.state.topTracks}
-                />
-      
-                <AlbumList
-                    list={this.state.topAlbums}
-                />
-                <TracksList
-                    list={this.state.topTracks}
-                />
-
-
-*/
 
