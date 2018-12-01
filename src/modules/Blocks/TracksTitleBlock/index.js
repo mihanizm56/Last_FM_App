@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./TracksTitleBlock.css";
-import { 
-  TitleH2, 
-  // FilterGenres, 
-  SearchField 
-} from "../../../components";
+import React from "react"
+import PropTypes from "prop-types"
+import "./TracksTitleBlock.css"
+import {
+  TitleH2,
+  // FilterGenres,
+  SearchField,
+} from "../../../components"
 
 export const TracksTitleBlock = ({ listOfGenres, callback }) => {
   return (
@@ -17,13 +17,13 @@ export const TracksTitleBlock = ({ listOfGenres, callback }) => {
         <SearchField placeholder="Поиск композиции" callback={callback} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 TracksTitleBlock.defaultProps = {
-  listOfGenres: []
-};
+  listOfGenres: [],
+}
 
 TracksTitleBlock.propTypes = {
-  listOfGenres: PropTypes.array.isRequired
-};
+  listOfGenres: PropTypes.array.isRequired,
+}

@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./TracksListChart.css";
+import React from "react"
+import PropTypes from "prop-types"
+import "./TracksListChart.css"
 import {
   compose,
   withHoverAnimation,
-  withGroupAnimation
-} from "../../../libs/Animation";
+  withGroupAnimation,
+} from "../../../libs/Animation"
 
-import { TrackBoxForChart } from "../../Boxes";
+import { TrackBoxForChart } from "../../Boxes"
 
 const List = compose(
   withGroupAnimation,
   withHoverAnimation
-)(TrackBoxForChart);
+)(TrackBoxForChart)
 
 export const TracksListChart = ({ list, ...props }) => {
   const childrensProps = list.map((el, id) => {
@@ -20,16 +20,16 @@ export const TracksListChart = ({ list, ...props }) => {
       ...el,
       key: el.name + el.images[0],
       image: el.images[2],
-      trackName: el.name
-    };
-  });
-  return <List className="track-list" childrensProps={childrensProps} />;
-};
+      trackName: el.name,
+    }
+  })
+  return <List className="track-list" childrensProps={childrensProps} />
+}
 
 TracksListChart.defaultProps = {
-  list: []
-};
+  list: [],
+}
 
 TracksListChart.propTypes = {
-  list: PropTypes.array.isRequired
-};
+  list: PropTypes.array.isRequired,
+}
