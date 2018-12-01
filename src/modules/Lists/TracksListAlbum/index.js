@@ -13,6 +13,7 @@ import  {
 const List = compose(withGroupAnimation, withHoverAnimation)(TrackBoxForAlbum)
 
 export const TracksListAlbum = ({list, ...props}) => {
+	//console.log(list)
 	const childrensProps = list.map((el,id) => {
 		return {
 			...el,
