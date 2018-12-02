@@ -34,10 +34,6 @@ class Tracks extends Component {
     this.search(track)
   }
   search(searchWord, page = 1) {
-    console.log(searchWord, page)
-    this.setState({
-      searchWord: searchWord,
-    })
     searchWord
       ? searchTracksName(searchWord, page, data => {
           this.setState({

@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import "./SearchField.css"
 import posed from "react-pose"
 import { focusInit } from "../../libs/Animation/configs"
+import { escape } from '../../helpers'
 
 const Input = posed.input(focusInit)
 
@@ -12,7 +13,7 @@ export const SearchField = ({ placeholder, callback, style }) => {
       className="input-field"
       style={style}
       placeholder={placeholder}
-      onChange={input => callback(input.target.value)}
+      onChange={input => callback(escape(input.target.value))}
     />
   )
 }

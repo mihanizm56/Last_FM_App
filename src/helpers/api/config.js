@@ -14,6 +14,8 @@ export const shared_secret = "ef48ec83a602a5c3f21dcf37c6a4224c"
 
 export const limitPerPage = 9 //limit number of artists in 'artists'
 
+export const requestDelay = 300
+
 export const userAgent = "MyApp/1.0.0 (http://example.com)"
 
 export const userName = "mihanizm56"
