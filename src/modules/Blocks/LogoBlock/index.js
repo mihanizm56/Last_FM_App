@@ -4,7 +4,7 @@ import { Logo, ButtonPlusMinus, BounceLoading } from "../../../components/"
 import MusicControls from "../MusicControls/index"
 import { Howl } from "howler"
 import { Playlist } from "../../../helpers/music/config-music"
-import { getArrayOfSongs } from "../../../helpers/index"
+import { map } from "../../../helpers"
 import { LiveArtistBox } from "../../Boxes/index"
 
 export class LogoBlock extends Component {
@@ -19,7 +19,7 @@ export class LogoBlock extends Component {
       volume: 0.3,
       loadingControls: false,
     }
-    this.arrayOfSongs = getArrayOfSongs(Playlist)
+    this.arrayOfSongs = map(Playlist, 'song')
   }
 
   callbackForPlaying = playingStatus => {

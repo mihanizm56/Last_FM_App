@@ -22,7 +22,7 @@ export class Artist extends Component {
   getArtistInfo = name => {
     return getArtistInfo(name, data => {
       if (data) {
-        const newArtistInfo = { name: data.name, image: data.images[1] }
+        const newArtistInfo = { name: data.name, image: data.images[1], tags: data.tags.splice(0,3).join(', ') }
         return getArtistTopTracks(name, data => {
           if (data) {
             this.setState({
@@ -48,7 +48,7 @@ export class Artist extends Component {
       <div className="artistPage">
         <ArtistCard
           name={this.state.artistInfo.name}
-          genre="Artistgenre"
+          genre={this.state.artistInfo.tags}
           image={this.state.artistInfo.image}
         />
         <AlbumList list={this.state.topAlbums} />

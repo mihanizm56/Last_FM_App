@@ -1,7 +1,8 @@
-import { api_key, limitPerPage, userAgent } from "./config"
+import { api_key, limitPerPage, userAgent, requestDelay } from "./config"
 import LastFM from "last-fm"
+import { debounce } from '../'
 
-export const getTopArtists = (page, limit = limitPerPage, callback) => {
+export const getTopArtists = debounce((page, limit = limitPerPage, callback) => {
   const lastfm = new LastFM(api_key, {
     userAgent: userAgent,
   })
@@ -13,23 +14,9 @@ export const getTopArtists = (page, limit = limitPerPage, callback) => {
       return console.warn(error)
     }
   )
-}
+})
 
-export const searchAll = (string, page, callback) => {
-  const lastfm = new LastFM(api_key, {
-    userAgent: userAgent,
-  })
-
-  lastfm.search(
-    { artist: string, api_key: api_key, page: page, q: string },
-    (error, data) => {
-      if (data) return callback(data)
-      return console.warn(error)
-    }
-  )
-}
-
-export const getTopTracks = (page, limit, callback) => {
+export const getTopTracks = debounce((page, limit, callback) => {
   const lastfm = new LastFM(api_key, {
     userAgent: userAgent,
   })
@@ -40,9 +27,9 @@ export const getTopTracks = (page, limit, callback) => {
       return console.warn(error)
     }
   )
-}
+}, requestDelay)
 
-export const searchTracksName = (string, page, callback) => {
+export const searchTracksName = debounce((string, page, callback) => {
   const lastfm = new LastFM(api_key, {
     userAgent: userAgent,
   })
@@ -53,9 +40,9 @@ export const searchTracksName = (string, page, callback) => {
       return console.warn(error)
     }
   )
-}
+}, requestDelay, {leading: true, trailing: false})
 
-export const searchTracks = (string, page, callback) => {
+export const searchTracks = debounce((string, page, callback) => {
   const lastfm = new LastFM(api_key, {
     userAgent: userAgent,
   })
@@ -67,7 +54,7 @@ export const searchTracks = (string, page, callback) => {
       return console.warn(error)
     }
   )
-}
+}, requestDelay, {leading: true, trailing: false})
 
 export const getTagTopArtists = (tag, limit, callback) => {
   const lastfm = new LastFM(api_key, {

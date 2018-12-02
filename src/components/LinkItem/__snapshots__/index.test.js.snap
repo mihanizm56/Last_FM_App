@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkItem test Нормальный ввод 1`] = `
+<span>
+  <Link
+    className="link-item"
+    replace={false}
+    to="/\\\\x\\\\0\\\\0\\\\0\\\\n\\\\n"
+  >
+    sad
+  </Link>
+</span>
+`;
+
+exports[`LinkItem test Нормальный жизненный цикл 1`] = `
+<span>
+  <Link
+    className="link-item"
+    replace={false}
+    to="/undefined"
+  >
+    undefined
+  </Link>
+</span>
+`;
