@@ -19,7 +19,7 @@ describe('SearchField', () => {
     const component = shallow(
       <SearchField
         placeholder="lala"
-        style={{ background: '#444' }}
+        style={{ background: "#444" }}
         callback={() => 'callback'}
       />
     )
