@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationButton test Нормальный жизненный цикл 1`] = `
+<button
+  className="pag-button"
+  onClick={[Function]}
+  value="undefined"
+>
+  <p>
+    undefined
+  </p>
+</button>
+`;

@@ -8,7 +8,8 @@ import {
   getTopArtists,
   searchTracks,
   getTagTopArtists,
-} from "../../helpers/api/index"
+
+} from "../../helpers/api"
 import { Artist } from "../Artist"
 
 class Artists extends Component {
