@@ -1,13 +1,13 @@
 import { api_key, limitPerPage, userAgent } from "./config"
 import LastFM from "last-fm"
 
-export const getTopArtists = (page, callback) => {
+export const getTopArtists = (page, limit = limitPerPage, callback) => {
   const lastfm = new LastFM(api_key, {
     userAgent: userAgent,
   })
 
   lastfm.chartTopArtists(
-    { page: page, limit: limitPerPage, api_key: api_key },
+    { page: page, limit: limit, api_key: api_key },
     (error, data) => {
       if (data) return callback(data)
       return console.warn(error)

@@ -2,7 +2,7 @@
 .main-tracks-list{
 	list-style: none;
   padding: 0px;
-	grid-gap:1vh 3vh;
+	grid-gap: 1vh 3vh;
 	display: grid;
 	align-content: space-around;
   justify-content: space-between;

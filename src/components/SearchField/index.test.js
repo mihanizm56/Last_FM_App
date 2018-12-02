@@ -10,7 +10,6 @@ describe('SearchField', () => {
 						style={{background: '#444'}} 
 						callback={ () => 'callback'}/>)
 		expect(component).toMatchSnapshot()
-		component.mount()
-		component.umount()
+		component.unmount()
 	})
 })

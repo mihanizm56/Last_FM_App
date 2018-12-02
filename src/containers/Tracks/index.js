@@ -41,15 +41,15 @@ class Tracks extends Component {
     searchWord
       ? searchTracksName(searchWord, page, data => {
           this.setState({
-            trackList: data.result,
+            trackList: data.result.slice(-9),
           })
         })
       : this.getTopTracks(page)
   }
-  getTopTracks() {
-    getTopTracks(1, 20, data => {
+  getTopTracks(page) {
+    getTopTracks(page, 10, data => {
       this.setState({
-        trackList: data.result,
+        trackList: data.result.slice(-9),
       })
     })
   }
