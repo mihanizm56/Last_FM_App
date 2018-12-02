@@ -11,7 +11,7 @@ const AlbumBox = ({ name, image, artistName }) => {
     backgroundRepeat: "no-repeat",
   }
   return (
-    <div className="artist-preview__block " style={imageForBlock}>
+    <div className="artist-preview__block" style={imageForBlock}>
       <LinkItem name={name} path={`album/${artistName}/${name}`} />
     </div>
   )
@@ -23,13 +23,15 @@ export const AnimatedAlbumBox = props => {
 }
 
 AlbumBox.defaultProps = {
-  name: "test",
-  image: "",
+  name: 'test',
+  image: '',
+  artistName:""
 }
 
 AlbumBox.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  artistName: PropTypes.string.isRequired
 }
 
 export { AnimatedAlbumBox as AlbumBox }

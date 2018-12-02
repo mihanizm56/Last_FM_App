@@ -24,12 +24,10 @@ exports[`LogoBlock Renders correct props 1`] = `
       >
         <ButtonPlusMinus
           callback={[Function]}
-          image=""
           parameter="minus"
         />
         <ButtonPlusMinus
           callback={[Function]}
-          image=""
           parameter="plus"
         />
       </div>

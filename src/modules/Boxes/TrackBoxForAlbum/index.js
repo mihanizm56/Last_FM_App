@@ -8,7 +8,7 @@ import {
   LinkItem,
 } from "../../../components"
 
-export const TrackBoxForAlbum = ({ image, trackName, genreName }) => {
+export const TrackBoxForAlbum = ({ image, trackName }) => {
   return (
     <div className="trackAlbum-wrapper">
       <div className="trackAlbum-first-half">
@@ -21,7 +21,7 @@ export const TrackBoxForAlbum = ({ image, trackName, genreName }) => {
   )
 }
 
-TrackBoxForAlbum.defaultPaops = {
+TrackBoxForAlbum.defaultProps = {
   image: "",
   trackName: "",
 }

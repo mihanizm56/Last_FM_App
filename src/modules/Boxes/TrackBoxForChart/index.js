@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import "./TrackBoxForChart.css"
 import { LinkItem, MiddleImage, Paragraph } from "../../../components"
 
-export const TrackBoxForChart = ({ trackName, artistName, genre, image }) => {
+export const TrackBoxForChart = ({ trackName, artistName, image }) => {
   return (
     <div className="artist-chartBlock-wrapper">
       <div className="artist-second-block">
@@ -19,16 +19,14 @@ export const TrackBoxForChart = ({ trackName, artistName, genre, image }) => {
   )
 }
 
-/// что
-
 TrackBoxForChart.defaultProps = {
   trackName: "test-track-name",
   artistName: "test-artist-name",
-  image: "test-image-name",
+  image: "test-image-name"
 }
 
 TrackBoxForChart.propTypes = {
   trackName: PropTypes.string.isRequired,
   artistName: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 }

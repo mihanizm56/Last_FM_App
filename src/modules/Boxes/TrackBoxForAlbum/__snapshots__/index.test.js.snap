@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackBoxForAlbum Renders correct props 1`] = `
+<div
+  className="trackAlbum-wrapper"
+>
+  <div
+    className="trackAlbum-first-half"
+  >
+    <SmallImage
+      image="test"
+    />
+  </div>
+  <div
+    className="trackAlbum-second-half"
+  >
+    <LinkItem
+      name="test"
+      path="tracks/test"
+    />
+  </div>
+</div>
+`;

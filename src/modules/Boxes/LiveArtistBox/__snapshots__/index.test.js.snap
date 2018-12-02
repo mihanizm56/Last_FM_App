@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LiveArtistBox Renders correct props 1`] = `
+<div
+  className="live-music__song-block"
+>
+  <div
+    className="song-block__first-half"
+  >
+    <Paragraph
+      name="Сейчас играет:"
+    />
+  </div>
+  <div
+    className="song-block__second-half"
+  >
+    <Paragraph
+      name="test-name"
+    />
+    <Paragraph
+      name="test-song-name"
+    />
+  </div>
+</div>
+`;
