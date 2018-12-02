@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import { LinkItem } from '.'
 
@@ -15,7 +15,7 @@ describe('LinkItem test', () => {
   it('Нормальный ввод', () => {
     const component = shallow(
       <LinkItem
-        name='sad'
+        name="sad"
         path="\x\0\0\0\n\n"
       />
     )
