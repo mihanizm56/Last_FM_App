@@ -15,4 +15,15 @@ describe('SearchField', () => {
     expect(component).toMatchSnapshot()
     component.unmount()
   })
+   it('Проверка onChange', () => {
+    const component = shallow(
+      <SearchField
+        placeholder="lala"
+        style={{ background: '#444' }}
+        callback={() => 'callback'}
+      />
+    )
+    expect(component).toMatchSnapshot()
+    component.unmount()
+  })
 })
