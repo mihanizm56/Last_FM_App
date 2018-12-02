@@ -7,7 +7,7 @@ import { Playlist } from "../../../helpers/music/config-music"
 import { getArrayOfSongs } from "../../../helpers/index"
 import { LiveArtistBox } from "../../Boxes/index"
 
-export default class LogoBlock extends Component {
+export class LogoBlock extends Component {
   constructor() {
     super()
 
@@ -80,11 +80,9 @@ export default class LogoBlock extends Component {
       volume: this.state.volume,
       onload: () => {
         if (this.state.isPlaying) this.playTracks(true)
-        //console.log("track is loaded");
         this.setState({ ...this.state, loadingControls: false })
       },
       onend: function() {
-        //console.log("track is finished");
         return nextTrack()
       },
     })

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationBlock Renders correct props 1`] = `
+<div
+  className="pagination-wrapper"
+>
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="1"
+    number="1"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="2"
+    number="2"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="3"
+    number="3"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="4"
+    number="4"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="5"
+    number="5"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="6"
+    number="6"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="7"
+    number="7"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="8"
+    number="8"
+    to={0}
+  />
+  <PaginationButton
+    callback={[Function]}
+    from={0}
+    key="9"
+    number="9"
+    to={0}
+  />
+</div>
+`;

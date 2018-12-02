@@ -22,6 +22,10 @@ const getButtons = callback => {
   })
 }
 
+PaginationBlock.defaultProps = {
+  callbackForPagging: () => alert("callback is empty")
+}
+
 PaginationBlock.propTypes = {
   callbackForPagging: PropTypes.func.isRequired,
 }

@@ -1,12 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Paragraph } from '.'
+import { BounceLoading } from '.'
 
-describe('Paragraph', () => {
+describe('BounceLoading', () => {
   it('Renders correct props', () => {
-    let output = shallow(
-    <Paragraph name="test" />)
-    .html()
+    let output = shallow(<BounceLoading />).html()
 
     expect(output).toMatchSnapshot()
   })

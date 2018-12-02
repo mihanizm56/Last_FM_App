@@ -1,10 +1,6 @@
 import React from "react"
 import { TitleH2, LinkItem } from "../../../components"
 import "./MainTitleBlock.css"
-// import {
-// 	withEnterExitAnimation
-// } from '../../../libs/Animation'
-// import {TrackBoxForAlbum} from "../../Boxes/TrackBoxForAlbum";
 import PropTypes from "prop-types"
 
 export const MainTitleBlock = ({ name, linkName, path, className }) => {

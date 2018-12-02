@@ -4,8 +4,8 @@ import "./ArtistBox.css"
 import { LinkItem } from "../../../components"
 
 export const ArtistBox = ({ name, image }) => {
-  name = name.length > 20 ? name.slice(0, 20) + "..." : name
-
+  const nameForSearch = name
+  const nameForText = name.length > 20 ? name.slice(0, 20) + '...' : name
   const imageForBlock = {
     backgroundImage: `url(${image})`,
     backgroundSize: "cover",
@@ -14,7 +14,7 @@ export const ArtistBox = ({ name, image }) => {
 
   return (
     <div className="artist-preview__block" style={imageForBlock}>
-      <LinkItem name={name} path={`artists/${name}`} />
+      <LinkItem name={nameForText} path={`artists/${nameForSearch}`} />
     </div>
   )
 }

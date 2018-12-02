@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogoBlock Renders correct props 1`] = `
+<div
+  className="logo-main-wrapper"
+>
+  <div
+    className="logo-first-half"
+  >
+    <Component />
+  </div>
+  <div
+    className="logo-second-half"
+  >
+    <LiveArtistBox
+      artistName="Red Hot Chili Peppers"
+      songName="Californication"
+    />
+    <div
+      className="music-controls"
+    >
+      <div
+        className="music-controls__first-half"
+      >
+        <ButtonPlusMinus
+          callback={[Function]}
+          image=""
+          parameter="minus"
+        />
+        <ButtonPlusMinus
+          callback={[Function]}
+          image=""
+          parameter="plus"
+        />
+      </div>
+      <BounceLoading />
+    </div>
+  </div>
+</div>
+`;

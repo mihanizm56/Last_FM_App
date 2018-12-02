@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
 import { Switch, Route } from "react-router-dom"
 import "./App.css"
-import LogoBlock from "../../modules/Blocks/LogoBlock/index"
+import {LogoBlock} from "../../modules/Blocks/"
 import { Main, Album, Artists, Tracks, NotFound } from "../"
 import { withRouteAnimation, withPageAnimation } from "../../libs/Animation"
 

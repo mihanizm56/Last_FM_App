@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainTitleBlock Renders correct props 1`] = `
+<div
+  className="main-title-block  "
+>
+  <TitleH2
+    name="test-name"
+  />
+  <LinkItem
+    name="test-link-name"
+    path="/test-path"
+  />
+</div>
+`;

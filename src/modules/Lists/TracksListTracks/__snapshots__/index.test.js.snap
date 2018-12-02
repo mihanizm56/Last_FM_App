@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TracksListTracks Renders correct props 1`] = `
+<Component
+  childrensProps={
+    Array [
+      Object {
+        "image": "4",
+        "images": Array [
+          "1",
+          "2",
+          "3",
+          "4",
+        ],
+        "key": "test-name-11",
+        "name": "test-name-1",
+        "trackName": "test-name-1",
+      },
+      Object {
+        "image": "4",
+        "images": Array [
+          "1",
+          "2",
+          "3",
+          "4",
+        ],
+        "key": "test-name-21",
+        "name": "test-name-2",
+        "trackName": "test-name-2",
+      },
+      Object {
+        "image": "4",
+        "images": Array [
+          "1",
+          "2",
+          "3",
+          "4",
+        ],
+        "key": "test-name-31",
+        "name": "test-name-3",
+        "trackName": "test-name-3",
+      },
+    ]
+  }
+  className="track-list"
+/>
+`;
