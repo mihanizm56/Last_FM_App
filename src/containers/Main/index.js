@@ -20,13 +20,10 @@ export class Main extends Component {
     artistsList: [],
     trackList: [],
   }
-  //   constructor(props) {
-  //     super(props)
-  //   }
   componentDidMount() {
     this.getTopTracks()
     this.getTopArtists()
-    setInterval(this.shuffle, 3000)
+    this.intervalID = setInterval(this.shuffle, 3000)
   }
   getTopTracks = (page = 1) => {
     getTopTracks(page, 10, data => {
@@ -42,13 +39,16 @@ export class Main extends Component {
   }
 
   getTopArtists = () => {
-    return getTopArtists(1, data => {
+    return getTopArtists(1, 20, data => {
       if (data) {
         this.setState({
           artistsList: data.result,
         })
       }
     })
+  }
+  componentWillUnmount (){
+    clearInterval(this.intervalID)
   }
   render() {
     return (

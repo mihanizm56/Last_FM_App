@@ -30,7 +30,7 @@ class Artists extends Component {
   }
 
   getArtists = (page = 1) => {
-    return getTopArtists(page, data => {
+    return getTopArtists(page, 10, data => {
       if (data) {
         if (data.result.length > 9) {
           return this.setState({

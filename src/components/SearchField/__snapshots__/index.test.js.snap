@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchField Нормальное отражение ввода 1`] = `
+<ForwardRef
+  className="input-field"
+  onChange={[Function]}
+  placeholder="kek"
+  style={
+    Object {
+      "background": "#444",
+    }
+  }
+/>
+`;
+
+exports[`SearchField Нормальный жизненный цикл 1`] = `
+<ForwardRef
+  className="input-field"
+  onChange={[Function]}
+  placeholder="lala"
+  style={
+    Object {
+      "background": "#444",
+    }
+  }
+/>
+`;
