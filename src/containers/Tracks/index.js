@@ -34,6 +34,7 @@ class Tracks extends Component {
     this.search(track)
   }
   search(searchWord, page = 1) {
+    this.searchWord = searchWord
     searchWord
       ? searchTracksName(searchWord, page, data => {
           this.setState({
@@ -52,7 +53,7 @@ class Tracks extends Component {
   render() {
     return (
       <Page
-        paginationCb={partial(this.search, this.state.searchWord)}
+        paginationCb={partial(this.search, this.searchWord)}
         callback={this.search}
         list={this.state.trackList}
       />

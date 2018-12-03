@@ -11,7 +11,6 @@ describe('PaginationBlock', () => {
 
   it('Renders correct props', () => {
     let output = shallow(<PaginationBlock callbackForPagging={() => console.log("test-func")} />)
-
     expect(output).toMatchSnapshot()
   })
 })

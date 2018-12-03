@@ -4,7 +4,7 @@ import { Artists } from '.'
 
 describe('Artists', () => {
   it('Renders correct props', () => {
-    let output = shallow(<Artists />)
+    let output = shallow(<Artists/>)
 
     expect(output).toMatchSnapshot()
   })
@@ -13,7 +13,6 @@ describe('Artists', () => {
     let output = shallow(
       <Artists />
     )
-
     expect(output).toMatchSnapshot()
   })
 })

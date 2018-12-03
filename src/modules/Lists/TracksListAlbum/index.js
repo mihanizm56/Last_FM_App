@@ -18,7 +18,7 @@ export const TracksListAlbum = ({ list }) => {
   const childrensProps = list.map((el, id) => {
     return {
       ...el,
-      key: el.name + el.image[0],
+      key: el.name + el.images[0],
       image: el.images[2],
       trackName: el.name,
     }

@@ -19,7 +19,7 @@ export const TracksListChart = ({ list, ...props }) => {
     return {
       ...el,
       key: el.name + el.images[0],
-      image: el.images[2],
+      image: [...el.images].pop(),
       trackName: el.name,
     }
   })

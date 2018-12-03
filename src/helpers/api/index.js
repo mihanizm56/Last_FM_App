@@ -40,7 +40,7 @@ export const searchTracksName = debounce((string, page, callback) => {
       return console.warn(error)
     }
   )
-}, requestDelay, {leading: true, trailing: false})
+}, requestDelay, {leading: true, trailing: true})
 
 export const searchTracks = debounce((string, page, callback) => {
   const lastfm = new LastFM(api_key, {
@@ -54,7 +54,7 @@ export const searchTracks = debounce((string, page, callback) => {
       return console.warn(error)
     }
   )
-}, requestDelay, {leading: true, trailing: false})
+}, requestDelay, {leading: true, trailing: true})
 
 export const getTagTopArtists = (tag, limit, callback) => {
   const lastfm = new LastFM(api_key, {

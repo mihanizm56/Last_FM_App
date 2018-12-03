@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tracks page Нормальный жизненный цикл и передача параметров 1`] = `
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/tracks"
+  />
+  <Route
+    component={[Function]}
+    path="/tracks/:track"
+  />
+</Switch>
+`;
