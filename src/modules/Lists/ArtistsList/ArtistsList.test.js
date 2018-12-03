@@ -24,9 +24,9 @@ describe('ArtistsList тесты', () => {
 		const component = shallow(
     	<ArtistsList
     		list={list}
-    		image='1'
-    		parameter='3'
-    		name='kek'
+    		image="1"
+    		parameter="3"
+    		name="rek"
     	/>
     )
     expect(component).toMatchSnapshot()
