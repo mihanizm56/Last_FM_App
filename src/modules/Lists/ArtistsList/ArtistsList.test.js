@@ -4,14 +4,14 @@ import { ArtistsList } from '.'
 
 describe('ArtistsList тесты', () => {
 	it('Нормальный жизненный цикл', () => {
-		const component = shallow(
+	let component = shallow(
     	<ArtistsList/>
     )
     expect(component).toMatchSnapshot()
     component.unmount()
 	})
 	it('Передача параметров', () => {
-		const list = [
+	let list = [
 			{
 				name: '1',
 				images:['1.png']
@@ -24,6 +24,9 @@ describe('ArtistsList тесты', () => {
 		const component = shallow(
     	<ArtistsList
     		list={list}
+    		image='1'
+    		parameter='3'
+    		name='kek'
     	/>
     )
     expect(component).toMatchSnapshot()

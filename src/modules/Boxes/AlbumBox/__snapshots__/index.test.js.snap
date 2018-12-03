@@ -8,3 +8,12 @@ exports[`AlbumBox Renders correct props 1`] = `
   name="testName"
 />
 `;
+
+exports[`AnimatedAlbumBox Renders correct props 1`] = `
+<AlbumBox
+  artistName=""
+  image="test-img"
+  is={true}
+  name="testName"
+/>
+`;

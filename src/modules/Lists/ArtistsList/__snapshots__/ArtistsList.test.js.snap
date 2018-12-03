@@ -32,7 +32,7 @@ exports[`ArtistsList тесты Передача параметров 1`] = `
     ]
   }
   className="artists-list"
-  image=""
-  name="test"
+  image="1"
+  name="kek"
 />
 `;

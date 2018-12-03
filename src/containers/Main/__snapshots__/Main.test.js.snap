@@ -35,3 +35,5 @@ exports[`Main page Renders correct props 1`] = `
   </div>
 </div>
 `;
+
+exports[`Main page Renders correct props 2`] = `""`;

@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { AlbumBox } from '.'
+import { AnimatedAlbumBox } from '.'
 
-describe('AlbumBox', () => {
+describe('AnimatedAlbumBox', () => {
 
   it('Renders correct props', () => {
-    let output = shallow(<AlbumBox
+    let output = shallow(<AnimatedAlbumBox
       artistName=""
       image="test-img"
       is={true}

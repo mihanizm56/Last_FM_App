@@ -23,7 +23,6 @@ const Page = ({ list, paginationCb, ...props }) => {
 class Tracks extends Component {
   state = {
     trackList: [],
-    searchWord: "",
   }
   constructor(props) {
     super(props)
