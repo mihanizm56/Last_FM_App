@@ -13,7 +13,10 @@ const List = compose(
   withHoverAnimation
 )(ArtistBox)
 
-export const ArtistsList = ({ list, image, name }) => {
+export const ArtistsList = ({ list, image, name, parameter }) => {
+  if (parameter) {
+    list = list.slice(0, 9)
+  }
   const listForPage = list.map(element => {
     return {
       ...element,

@@ -60,7 +60,7 @@ export class Main extends Component {
           className="border"
         />
         <div className="main-container top-artist-container">
-          <ArtistsList list={this.state.artistsList} from={0} to={6} />
+          <ArtistsList list={this.state.artistsList} parameter="forTopArtists"/>
         </div>
         <MainTitleBlock
           name="Last FM Чарт (TOP 10)"

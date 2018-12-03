@@ -71,7 +71,7 @@ export class LogoBlock extends Component {
 
   setTrack = index => {
     const nextTrack = this.nextTrack
-
+    const { load } = this.props
     this.setState({ ...this.state, loadingControls: true })
 
     const song = new Howl({
@@ -81,6 +81,7 @@ export class LogoBlock extends Component {
       onload: () => {
         if (this.state.isPlaying) this.playTracks(true)
         this.setState({ ...this.state, loadingControls: false })
+        load(true)
       },
       onend: function() {
         return nextTrack()
@@ -127,7 +128,6 @@ export class LogoBlock extends Component {
 
   render() {
     const { TrackName, artist, loadingControls } = this.state
-
     return (
       <div className="logo-main-wrapper">
         <div className="logo-first-half">

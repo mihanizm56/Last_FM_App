@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react"
 import { Switch, Route } from "react-router-dom"
 import "./App.css"
-import {LogoBlock} from "../../modules/Blocks/"
+import { LogoBlock } from "../../modules/Blocks/"
+import { BounceLoading } from '../../components/'
 import { Main, Album, Artists, Tracks, NotFound } from "../"
 import { withRouteAnimation, withPageAnimation } from "../../libs/Animation"
 
@@ -24,12 +25,26 @@ const AnimatedSwitch = withRouteAnimation(() => {
 })
 
 class App extends Component {
+  state = {
+    loaded: false
+  }
+
+  setLoading = parameter => {
+    this.setState({ loaded: parameter })
+  }
+
   render() {
+    const { loaded } = this.state
     return (
       <Fragment>
         <div className="App">
-          <LogoBlock />
-          <AnimatedSwitch />
+          <LogoBlock load={this.setLoading} />
+          {
+            loaded ? <AnimatedSwitch />
+                : <div className="mainCircle">
+                    <BounceLoading />
+                  </div>
+          }
         </div>
       </Fragment>
     )
