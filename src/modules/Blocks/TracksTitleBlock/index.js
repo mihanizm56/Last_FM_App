@@ -3,11 +3,10 @@ import PropTypes from "prop-types"
 import "./TracksTitleBlock.css"
 import {
   TitleH2,
-  // FilterGenres,
   SearchField,
 } from "../../../components"
 
-export const TracksTitleBlock = ({ listOfGenres, callback }) => {
+export const TracksTitleBlock = ({ callback }) => {
   return (
     <div className="songs-main-wrapper">
       <div className="songs-main-firstHalf">
@@ -21,9 +20,9 @@ export const TracksTitleBlock = ({ listOfGenres, callback }) => {
 }
 
 TracksTitleBlock.defaultProps = {
-  listOfGenres: [],
+  callback: ()=>{}
 }
 
 TracksTitleBlock.propTypes = {
-  listOfGenres: PropTypes.array.isRequired,
+  callback: PropTypes.func.isRequired
 }

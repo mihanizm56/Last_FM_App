@@ -14,7 +14,7 @@ const List = compose(
 )(ArtistBox)
 
 export const ArtistsList = ({ list, image, name }) => {
-  const listForPage = list.slice(0, 9).map(element => {
+  const listForPage = list.map(element => {
     return {
       ...element,
       image: element.images[3],

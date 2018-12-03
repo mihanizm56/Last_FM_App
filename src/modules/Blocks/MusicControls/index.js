@@ -7,7 +7,7 @@ const MusicControls = ({
   prevTrack,
   nextTrack,
   isPlaying,
-  callbackForPlaying,
+  callbackForPlaying
 }) => {
   return (
     <div className="music-controls__second-half">
@@ -19,17 +19,14 @@ const MusicControls = ({
 }
 
 MusicControls.defaultProps = {
-  prevTrack: () => alert("callback is empty"),
-  nextTrack: () => alert("callback is empty"),
-  isPlaying: false,
-  callbackForPlaying: () => alert("callback is empty"),
+  isPlaying: false
 }
 
 MusicControls.propTypes = {
-  prevTrack: PropTypes.func.isRequired,
-  nextTrack: PropTypes.func.isRequired,
+  prevTrack: PropTypes.func,
+  nextTrack: PropTypes.func,
   isPlaying: PropTypes.bool.isRequired,
-  callbackForPlaying: PropTypes.func.isRequired,
+  callbackForPlaying: PropTypes.func
 }
 
 export default MusicControls

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TracksTitleBlock Renders correct props 1`] = `
+<div
+  className="songs-main-wrapper"
+>
+  <div
+    className="songs-main-firstHalf"
+  >
+    <TitleH2
+      name="Треки"
+    />
+  </div>
+  <div
+    className="songs-main-secondHalf"
+  >
+    <SearchField
+      callback={[Function]}
+      placeholder="Поиск композиции"
+      style={Object {}}
+    />
+  </div>
+</div>
+`;
