@@ -139,7 +139,7 @@ class Artists extends Component {
   }
 }
 
-const ArtistOrArtists = props => {
+const ArtistOrArtists = () => {
   return (
     <Switch>
       <Route exact path="/artists" component={Artists} />
