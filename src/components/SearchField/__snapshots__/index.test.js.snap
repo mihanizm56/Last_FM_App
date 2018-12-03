@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchField test Нормальный жизненный цикл 1`] = `
+<ForwardRef
+  className="input-field"
+  onChange={[Function]}
+  placeholder="lala"
+  style={
+    Object {
+      "background": "#444",
+    }
+  }
+/>
+`;

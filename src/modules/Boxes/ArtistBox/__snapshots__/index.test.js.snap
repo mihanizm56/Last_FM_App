@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistBox Renders correct length of Name 1`] = `
+<div
+  className="artist-preview__block"
+  style={
+    Object {
+      "backgroundImage": "url(test-image)",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+    }
+  }
+>
+  <LinkItem
+    name="test-name-test-name-..."
+    path="artists/test-name-test-name-test-name-test-name-test-name-test-name"
+  />
+</div>
+`;
+
+exports[`ArtistBox Renders correct props 1`] = `
+<div
+  className="artist-preview__block"
+  style={
+    Object {
+      "backgroundImage": "url(test-image)",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+    }
+  }
+>
+  <LinkItem
+    name="test-name"
+    path="artists/test-name"
+  />
+</div>
+`;

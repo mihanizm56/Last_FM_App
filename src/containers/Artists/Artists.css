@@ -1,0 +1,36 @@
+.artistsPage{
+    display:flex;
+    height: 70px;
+    background: #545;
+}
+
+.artistsPage-title{
+    flex-grow: 5;
+}
+
+
+.artistsPage-artistsList{
+	display: flex;
+	flex-direction: column;
+	padding-right: 10%;
+	padding-left: 10%;
+	min-height: 80vh;
+	justify-content: space-between; 
+}
+
+.artistsPage-container{
+	max-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.artistsPage-filters{
+    display:flex;
+    width: 70vw;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+

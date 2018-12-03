@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MusicControls Renders correct props 1`] = `
+<div
+  className="music-controls__second-half"
+>
+  <Component
+    callback={[Function]}
+    image=""
+    parameter="backward"
+  />
+  <Component
+    callback={[Function]}
+    isPlaying={true}
+  />
+  <Component
+    callback={[Function]}
+    image=""
+    parameter="forward"
+  />
+</div>
+`;

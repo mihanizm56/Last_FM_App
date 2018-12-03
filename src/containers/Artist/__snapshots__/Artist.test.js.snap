@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist page Renders correct props 1`] = `
+<div
+  className="artistPage"
+>
+  <AnimatedArtistCard />
+  <AlbumList
+    list={Array []}
+  />
+  <TracksListTracks
+    list={Array []}
+  />
+</div>
+`;

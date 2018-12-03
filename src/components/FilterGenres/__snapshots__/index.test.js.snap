@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterGenres should render correctly 1`] = `
+<select
+  className="select-filter-genres"
+  onChange={[Function]}
+  value=""
+>
+  <option
+    value=""
+  />
+</select>
+`;
+
+exports[`FilterGenres should render correctly 2`] = `
+<select
+  className="select-filter-genres"
+  onChange={[Function]}
+  value="smth"
+>
+  <option
+    value=""
+  />
+  <option
+    key="0"
+    value="pop"
+  >
+    pop
+  </option>
+  <option
+    key="1"
+    value="rock"
+  >
+    rock
+  </option>
+</select>
+`;

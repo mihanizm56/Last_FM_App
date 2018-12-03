@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`titleh2 test 1`] = `
+<h2
+  className="title_h2"
+>
+  title is empty
+</h2>
+`;
+
+exports[`titleh2 test 2`] = `
+<h2
+  className="title_h2"
+>
+  ssdsd
+</h2>
+`;

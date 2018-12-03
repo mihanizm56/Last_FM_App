@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main page Renders correct props 1`] = `
+<div
+  className="main-page"
+>
+  <MainTitleBlock
+    className="border"
+    linkName="Посмотреть всех"
+    name="ТОП 20 Артистов"
+    path="artists"
+  />
+  <div
+    className="main-container top-artist-container"
+  >
+    <ArtistsList
+      image=""
+      list={Array []}
+      name="test"
+      parameter="forTopArtists"
+    />
+  </div>
+  <MainTitleBlock
+    className="border"
+    linkName="Посмотреть всех"
+    name="Last FM Чарт (TOP 10)"
+    path="tracks"
+  />
+  <div
+    className="main-container w-95"
+  >
+    <TracksListChart
+      list={Array []}
+    />
+  </div>
+</div>
+`;
+
+exports[`Main page Renders correct props 2`] = `""`;

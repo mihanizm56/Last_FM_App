@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayButton should render correctly 1`] = `
+<ForwardRef>
+  <Component
+    callback={[Function]}
+    isPlaying={true}
+  />
+</ForwardRef>
+`;

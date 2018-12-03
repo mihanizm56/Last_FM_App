@@ -1,0 +1,19 @@
+.songs-main-wrapper{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    background: #545;
+}
+.songs-main-firstHalf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    flex-grow: 1;
+}
+.songs-main-secondHalf{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 3;
+}

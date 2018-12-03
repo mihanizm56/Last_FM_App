@@ -1,0 +1,20 @@
+.pag-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vh;
+    text-align: center;
+    vertical-align: center;
+    height: 5vh;
+    border: 2px solid #000;
+    margin-right: 10px;
+    border-radius: 40%;
+    background: linear-gradient(45deg, #323, #979);
+    cursor: pointer;
+}
+
+.pag-button:focus{
+	border-radius: 0;
+	border: 2px solid #212;
+	transition: all 0.4s ease;
+}

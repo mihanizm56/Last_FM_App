@@ -1,0 +1,13 @@
+.artists-list{
+	list-style: none;
+    padding: 0px;
+    grid-gap:3vh 3vh;
+	display: grid;
+	align-content: space-around;
+  	justify-content: space-between;
+  	grid-template-columns: 1fr 1fr 1fr;
+}
+.artists-list li {
+	display: grid;
+	height: 14vw;
+}

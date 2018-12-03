@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TracksListTracks тесты Нормальный жизненный цикл 1`] = `
+<Component
+  childrensProps={Array []}
+  className="track-list"
+/>
+`;
+
+exports[`TracksListTracks тесты Передача параметров 1`] = `
+<Component
+  childrensProps={
+    Array [
+      Object {
+        "image": undefined,
+        "images": Array [
+          "1.png",
+        ],
+        "key": "11.png",
+        "name": "1",
+        "trackName": "1",
+      },
+      Object {
+        "image": undefined,
+        "images": Array [
+          "2.png",
+        ],
+        "key": "22.png",
+        "name": "2",
+        "trackName": "2",
+      },
+    ]
+  }
+  className="track-list"
+/>
+`;
