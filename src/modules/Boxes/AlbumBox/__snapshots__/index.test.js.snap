@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumBox Renders correct props 1`] = `
+<AlbumBox
+  artistName=""
+  image="test-img"
+  is={true}
+  name="testName"
+/>
+`;
+
+exports[`AnimatedAlbumBox Renders correct props 1`] = `
+<AlbumBox
+  artistName=""
+  image="test-img"
+  is={true}
+  name="testName"
+/>
+`;

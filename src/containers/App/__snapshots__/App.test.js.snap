@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App  Нормальный жизненный цикл и передача параметров 1`] = `
+<Fragment>
+  <div
+    className="App"
+  >
+    <LogoBlock
+      load={[Function]}
+    />
+    <div
+      className="mainCircle"
+    >
+      <BounceLoading />
+    </div>
+  </div>
+</Fragment>
+`;

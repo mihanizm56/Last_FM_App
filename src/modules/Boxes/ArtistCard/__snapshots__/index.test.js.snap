@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimatedArtistCard Renders correct props 1`] = `
+<Component
+  genre="test-img"
+  image="testName"
+  is={true}
+  name=""
+/>
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkItem test Нормальный ввод 1`] = `
+<div
+  className="middle-image"
+  style={
+    Object {
+      "backgroundImage": "url(http://...)",
+    }
+  }
+/>
+`;
+
+exports[`LinkItem test Нормальный жизненный цикл 1`] = `
+<div
+  className="middle-image"
+  style={
+    Object {
+      "backgroundImage": "url()",
+    }
+  }
+/>
+`;
+
+exports[`MiddleImage test Нормальный ввод 1`] = `
+<div
+  className="middle-image"
+  style={
+    Object {
+      "backgroundImage": "url(http://...)",
+    }
+  }
+/>
+`;
+
+exports[`MiddleImage test Нормальный жизненный цикл 1`] = `
+<div
+  className="middle-image"
+  style={
+    Object {
+      "backgroundImage": "url()",
+    }
+  }
+/>
+`;

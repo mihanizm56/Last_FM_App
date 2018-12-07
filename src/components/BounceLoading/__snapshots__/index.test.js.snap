@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BounceLoading Renders correct props 1`] = `"<img alt=\\"loading...\\" src=\\"bounce.svg\\" class=\\"loading-round\\"/>"`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackBoxForTracks Renders correct props 1`] = `
+<div
+  className="artist-tracksBlock-wrapper"
+>
+  <TrackBoxForChart
+    artistName="test-trackName"
+    image="test-trackName"
+    trackName="test-trackName"
+  />
+</div>
+`;

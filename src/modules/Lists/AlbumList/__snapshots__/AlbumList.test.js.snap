@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumList тесты Нормальный жизненный цикл 1`] = `
+<Component
+  childrensProps={Array []}
+  className="album-list"
+/>
+`;
+
+exports[`AlbumList тесты Передача параметров 1`] = `
+<Component
+  childrensProps={
+    Array [
+      Object {
+        "image": undefined,
+        "images": Array [
+          "1.png",
+        ],
+        "key": 0,
+        "name": "1",
+      },
+      Object {
+        "image": undefined,
+        "images": Array [
+          "2.png",
+        ],
+        "key": 1,
+        "name": "2",
+      },
+    ]
+  }
+  className="album-list"
+/>
+`;

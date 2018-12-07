@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`smallimage test 1`] = `
+<div
+  className="small-image"
+  style={
+    Object {
+      "backgroundImage": "url(string)",
+    }
+  }
+/>
+`;

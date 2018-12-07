@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph Renders correct props 1`] = `"<p class=\\"paragraph\\">test</p>"`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album page Нормальный жизненный цикл и передача параметров 1`] = `
+<div>
+  <div
+    className="album-main-wrapper"
+  >
+    <div
+      className="album-main-firstHalf"
+    >
+      <TitleH2
+        name=""
+      />
+      <LinkItem
+        name=""
+        path="artists/"
+      />
+      <SearchField
+        callback={[Function]}
+        placeholder="Поиск композиции"
+        style={
+          Object {
+            "marginTop": "40px",
+          }
+        }
+      />
+    </div>
+  </div>
+  <TracksListAlbum
+    list={Array []}
+  />
+</div>
+`;

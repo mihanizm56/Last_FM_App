@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackBoxForChart Renders correct props 1`] = `
+<div
+  className="artist-chartBlock-wrapper"
+>
+  <div
+    className="artist-second-block"
+  >
+    <MiddleImage
+      image="test"
+    />
+    <div
+      className="artist-second-block__first-half"
+    >
+      <Paragraph
+        name="test"
+      />
+    </div>
+    <div
+      className="artist-second-block__second-half"
+    >
+      <LinkItem
+        name="test"
+        path="artists/test"
+      />
+    </div>
+  </div>
+</div>
+`;
