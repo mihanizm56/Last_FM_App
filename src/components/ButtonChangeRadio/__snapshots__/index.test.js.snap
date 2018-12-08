@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonChangeRadio should render correctly 1`] = `
+exports[`ButtonChangeRadio render should render correctly backward 1`] = `
+<ForwardRef>
+  <Component
+    callback={[Function]}
+    image=""
+    parameter="backward"
+  />
+</ForwardRef>
+`;
+
+exports[`ButtonChangeRadio render should render correctly forward 1`] = `
+<ForwardRef>
+  <Component
+    callback={[Function]}
+    image=""
+    parameter="forward"
+  />
+</ForwardRef>
+`;
+
+exports[`ButtonChangeRadio render should render correctly without parameters 1`] = `
 <ForwardRef>
   <Component
     callback={[Function]}
