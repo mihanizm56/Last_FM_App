@@ -2,23 +2,23 @@ import React from "react"
 import { shallow, mount } from "enzyme"
 import { ButtonChangeRadio } from "./index"
 
-// describe("ButtonChangeRadio render", () => {
-//   it("should render correctly without parameters", () => {
-//     const component = shallow(<ButtonChangeRadio />)
+describe("ButtonChangeRadio render", () => {
+  it("should render correctly without parameters", () => {
+    const component = shallow(<ButtonChangeRadio />)
 
-//     expect(component).toMatchSnapshot()
-//   })
-//   it("should render correctly forward", () => {
-//     const component = shallow(<ButtonChangeRadio parameter="forward" />)
+    expect(component).toMatchSnapshot()
+  })
+  it("should render correctly forward", () => {
+    const component = shallow(<ButtonChangeRadio parameter="forward" />)
 
-//     expect(component).toMatchSnapshot()
-//   })
-//   it("should render correctly backward", () => {
-//     const component = shallow(<ButtonChangeRadio parameter="backward" />)
+    expect(component).toMatchSnapshot()
+  })
+  it("should render correctly backward", () => {
+    const component = shallow(<ButtonChangeRadio parameter="backward" />)
 
-//     expect(component).toMatchSnapshot()
-//   })
-// })
+    expect(component).toMatchSnapshot()
+  })
+})
 
 // describe.only("Клик по 'плюс' без передачи значения", () => {
 //   let _click = jest.fn()
