@@ -25,10 +25,9 @@ export const ButtonPlusMinus = ({ parameter, callback }) => {
 
 ButtonPlusMinus.defaultProps = {
   parameter: "plus",
-  callback: () => alert("callback is empty"),
 }
 
 ButtonPlusMinus.propTypes = {
   parameter: PropTypes.string.isRequired,
-  callback: PropTypes.func.isRequired,
+  callback: PropTypes.func,
 }

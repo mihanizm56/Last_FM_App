@@ -8,22 +8,17 @@ import {
   getTopArtists,
   searchTracks,
   getTagTopArtists,
-
 } from "../../helpers/api"
 import { Artist } from "../Artist"
 
 class Artists extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      currentPage: 1,
-      arrayListArtists: [],
-      paginationIsVisible: true,
-      tagIsSelected: false,
-      findByWord: "",
-      nameOfTag: "",
-    }
+  state = {
+    currentPage: 1,
+    arrayListArtists: [],
+    paginationIsVisible: true,
+    tagIsSelected: false,
+    findByWord: "",
+    nameOfTag: "",
   }
 
   componentDidMount() {

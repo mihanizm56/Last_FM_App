@@ -20,47 +20,48 @@ describe("ButtonChangeRadio render", () => {
   })
 })
 
-// describe.only("Клик по 'плюс' без передачи значения", () => {
-//   let _click = jest.fn()
+describe("Клики по 'впёрёд' и 'назад'", () => {
+  let _click = jest.fn()
 
-//   it("Клик по 'плюс' без передачи значения", () => {
-//     const component = shallow(<ButtonChangeRadio parameter="forward" />)
+  it("Клик по 'плюс' без передачи значения", () => {
+    const component = mount(
+      <ButtonChangeRadio parameter="forward" callback={_click} />
+    )
 
-//     component.find("img .button-radio--forward").simulate("click")
+    component.find("img").simulate("click")
+    expect(_click).toBeCalled()
+  })
 
-//     expect(_click).toBeCalled()
-//   })
-// })
-
-describe("Клик по 'минус' без передачи значения", () => {
-  //let _click = jest.fn()
   it("Клик по 'минус' без передачи значения", () => {
-    const component = mount(<ButtonChangeRadio parameter="backward" />)
+    const component = mount(
+      <ButtonChangeRadio parameter="backward" callback={_click} />
+    )
 
-    expect(component.find("img.button-radio--backward")).toHaveLength(1)
+    component.find("img").simulate("click")
+    expect(_click).toBeCalled()
+  })
+
+  it("Клик по 'плюс' с передачей значения", () => {
+    const component = mount(
+      <ButtonChangeRadio
+        parameter="forward"
+        callback={_click.mockReturnValue(10)}
+      />
+    )
+
+    component.find("img").simulate("click")
+    expect(_click()).toBe(10)
+  })
+
+  it("Клик по 'минус' без передачи значения", () => {
+    const component = mount(
+      <ButtonChangeRadio
+        parameter="backward"
+        callback={_click.mockReturnValue(20)}
+      />
+    )
+
+    component.find("img").simulate("click")
+    expect(_click()).toBe(20)
   })
 })
-
-// describe("Клик по 'плюс' с передачей значения", () => {
-//   let _click = jest.fn()
-//   it("Клик по 'плюс' с передачей значения", () => {
-//     const component = shallow(
-//       <ButtonChangeRadio parameter="forward" callBack={_click} />
-//     )
-
-//     component.find("img .button-radio--forward").simulate("click")
-//     expect(_click.mockReturnValue(10)()).toBe(10)
-//   })
-// })
-
-// describe("Клик по 'минус' с передачей значения", () => {
-//   let _click = jest.fn()
-//   it("Клик по 'минус' без передачи значения", () => {
-//     const component = shallow(
-//       <ButtonChangeRadio parameter="backward" callBack={_click} />
-//     )
-
-//     component.find("img .button-radio--backward").simulate("click")
-//     expect(_click.mockReturnValue(10)()).toBe(10)
-//   })
-// })

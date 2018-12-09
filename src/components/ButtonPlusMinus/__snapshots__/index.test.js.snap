@@ -1,6 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonPlusMinus Renders correct props 1`] = `
+exports[`render ButtonPlusMinus Renders correct minus 1`] = `
+<img
+  alt="button-minus"
+  className="button-volume button-volume-minus"
+  onClick={[Function]}
+  src="minus.svg"
+/>
+`;
+
+exports[`render ButtonPlusMinus Renders correct plus 1`] = `
 <img
   alt="button-plus"
   className="button-volume button-volume-plus"

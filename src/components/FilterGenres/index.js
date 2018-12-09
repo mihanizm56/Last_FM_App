@@ -27,9 +27,7 @@ export const FilterGenres = ({
 }
 
 FilterGenres.defaultProps = {
-  callback: function() {
-    alert("callback is undefined")
-  },
+  callback: () => {},
   listOfGenres: [],
   tagIsSelected: false,
   nameOfTag: "",

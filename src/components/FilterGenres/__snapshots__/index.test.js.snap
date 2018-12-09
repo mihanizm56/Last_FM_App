@@ -9,10 +9,46 @@ exports[`FilterGenres should render correctly 1`] = `
   <option
     value=""
   />
+  <option
+    key="0"
+    value="pop"
+  >
+    pop
+  </option>
+  <option
+    key="1"
+    value="rock"
+  >
+    rock
+  </option>
 </select>
 `;
 
 exports[`FilterGenres should render correctly 2`] = `
+<select
+  className="select-filter-genres"
+  onChange={[Function]}
+  value=""
+>
+  <option
+    value=""
+  />
+</select>
+`;
+
+exports[`FilterGenres should render correctly 3`] = `
+<select
+  className="select-filter-genres"
+  onChange={[Function]}
+  value="smth"
+>
+  <option
+    value=""
+  />
+</select>
+`;
+
+exports[`FilterGenres should render correctly 4`] = `
 <select
   className="select-filter-genres"
   onChange={[Function]}
@@ -32,6 +68,30 @@ exports[`FilterGenres should render correctly 2`] = `
     value="rock"
   >
     rock
+  </option>
+</select>
+`;
+
+exports[`FilterGenres should render correctly 5`] = `
+<select
+  className="select-filter-genres"
+  onChange={[Function]}
+  value=""
+>
+  <option
+    value=""
+  />
+  <option
+    key="0"
+    value="rap"
+  >
+    rap
+  </option>
+  <option
+    key="1"
+    value="pop"
+  >
+    pop
   </option>
 </select>
 `;

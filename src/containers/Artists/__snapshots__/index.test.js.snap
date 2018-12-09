@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Artists Renders correct length of Name 1`] = `
-<Switch>
-  <Route
-    component={[Function]}
-    exact={true}
-    path="/artists"
-  />
-  <Route
-    component={[Function]}
-    path="/artists/:name"
-  />
-</Switch>
-`;
-
 exports[`Artists Renders correct props 1`] = `
 <Switch>
   <Route

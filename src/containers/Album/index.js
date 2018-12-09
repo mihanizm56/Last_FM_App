@@ -1,15 +1,9 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import "./Album.css"
-import {
-  TitleH2,
-  LinkItem,
-  SearchField,
-  // FilterGenres
-} from "../../components"
+import { TitleH2, LinkItem, SearchField } from "../../components"
 import { TracksListAlbum } from "../../modules"
 import { getAlbumTracks } from "../../helpers/api"
-// import {listOfGenres} from '../../helpers/api/config'
 
 export class Album extends Component {
   constructor() {
@@ -18,14 +12,13 @@ export class Album extends Component {
     this.styleSearch = {
       marginTop: "40px",
     }
-  }
-
-  state = {
-    albumName: "",
-    artistName: "",
-    trackList: [],
-    image: [],
-    inputTrackName: "",
+    this.state = {
+      albumName: "",
+      artistName: "",
+      trackList: [],
+      image: [],
+      inputTrackName: "",
+    }
   }
 
   componentDidMount() {
@@ -89,9 +82,6 @@ export class Album extends Component {
               callback={this.changeTrackName}
             />
           </div>
-          {/*<div className="album-main-secondHalf">*/}
-          {/*<FilterGenres listOfGenres={listOfGenres}/>*/}
-          {/*</div>*/}
         </div>
         <TracksListAlbum list={this.getList()} />
       </div>

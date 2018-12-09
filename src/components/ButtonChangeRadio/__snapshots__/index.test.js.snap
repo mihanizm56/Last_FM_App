@@ -3,7 +3,6 @@
 exports[`ButtonChangeRadio render should render correctly backward 1`] = `
 <ForwardRef>
   <Component
-    callback={[Function]}
     image=""
     parameter="backward"
   />
@@ -13,7 +12,6 @@ exports[`ButtonChangeRadio render should render correctly backward 1`] = `
 exports[`ButtonChangeRadio render should render correctly forward 1`] = `
 <ForwardRef>
   <Component
-    callback={[Function]}
     image=""
     parameter="forward"
   />
@@ -23,7 +21,6 @@ exports[`ButtonChangeRadio render should render correctly forward 1`] = `
 exports[`ButtonChangeRadio render should render correctly without parameters 1`] = `
 <ForwardRef>
   <Component
-    callback={[Function]}
     image=""
     parameter="forward"
   />

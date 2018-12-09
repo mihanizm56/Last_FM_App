@@ -27,11 +27,10 @@ export const ButtonChangeRadio = withPressAnimation(
 ButtonChangeRadio.defaultProps = {
   image: "",
   parameter: "forward",
-  callback: () => alert("callback is empty"),
 }
 
 ButtonChangeRadio.propTypes = {
   image: PropTypes.string.isRequired,
   parameter: PropTypes.string.isRequired,
-  callback: PropTypes.func.isRequired,
+  callback: PropTypes.func,
 }
