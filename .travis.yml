@@ -6,5 +6,5 @@ node_js: -8
 branches: only: -master
 
 deploy: provider: heroku
-app: "applicationradio"
-api_key: secure: "e44a4578-6bd2-403e-8a2b-d842fa375906"
+app: applicationradio
+api_key: secure: e44a4578-6bd2-403e-8a2b-d842fa375906
