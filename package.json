@@ -17,7 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-cover": "react-scripts test --coverage",
+    "test-cover": "react-scripts test --coverage --collectCoverageFrom=src/**/*js",
     "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint src/"
   },
@@ -28,6 +28,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "codecov.io": "^0.1.6",
+    "coveralls": "^3.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",
