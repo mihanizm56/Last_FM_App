@@ -15,9 +15,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",    
-    "test-only": "react-scripts test",
-    "test": "react-scripts test --env=jsdom --coverage --collectCoverageFrom=src/**/*js --collectCoverageFrom=!src/registerServiceWorker.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test-cover": "react-scripts test --coverage",
     "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint src/"
   },
