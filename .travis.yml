@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 node_js: -8
 
-branches: only: -misha
+branches: only: -master
 
 deploy: provider: heroku
 app: "applicationradio"
