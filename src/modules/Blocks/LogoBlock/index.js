@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import "./LogoBlock.css"
+import { debounce } from "lodash"
 import { Logo, ButtonPlusMinus, BounceLoading } from "../../../components/"
 import MusicControls from "../MusicControls/index"
 import { Howl } from "howler"
@@ -19,10 +20,21 @@ export class LogoBlock extends Component {
       volume: 0.3,
       loadingControls: false,
     }
-    this.arrayOfSongs = map(Playlist, 'song')
+    this.arrayOfSongs = map(Playlist, "song")
   }
 
-  callbackForPlaying = playingStatus => {
+  // callbackForPlaying = playingStatus => {
+  //   if (playingStatus) {
+  //     this.playTracks(true)
+  //   } else {
+  //     this.playTracks(false)
+  //   }
+
+  //   this.setState({ isPlaying: playingStatus })
+  // }
+
+  callbackForPlaying = debounce(playingStatus => {
+    console.log("callbackForPlaying works")
     if (playingStatus) {
       this.playTracks(true)
     } else {
@@ -30,7 +42,7 @@ export class LogoBlock extends Component {
     }
 
     this.setState({ isPlaying: playingStatus })
-  }
+  }, 500)
 
   playTracks = parameter => {
     if (parameter) {
@@ -90,7 +102,26 @@ export class LogoBlock extends Component {
     this.song = song
   }
 
-  changeVolume = parameter => {
+  //  changeVolume = parameter => {
+  //    if (parameter === "plus" && this.state.volume < 1) {
+  //      this.song.volume(+(this.state.volume + 0.1).toFixed(1))
+
+  //      this.setState({
+  //        ...this.state,
+  //        volume: +(this.state.volume + 0.1).toFixed(1),
+  //      })
+  //    }
+  //    if (parameter === "minus" && this.state.volume > 0) {
+  //      this.song.volume(+(this.state.volume - 0.1).toFixed(1))
+
+  //      this.setState({
+  //        ...this.state,
+  //        volume: +(this.state.volume - 0.1).toFixed(1),
+  //      })
+  //    }
+  //  }
+
+  changeVolume = debounce(parameter => {
     if (parameter === "plus" && this.state.volume < 1) {
       this.song.volume(+(this.state.volume + 0.1).toFixed(1))
 
@@ -107,7 +138,7 @@ export class LogoBlock extends Component {
         volume: +(this.state.volume - 0.1).toFixed(1),
       })
     }
-  }
+  }, 30)
 
   getControls = () => {
     const { isPlaying } = this.state
